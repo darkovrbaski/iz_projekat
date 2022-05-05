@@ -24,6 +24,11 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Component
 :Component rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Hardware
+                                               :Software
+                                             )
+                               ] ;
            owl:disjointWith :PersonalComputer .
 
 
@@ -45,6 +50,11 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Hardware
 :Hardware rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:unionOf ( :Internal
+                                              :Peripheral
+                                            )
+                              ] ;
           rdfs:subClassOf :Component ;
           owl:disjointWith :Software .
 
@@ -56,6 +66,19 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Internal
 :Internal rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:unionOf ( :Case
+                                              :Cooling
+                                              :GraphicsCard
+                                              :Memory
+                                              :Motherboard
+                                              :OpticalDrive
+                                              :PowerSupply
+                                              :Processor
+                                              :SoundCard
+                                              :Storage
+                                            )
+                              ] ;
           rdfs:subClassOf :Hardware ;
           owl:disjointWith :Peripheral .
 
@@ -107,11 +130,28 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Peripheral
 :Peripheral rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( :Camera
+                                                :Headphones
+                                                :Keyboard
+                                                :Microphone
+                                                :Monitor
+                                                :Mouse
+                                                :Printer
+                                                :Scanner
+                                                :Speakers
+                                              )
+                                ] ;
             rdfs:subClassOf :Hardware .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PersonalComputer
-:PersonalComputer rdf:type owl:Class .
+:PersonalComputer rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:unionOf ( :Desktop
+                                                      :Laptop
+                                                    )
+                                      ] .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PowerSupply
