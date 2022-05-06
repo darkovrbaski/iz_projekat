@@ -12,6 +12,41 @@
 #    Classes
 #################################################################
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ATX
+:ATX rdf:type owl:Class ;
+     rdfs:subClassOf :PowerSupply .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ATXFullTower
+:ATXFullTower rdf:type owl:Class ;
+              rdfs:subClassOf :Case .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ATXMidTower
+:ATXMidTower rdf:type owl:Class ;
+             rdfs:subClassOf :Case .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ATXMiniTower
+:ATXMiniTower rdf:type owl:Class ;
+              rdfs:subClassOf :Case .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ATXSuperTower
+:ATXSuperTower rdf:type owl:Class ;
+               rdfs:subClassOf :Case .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Air
+:Air rdf:type owl:Class ;
+     rdfs:subClassOf :CoolingType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CPUFans
+:CPUFans rdf:type owl:Class ;
+         rdfs:subClassOf :Cooling .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Camera
 :Camera rdf:type owl:Class ;
         rdfs:subClassOf :Peripheral .
@@ -19,7 +54,21 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Case
 :Case rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Class ;
+                            owl:unionOf ( :ATXFullTower
+                                          :ATXMidTower
+                                          :ATXMiniTower
+                                          :ATXSuperTower
+                                          :Micro-ATX
+                                          :Mini-ITX
+                                        )
+                          ] ;
       rdfs:subClassOf :Internal .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CaseFans
+:CaseFans rdf:type owl:Class ;
+          rdfs:subClassOf :Cooling .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Component
@@ -34,7 +83,65 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Cooling
 :Cooling rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:unionOf ( :CPUFans
+                                             :CaseFans
+                                             :HardDriveCooling
+                                             :MemoryCooling
+                                             :VGACooling
+                                           )
+                             ] ;
          rdfs:subClassOf :Internal .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CoolingType
+:CoolingType rdf:type owl:Class .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DDR
+:DDR rdf:type owl:Class ;
+     rdfs:subClassOf :MemoryType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DDR2
+:DDR2 rdf:type owl:Class ;
+      rdfs:subClassOf :MemoryType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DDR3
+:DDR3 rdf:type owl:Class ;
+      rdfs:subClassOf :MemoryType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DDR4
+:DDR4 rdf:type owl:Class ;
+      rdfs:subClassOf :MemoryType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DDR5
+:DDR5 rdf:type owl:Class ;
+      rdfs:subClassOf :MemoryType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DIMM
+:DIMM rdf:type owl:Class ;
+      rdfs:subClassOf :MemorySlot .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DecaCore
+:DecaCore rdf:type owl:Class ;
+          rdfs:subClassOf :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Dedicated
+:Dedicated rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Dedicated
+                                               :Integrated
+                                             )
+                               ] ;
+           rdfs:subClassOf :GraphicsCard ;
+           owl:disjointWith :Integrated .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Desktop
@@ -43,9 +150,30 @@
          owl:disjointWith :Laptop .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DualCore
+:DualCore rdf:type owl:Class ;
+          rdfs:subClassOf :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#EPS
+:EPS rdf:type owl:Class ;
+     rdfs:subClassOf :PowerSupply .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GraphicsCard
 :GraphicsCard rdf:type owl:Class ;
               rdfs:subClassOf :Internal .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#HDD
+:HDD rdf:type owl:Class ;
+     rdfs:subClassOf :Storage ;
+     owl:disjointWith :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#HardDriveCooling
+:HardDriveCooling rdf:type owl:Class ;
+                  rdfs:subClassOf :Cooling .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Hardware
@@ -62,6 +190,16 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Headphones
 :Headphones rdf:type owl:Class ;
             rdfs:subClassOf :Peripheral .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#HexaCore
+:HexaCore rdf:type owl:Class ;
+          rdfs:subClassOf :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Integrated
+:Integrated rdf:type owl:Class ;
+            rdfs:subClassOf :GraphicsCard .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Internal
@@ -98,9 +236,52 @@
         rdfs:subClassOf :Internal .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MemoryCooling
+:MemoryCooling rdf:type owl:Class ;
+               rdfs:subClassOf :Cooling .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MemorySlot
+:MemorySlot rdf:type owl:Class .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MemoryType
+:MemoryType rdf:type owl:Class .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Micro-ATX
+:Micro-ATX rdf:type owl:Class ;
+           rdfs:subClassOf :Case .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MicroATX
+:MicroATX rdf:type owl:Class ;
+          rdfs:subClassOf :PowerSupply .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MicroATXBoard
+:MicroATXBoard rdf:type owl:Class ;
+               rdfs:subClassOf :Motherboard .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Microphone
 :Microphone rdf:type owl:Class ;
             rdfs:subClassOf :Peripheral .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Mini-ITX
+:Mini-ITX rdf:type owl:Class ;
+          rdfs:subClassOf :Case .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MiniATXBoard
+:MiniATXBoard rdf:type owl:Class ;
+              rdfs:subClassOf :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MiniITX
+:MiniITX rdf:type owl:Class ;
+         rdfs:subClassOf :PowerSupply .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Monitor
@@ -110,12 +291,23 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Motherboard
 :Motherboard rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:unionOf ( :MicroATXBoard
+                                                 :MiniATXBoard
+                                                 :StandardATXBoard
+                                               )
+                                 ] ;
              rdfs:subClassOf :Internal .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Mouse
 :Mouse rdf:type owl:Class ;
        rdfs:subClassOf :Peripheral .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OctaCore
+:OctaCore rdf:type owl:Class ;
+          rdfs:subClassOf :Processor .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OperatingSystem
@@ -126,6 +318,16 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OpticalDrive
 :OpticalDrive rdf:type owl:Class ;
               rdfs:subClassOf :Internal .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PCI
+:PCI rdf:type owl:Class ;
+     rdfs:subClassOf :SoundCardInterface .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PCIExpress
+:PCIExpress rdf:type owl:Class ;
+            rdfs:subClassOf :SoundCardInterface .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Peripheral
@@ -156,6 +358,15 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PowerSupply
 :PowerSupply rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:unionOf ( :ATX
+                                                 :EPS
+                                                 :MicroATX
+                                                 :MiniITX
+                                                 :SFX
+                                                 :TFX
+                                               )
+                                 ] ;
              rdfs:subClassOf :Internal .
 
 
@@ -166,12 +377,46 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Processor
 :Processor rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:unionOf ( :DecaCore
+                                               :DualCore
+                                               :HexaCore
+                                               :OctaCore
+                                               :QuadCore
+                                               :SingleCore
+                                             )
+                               ] ;
            rdfs:subClassOf :Internal .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#QuadCore
+:QuadCore rdf:type owl:Class ;
+          rdfs:subClassOf :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SFX
+:SFX rdf:type owl:Class ;
+     rdfs:subClassOf :PowerSupply .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SO-DIMM
+:SO-DIMM rdf:type owl:Class ;
+         rdfs:subClassOf :MemorySlot .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SSD
+:SSD rdf:type owl:Class ;
+     rdfs:subClassOf :Storage .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Scanner
 :Scanner rdf:type owl:Class ;
          rdfs:subClassOf :Peripheral .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SingleCore
+:SingleCore rdf:type owl:Class ;
+            rdfs:subClassOf :Processor .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Software
@@ -184,9 +429,18 @@
            rdfs:subClassOf :Internal .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SoundCardInterface
+:SoundCardInterface rdf:type owl:Class .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Speakers
 :Speakers rdf:type owl:Class ;
           rdfs:subClassOf :Peripheral .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#StandardATXBoard
+:StandardATXBoard rdf:type owl:Class ;
+                  rdfs:subClassOf :Motherboard .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Storage
@@ -194,9 +448,61 @@
          rdfs:subClassOf :Internal .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#TFX
+:TFX rdf:type owl:Class ;
+     rdfs:subClassOf :PowerSupply .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#USB
+:USB rdf:type owl:Class ;
+     rdfs:subClassOf :SoundCardInterface .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#VGACooling
+:VGACooling rdf:type owl:Class ;
+            rdfs:subClassOf :Cooling .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Water
+:Water rdf:type owl:Class ;
+       rdfs:subClassOf :CoolingType .
+
+
 #################################################################
 #    General axioms
 #################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ATX
+                :EPS
+                :MicroATX
+                :MiniITX
+                :SFX
+                :TFX
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ATXFullTower
+                :ATXMidTower
+                :ATXMiniTower
+                :ATXSuperTower
+                :Micro-ATX
+                :Mini-ITX
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :CPUFans
+                :CaseFans
+                :HardDriveCooling
+                :MemoryCooling
+                :VGACooling
+              )
+] .
+
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :Camera
@@ -223,6 +529,25 @@
                 :Processor
                 :SoundCard
                 :Storage
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :DecaCore
+                :DualCore
+                :HexaCore
+                :OctaCore
+                :QuadCore
+                :SingleCore
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :MicroATXBoard
+                :MiniATXBoard
+                :StandardATXBoard
               )
 ] .
 
