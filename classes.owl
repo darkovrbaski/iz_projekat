@@ -9,6 +9,80 @@
 <https://github.com/darkovrbaski/iz_projekat/master/classes.owl> rdf:type owl:Ontology .
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasCoolingType
+:hasCoolingType rdf:type owl:ObjectProperty ;
+                rdfs:domain :Cooling ;
+                rdfs:range :CoolingType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasDisplayType
+:hasDisplayType rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain [ owl:intersectionOf ( :LCD
+                                                   :LED
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] ;
+                rdfs:range :DisplayType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasKeyType
+:hasKeyType rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Keyboard ;
+            rdfs:range :KeyType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasMechanicalKeyboardType
+:hasMechanicalKeyboardType rdf:type owl:ObjectProperty ;
+                           rdfs:domain [ rdf:type owl:Class ;
+                                         owl:unionOf ( :Mechanical
+                                                       :SemiMechanical
+                                                     )
+                                       ] ;
+                           rdfs:range :MechanicalKeyboardType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasMemoryType
+:hasMemoryType rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Memory ;
+               rdfs:range :MemoryType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasSlotType
+:hasSlotType rdf:type owl:ObjectProperty ;
+             rdfs:domain :Memory ;
+             rdfs:range :MemorySlot .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasSoundcardInterface
+:hasSoundcardInterface rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:domain :SoundCard ;
+                       rdfs:range :SoundCardInterface .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#wireless
+:wireless rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :Keyboard
+                                      :Mouse
+                                      :Speakers
+                                    )
+                      ] ;
+          rdfs:range xsd:boolean .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -69,6 +143,11 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CaseFans
 :CaseFans rdf:type owl:Class ;
           rdfs:subClassOf :Cooling .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Clicky
+:Clicky rdf:type owl:Class ;
+        rdfs:subClassOf :MechanicalKeyboardType .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Component
@@ -150,6 +229,10 @@
          owl:disjointWith :Laptop .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DisplayType
+:DisplayType rdf:type owl:Class .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DualCore
 :DualCore rdf:type owl:Class ;
           rdfs:subClassOf :Processor .
@@ -158,6 +241,16 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#EPS
 :EPS rdf:type owl:Class ;
      rdfs:subClassOf :PowerSupply .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Ergonomic
+:Ergonomic rdf:type owl:Class ;
+           rdfs:subClassOf :Keyboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Flexible
+:Flexible rdf:type owl:Class ;
+          rdfs:subClassOf :Keyboard .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GraphicsCard
@@ -169,6 +262,11 @@
 :HDD rdf:type owl:Class ;
      rdfs:subClassOf :Storage ;
      owl:disjointWith :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Handheld
+:Handheld rdf:type owl:Class ;
+          rdfs:subClassOf :Keyboard .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#HardDriveCooling
@@ -197,6 +295,16 @@
           rdfs:subClassOf :Processor .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#IPS
+:IPS rdf:type owl:Class ;
+     rdfs:subClassOf :DisplayType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#InEar
+:InEar rdf:type owl:Class ;
+       rdfs:subClassOf :Headphones .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Integrated
 :Integrated rdf:type owl:Class ;
             rdfs:subClassOf :GraphicsCard .
@@ -221,14 +329,52 @@
           owl:disjointWith :Peripheral .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KeyType
+:KeyType rdf:type owl:Class .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Keyboard
 :Keyboard rdf:type owl:Class ;
           rdfs:subClassOf :Peripheral .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#LCD
+:LCD rdf:type owl:Class ;
+     rdfs:subClassOf :Monitor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#LED
+:LED rdf:type owl:Class ;
+     rdfs:subClassOf :Monitor .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Laptop
 :Laptop rdf:type owl:Class ;
         rdfs:subClassOf :PersonalComputer .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Laser
+:Laser rdf:type owl:Class ;
+       rdfs:subClassOf :Mouse .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Linear
+:Linear rdf:type owl:Class ;
+        rdfs:subClassOf :MechanicalKeyboardType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Mechanical
+:Mechanical rdf:type owl:Class ;
+            rdfs:subClassOf :KeyType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MechanicalKeyboardType
+:MechanicalKeyboardType rdf:type owl:Class .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Membrane
+:Membrane rdf:type owl:Class ;
+          rdfs:subClassOf :KeyType .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Memory
@@ -305,9 +451,19 @@
        rdfs:subClassOf :Peripheral .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OLED
+:OLED rdf:type owl:Class ;
+      rdfs:subClassOf :Monitor .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OctaCore
 :OctaCore rdf:type owl:Class ;
           rdfs:subClassOf :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OnEar
+:OnEar rdf:type owl:Class ;
+       rdfs:subClassOf :Headphones .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OperatingSystem
@@ -315,9 +471,19 @@
                  rdfs:subClassOf :Software .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Optical
+:Optical rdf:type owl:Class ;
+         rdfs:subClassOf :Mouse .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OpticalDrive
 :OpticalDrive rdf:type owl:Class ;
               rdfs:subClassOf :Internal .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OverEar
+:OverEar rdf:type owl:Class ;
+         rdfs:subClassOf :Headphones .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PCI
@@ -389,6 +555,11 @@
            rdfs:subClassOf :Internal .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Projection
+:Projection rdf:type owl:Class ;
+            rdfs:subClassOf :Keyboard .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#QuadCore
 :QuadCore rdf:type owl:Class ;
           rdfs:subClassOf :Processor .
@@ -412,6 +583,11 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Scanner
 :Scanner rdf:type owl:Class ;
          rdfs:subClassOf :Peripheral .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SemiMechanical
+:SemiMechanical rdf:type owl:Class ;
+                rdfs:subClassOf :KeyType .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SingleCore
@@ -438,6 +614,11 @@
           rdfs:subClassOf :Peripheral .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Standard
+:Standard rdf:type owl:Class ;
+          rdfs:subClassOf :Keyboard .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#StandardATXBoard
 :StandardATXBoard rdf:type owl:Class ;
                   rdfs:subClassOf :Motherboard .
@@ -453,9 +634,24 @@
      rdfs:subClassOf :PowerSupply .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#TN
+:TN rdf:type owl:Class ;
+    rdfs:subClassOf :DisplayType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Tactile
+:Tactile rdf:type owl:Class ;
+         rdfs:subClassOf :MechanicalKeyboardType .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#USB
 :USB rdf:type owl:Class ;
      rdfs:subClassOf :SoundCardInterface .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#VA
+:VA rdf:type owl:Class ;
+    rdfs:subClassOf :DisplayType .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#VGACooling
