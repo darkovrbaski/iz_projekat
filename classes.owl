@@ -163,8 +163,7 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Clicky
 :Clicky rdf:type owl:Class ;
-        rdfs:subClassOf :Mechanical ,
-                        :SemiMechanical .
+        rdfs:subClassOf :MechanicalSwitchesType .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ComboMicHeadphone
@@ -434,19 +433,22 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Linear
 :Linear rdf:type owl:Class ;
-        rdfs:subClassOf :Mechanical ,
-                        :SemiMechanical .
+        rdfs:subClassOf :MechanicalSwitchesType .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Mechanical
 :Mechanical rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Class ;
-                                  owl:unionOf ( :Clicky
-                                                :Linear
-                                                :Tactile
-                                              )
-                                ] ;
             rdfs:subClassOf :KeyType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MechanicalSwitchesType
+:MechanicalSwitchesType rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:unionOf ( :Clicky
+                                                            :Linear
+                                                            :Tactile
+                                                          )
+                                            ] .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Membrane
@@ -742,12 +744,6 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SemiMechanical
 :SemiMechanical rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Class ;
-                                      owl:unionOf ( :Clicky
-                                                    :Linear
-                                                    :Tactile
-                                                  )
-                                    ] ;
                 rdfs:subClassOf :KeyType .
 
 
@@ -820,8 +816,7 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Tactile
 :Tactile rdf:type owl:Class ;
-         rdfs:subClassOf :Mechanical ,
-                         :SemiMechanical .
+         rdfs:subClassOf :MechanicalSwitchesType .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Touchpad
@@ -927,6 +922,7 @@
                 :CoolingType
                 :KeyType
                 :KeyboardDesignStyle
+                :MechanicalSwitchesType
                 :MemorySlot
                 :PSUModularityType
                 :PersonalComputer
