@@ -258,7 +258,7 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#motherboardMaxRAMCapacity
 :motherboardMaxRAMCapacity rdf:type owl:DatatypeProperty ;
                            rdfs:domain :Motherboard ;
-                           rdfs:range xsd:int .
+                           rdfs:range xsd:string .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#motherboardSocketCPU
@@ -1319,12 +1319,18 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASROCK_H670_Steel_Legend
 :ASROCK_H670_Steel_Legend rdf:type owl:NamedIndividual ,
-                                   :Motherboard .
+                                   :Motherboard ;
+                          :motherboardSupportedRamSlot "DDR4" .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASROckZ690Taichi
 :ASROckZ690Taichi rdf:type owl:NamedIndividual ,
                            :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASRockA520MITX
+:ASRockA520MITX rdf:type owl:NamedIndividual ,
+                         :Motherboard .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUSTUGZ590PLUS
@@ -1514,6 +1520,12 @@
 :CRUCIAL_CT4G4SFS8266 rdf:type owl:NamedIndividual ,
                                :DDR4 ,
                                :SO-DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP_HEXA_PRO
+:FSP_HEXA_PRO rdf:type owl:NamedIndividual ,
+                       :ATX ;
+              :powerSupply 500 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP_HGE550
@@ -1804,10 +1816,22 @@
                                           :SSD .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Beast_KF426C16BB
+:KINGSTON_Beast_KF426C16BB rdf:type owl:NamedIndividual ,
+                                    :DDR4 ,
+                                    :DIMM .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_FURY_KF560C40BBK2-32
 :KINGSTON_FURY_KF560C40BBK2-32 rdf:type owl:NamedIndividual ,
                                         :DDR5 ,
                                         :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Fury_Impact_KF426S15IB1
+:KINGSTON_Fury_Impact_KF426S15IB1 rdf:type owl:NamedIndividual ,
+                                           :DDR4 ,
+                                           :SO-DIMM .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Fury_Renegade
@@ -1822,6 +1846,18 @@
                                  :SO-DIMM .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KC3000_Series__SKC3000D
+:KINGSTON_KC3000_Series__SKC3000D rdf:type owl:NamedIndividual ,
+                                           :PCIExpress ,
+                                           :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KVR32N22S6
+:KINGSTON_KVR32N22S6 rdf:type owl:NamedIndividual ,
+                              :DDR4 ,
+                              :DIMM .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Renegade_RGB
 :KINGSTON_Renegade_RGB rdf:type owl:NamedIndividual ,
                                 :DDR4 ,
@@ -1834,10 +1870,28 @@
                            :SSD .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SKC600
+:KINGSTON_SKC600 rdf:type owl:NamedIndividual ,
+                          :SATA ,
+                          :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SNVS
+:KINGSTON_SNVS rdf:type owl:NamedIndividual ,
+                        :PCIExpress ,
+                        :SSD .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SO-DIMM_ValueRAM
 :KINGSTON_SO-DIMM_ValueRAM rdf:type owl:NamedIndividual ,
                                     :DDR4 ,
                                     :SO-DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_ValueRAM_KVR26N19S6
+:KINGSTON_ValueRAM_KVR26N19S6 rdf:type owl:NamedIndividual ,
+                                       :DDR4 ,
+                                       :DIMM .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MISSION_Q
@@ -1912,6 +1966,103 @@
                                     :GraphicsCard ;
                            :graphicCardIsDiscrete "YES"^^xsd:string ;
                            :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_705
+:NVIDIA_GeForce_705 rdf:type owl:NamedIndividual ,
+                             :GraphicsCard ;
+                    :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GT705
+:NVIDIA_GeForce_GT705 rdf:type owl:NamedIndividual ,
+                               :GraphicsCard ;
+                      :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GT730
+:NVIDIA_GeForce_GT730 rdf:type owl:NamedIndividual ,
+                               :GraphicsCard ;
+                      :graphicCardIsDiscrete "YES"^^xsd:string ;
+                      :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1050
+:NVIDIA_GeForce_GTX1050 rdf:type owl:NamedIndividual ,
+                                 :GraphicsCard ;
+                        :graphicCardIsDiscrete "YES"^^xsd:string ;
+                        :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1050Ti
+:NVIDIA_GeForce_GTX1050Ti rdf:type owl:NamedIndividual ,
+                                   :GraphicsCard ;
+                          :graphicCardIsDiscrete "YES"^^xsd:string ;
+                          :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1060
+:NVIDIA_GeForce_GTX1060 rdf:type owl:NamedIndividual ,
+                                 :GraphicsCard ;
+                        :graphicCardIsDiscrete "YES"^^xsd:string ;
+                        :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1070
+:NVIDIA_GeForce_GTX1070 rdf:type owl:NamedIndividual ,
+                                 :GraphicsCard ;
+                        :graphicCardIsDiscrete "YES"^^xsd:string ;
+                        :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1080
+:NVIDIA_GeForce_GTX1080 rdf:type owl:NamedIndividual ,
+                                 :GraphicsCard ;
+                        :graphicCardIsDiscrete "YES"^^xsd:string ;
+                        :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1080Ti
+:NVIDIA_GeForce_GTX1080Ti rdf:type owl:NamedIndividual ,
+                                   :GraphicsCard ;
+                          :graphicCardIsDiscrete "YES"^^xsd:string ;
+                          :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX745
+:NVIDIA_GeForce_GTX745 rdf:type owl:NamedIndividual ,
+                                :GraphicsCard ;
+                       :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX750Ti
+:NVIDIA_GeForce_GTX750Ti rdf:type owl:NamedIndividual ,
+                                  :GraphicsCard ;
+                         :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX760Ti
+:NVIDIA_GeForce_GTX760Ti rdf:type owl:NamedIndividual ,
+                                  :GraphicsCard ;
+                         :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX950
+:NVIDIA_GeForce_GTX950 rdf:type owl:NamedIndividual ,
+                                :GraphicsCard ;
+                       :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX960
+:NVIDIA_GeForce_GTX960 rdf:type owl:NamedIndividual ,
+                                :GraphicsCard ;
+                       :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX970
+:NVIDIA_GeForce_GTX970 rdf:type owl:NamedIndividual ,
+                                :GraphicsCard ;
+                       :graphicCardIsOnBoard "YES"^^xsd:string .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NZXT_C650
@@ -2248,156 +2399,6 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-8700K3.7GHz
 :i7-8700K3.7GHz rdf:type owl:NamedIndividual ,
                          :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASRockA520MITX/ac
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASRockA520MITX/ac> rdf:type owl:NamedIndividual ,
-                                                                                            :Motherboard .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP_HEXA+_PRO
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP_HEXA+_PRO> rdf:type owl:NamedIndividual ,
-                                                                                        :ATX ;
-                                                                               :powerSupply 500 .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Beast_KF426C16BB/16
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Beast_KF426C16BB/16> rdf:type owl:NamedIndividual ,
-                                                                                                       :DDR4 ,
-                                                                                                       :DIMM .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Fury_Impact_KF426S15IB1/16
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Fury_Impact_KF426S15IB1/16> rdf:type owl:NamedIndividual ,
-                                                                                                              :DDR4 ,
-                                                                                                              :SO-DIMM .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KC3000_Series__SKC3000D/4096G
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KC3000_Series__SKC3000D/4096G> rdf:type owl:NamedIndividual ,
-                                                                                                                 :PCIExpress ,
-                                                                                                                 :SSD .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KVR32N22S6/4
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KVR32N22S6/4> rdf:type owl:NamedIndividual ,
-                                                                                                :DDR4 ,
-                                                                                                :DIMM .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SKC600/2048G
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SKC600/2048G> rdf:type owl:NamedIndividual ,
-                                                                                                :SATA ,
-                                                                                                :SSD .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SNVS/250G
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SNVS/250G> rdf:type owl:NamedIndividual ,
-                                                                                             :PCIExpress ,
-                                                                                             :SSD .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_ValueRAM_KVR26N19S6/4
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_ValueRAM_KVR26N19S6/4> rdf:type owl:NamedIndividual ,
-                                                                                                         :DDR4 ,
-                                                                                                         :DIMM .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GT705
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GT705> rdf:type owl:NamedIndividual ,
-                                                                                                 :GraphicsCard ;
-                                                                                        :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GT730
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GT730> rdf:type owl:NamedIndividual ,
-                                                                                                 :GraphicsCard ;
-                                                                                        :graphicCardIsDiscrete "YES"^^xsd:string ;
-                                                                                        :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1050
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1050> rdf:type owl:NamedIndividual ,
-                                                                                                   :GraphicsCard ;
-                                                                                          :graphicCardIsDiscrete "YES"^^xsd:string ;
-                                                                                          :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1050Ti
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1050Ti> rdf:type owl:NamedIndividual ,
-                                                                                                     :GraphicsCard ;
-                                                                                            :graphicCardIsDiscrete "YES"^^xsd:string ;
-                                                                                            :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1060
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1060> rdf:type owl:NamedIndividual ,
-                                                                                                   :GraphicsCard ;
-                                                                                          :graphicCardIsDiscrete "YES"^^xsd:string ;
-                                                                                          :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1070
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1070> rdf:type owl:NamedIndividual ,
-                                                                                                   :GraphicsCard ;
-                                                                                          :graphicCardIsDiscrete "YES"^^xsd:string ;
-                                                                                          :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1080
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1080> rdf:type owl:NamedIndividual ,
-                                                                                                   :GraphicsCard ;
-                                                                                          :graphicCardIsDiscrete "YES"^^xsd:string ;
-                                                                                          :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1080Ti
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX1080Ti> rdf:type owl:NamedIndividual ,
-                                                                                                     :GraphicsCard ;
-                                                                                            :graphicCardIsDiscrete "YES"^^xsd:string ;
-                                                                                            :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX745
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX745> rdf:type owl:NamedIndividual ,
-                                                                                                  :GraphicsCard ;
-                                                                                         :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX750Ti
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX750Ti> rdf:type owl:NamedIndividual ,
-                                                                                                    :GraphicsCard ;
-                                                                                           :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX760Ti
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX760Ti> rdf:type owl:NamedIndividual ,
-                                                                                                    :GraphicsCard ;
-                                                                                           :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX950
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX950> rdf:type owl:NamedIndividual ,
-                                                                                                  :GraphicsCard ;
-                                                                                         :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX960
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX960> rdf:type owl:NamedIndividual ,
-                                                                                                  :GraphicsCard ;
-                                                                                         :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX970
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®GTX970> rdf:type owl:NamedIndividual ,
-                                                                                                  :GraphicsCard ;
-                                                                                         :graphicCardIsOnBoard "YES"^^xsd:string .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®705
-<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAÂ®GeForceÂ®705> rdf:type owl:NamedIndividual ,
-                                                                                               :GraphicsCard ;
-                                                                                      :graphicCardIsOnBoard "YES"^^xsd:string .
 
 
 #################################################################

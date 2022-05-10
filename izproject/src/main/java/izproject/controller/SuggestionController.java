@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +26,18 @@ public class SuggestionController {
 	@GetMapping()
     public ResponseEntity<List<String>> getComponents(){
         List<String> response = suggestionService.getComponents();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+	
+	@GetMapping("/component/{type}/motherboard/{name}")
+    public ResponseEntity<List<String>> getComponentCompatibleWithMotherboard(@PathVariable("name") String motherboardName,@PathVariable("type") String componentType){
+        List<String> response = suggestionService.getComponentCompatibleWithMotherboard(motherboardName, componentType);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+	
+	@GetMapping("/motherboard/{name}")
+    public ResponseEntity<List<String>> getComponentCompatibleMemoryForMotherboard(@PathVariable("name") String motherboardName){
+        List<String> response = suggestionService.getComponentCompatibleMemoryForMotherboard(motherboardName);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 	

@@ -12,10 +12,54 @@
 #    Object Properties
 #################################################################
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#compitableWithMotherboard
+:compitableWithMotherboard rdf:type owl:ObjectProperty ;
+                           rdfs:domain :GraphicsCard ;
+                           rdfs:range :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasBrand
+:hasBrand rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :Component
+                                      :PersonalComputer
+                                    )
+                      ] ;
+          rdfs:range :Brand .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasCPU
+:hasCPU rdf:type owl:ObjectProperty ;
+        rdfs:domain :Motherboard ;
+        rdfs:range :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasCase
+:hasCase rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :PersonalComputer ;
+         rdfs:range :Case .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasComponent
+:hasComponent rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :PersonalComputer ;
+              rdfs:range :Component .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasCoolingType
 :hasCoolingType rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:domain :Cooling ;
                 rdfs:range :CoolingType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasGPU
+:hasGPU rdf:type owl:ObjectProperty ;
+        rdfs:domain :Motherboard ;
+        rdfs:range :GraphicsCard .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasKeyType
@@ -32,39 +76,299 @@
                         rdfs:range :KeyboardDesignStyle .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasMechanicalKeyboardType
-:hasMechanicalKeyboardType rdf:type owl:ObjectProperty ;
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasMechanicalSwitchesType
+:hasMechanicalSwitchesType rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf owl:topObjectProperty ;
                            rdfs:domain [ rdf:type owl:Class ;
                                          owl:unionOf ( :Mechanical
                                                        :SemiMechanical
                                                      )
                                        ] ;
-                           rdfs:range :MechanicalKeyboardType .
+                           rdfs:range :MechanicalSwitchesType .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasMotherboardInterface
-:hasMotherboardInterface rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf owl:topObjectProperty ;
-                         rdfs:domain :Motherboard ;
-                         rdfs:range :MotherboardInterface .
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasPSUModularityType
+:hasPSUModularityType rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf owl:topObjectProperty ;
+                      rdfs:domain :PowerSupply ;
+                      rdfs:range :PSUModularityType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasPortInterface
+:hasPortInterface rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :Motherboard ;
+                  rdfs:range :PortInterface .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasProcessorSocket
+:hasProcessorSocket rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :Motherboard ;
+                    rdfs:range :ProcessorSocket .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasSlot
+:hasSlot rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Motherboard ;
+         rdfs:range :MemorySlot .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasSlotType
 :hasSlotType rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:domain :Memory ;
              rdfs:range :MemorySlot .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasSoundcardInterface
-:hasSoundcardInterface rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf owl:topObjectProperty ;
-                       rdfs:domain :SoundCard ;
-                       rdfs:range :MotherboardInterface .
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasStorage
+:hasStorage rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Motherboard ;
+            rdfs:range :Storage .
 
 
 #################################################################
 #    Data properties
 #################################################################
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardBaseFrequency
+:graphicCardBaseFrequency rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :GraphicsCard ;
+                          rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardDirectXVersion
+:graphicCardDirectXVersion rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf owl:topDataProperty ;
+                           rdfs:domain :GraphicsCard ;
+                           rdfs:range xsd:float .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardId
+:graphicCardId rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :GraphicsCard ;
+               rdfs:range xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardIsDiscrete
+:graphicCardIsDiscrete rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :GraphicsCard ;
+                       rdfs:range xsd:boolean .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardIsOnBoard
+:graphicCardIsOnBoard rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :GraphicsCard ;
+                      rdfs:range xsd:boolean .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardMaxDisplays
+:graphicCardMaxDisplays rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :GraphicsCard ;
+                        rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardMaxDynamicFrequency
+:graphicCardMaxDynamicFrequency rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :GraphicsCard ;
+                                rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardMemory
+:graphicCardMemory rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :GraphicsCard ;
+                   rdfs:range xsd:float .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardMemoryType
+:graphicCardMemoryType rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :GraphicsCard ;
+                       rdfs:range xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardOpenGLVersion
+:graphicCardOpenGLVersion rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :GraphicsCard ;
+                          rdfs:range xsd:float .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#memoryCapacity
+:memoryCapacity rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Memory ;
+                rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#memoryChannels
+:memoryChannels rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Memory ;
+                rdfs:range xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#memoryFrequency
+:memoryFrequency rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain :Memory ;
+                 rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#memoryLatency
+:memoryLatency rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Memory ;
+               rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#memoryType
+:memoryType rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Memory ;
+            rdfs:range xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#motherboardFormatCase
+:motherboardFormatCase rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Motherboard ;
+                       rdfs:range xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#motherboardGaming
+:motherboardGaming rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :Motherboard ;
+                   rdfs:range xsd:boolean .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#motherboardIntegratedGraphicCard
+:motherboardIntegratedGraphicCard rdf:type owl:DatatypeProperty ;
+                                  rdfs:subPropertyOf owl:topDataProperty ;
+                                  rdfs:domain :Motherboard ;
+                                  rdfs:range xsd:boolean .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#motherboardMaxRAMCapacity
+:motherboardMaxRAMCapacity rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Motherboard ;
+                           rdfs:range xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#motherboardSocketCPU
+:motherboardSocketCPU rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Motherboard ;
+                      rdfs:range xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#motherboardSupportedRamSlot
+:motherboardSupportedRamSlot rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:domain :Motherboard ;
+                             rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#powerSupply
+:powerSupply rdf:type owl:DatatypeProperty ;
+             rdfs:domain :PowerSupply ;
+             rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#processorClock
+:processorClock rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Processor ;
+                rdfs:range xsd:float .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#processorCores
+:processorCores rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Processor ;
+                rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#processorL2cache
+:processorL2cache rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :Processor ;
+                  rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#processorL3cache
+:processorL3cache rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :Processor ;
+                  rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#processorSocket
+:processorSocket rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain :Processor ;
+                 rdfs:range xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#processorThreads
+:processorThreads rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :Processor ;
+                  rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#processorTurboFrequency
+:processorTurboFrequency rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf owl:topDataProperty ;
+                         rdfs:domain :Processor ;
+                         rdfs:range xsd:float .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#storageBufferSize
+:storageBufferSize rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :HDD ;
+                   rdfs:range xsd:int .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#storageCapacity
+:storageCapacity rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain :Storage .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#storageConnector
+:storageConnector rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :Storage ;
+                  rdfs:range xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#storageHDDRotorSpeed
+:storageHDDRotorSpeed rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :HDD ;
+                      rdfs:range xsd:float .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#storageReadSpeed
+:storageReadSpeed rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :Storage ;
+                  rdfs:range xsd:float .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#storageWriteSpeed
+:storageWriteSpeed rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :Storage ;
+                   rdfs:range xsd:float .
+
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#wireless
 :wireless rdf:type owl:DatatypeProperty ;
@@ -109,7 +413,23 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Air
 :Air rdf:type owl:Class ;
-     rdfs:subClassOf :CoolingType .
+     rdfs:subClassOf :CoolingType ;
+     owl:disjointWith :Water .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Application
+:Application rdf:type owl:Class ;
+             rdfs:subClassOf :Software .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Blu-ray
+:Blu-ray rdf:type owl:Class ;
+         rdfs:subClassOf :OpticalDrive ;
+         owl:disjointWith <https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DVD+/-RW> .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Brand
+:Brand rdf:type owl:Class .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CPUCooling
@@ -120,6 +440,11 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Camera
 :Camera rdf:type owl:Class ;
         rdfs:subClassOf :Peripheral .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CardReader
+:CardReader rdf:type owl:Class ;
+            rdfs:subClassOf :Peripheral .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Case
@@ -136,14 +461,19 @@
       rdfs:subClassOf :Internal .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CaseFans
-:CaseFans rdf:type owl:Class ;
-          rdfs:subClassOf :Cooling .
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CaseFan
+:CaseFan rdf:type owl:Class ;
+         rdfs:subClassOf :Cooling .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Clicky
 :Clicky rdf:type owl:Class ;
-        rdfs:subClassOf :MechanicalKeyboardType .
+        rdfs:subClassOf :MechanicalSwitchesType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ComboMicHeadphone
+:ComboMicHeadphone rdf:type owl:Class ;
+                   rdfs:subClassOf :PortInterface .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Component
@@ -152,15 +482,14 @@
                                  owl:unionOf ( :Hardware
                                                :Software
                                              )
-                               ] ;
-           owl:disjointWith :PersonalComputer .
+                               ] .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Cooling
 :Cooling rdf:type owl:Class ;
          owl:equivalentClass [ rdf:type owl:Class ;
                                owl:unionOf ( :CPUCooling
-                                             :CaseFans
+                                             :CaseFan
                                              :HardDriveCooling
                                              :MemoryCooling
                                              :VGACooling
@@ -170,7 +499,12 @@
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CoolingType
-:CoolingType rdf:type owl:Class .
+:CoolingType rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:unionOf ( :Air
+                                                 :Water
+                                               )
+                                 ] .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DDR
@@ -200,21 +534,22 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DIMM
 :DIMM rdf:type owl:Class ;
-      rdfs:subClassOf :MemorySlot .
+      rdfs:subClassOf :MemorySlot ;
+      owl:disjointWith :SO-DIMM .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DecaCore
-:DecaCore rdf:type owl:Class ;
-          rdfs:subClassOf :Processor .
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DP
+:DP rdf:type owl:Class ;
+    rdfs:subClassOf :PortInterface .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DVI
+:DVI rdf:type owl:Class ;
+     rdfs:subClassOf :PortInterface .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Dedicated
 :Dedicated rdf:type owl:Class ;
-           owl:equivalentClass [ rdf:type owl:Class ;
-                                 owl:unionOf ( :Dedicated
-                                               :Integrated
-                                             )
-                               ] ;
            rdfs:subClassOf :GraphicsCard ;
            owl:disjointWith :Integrated .
 
@@ -225,9 +560,9 @@
          owl:disjointWith :Laptop .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DualCore
-:DualCore rdf:type owl:Class ;
-          rdfs:subClassOf :Processor .
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Driver
+:Driver rdf:type owl:Class ;
+        rdfs:subClassOf :Software .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#EPS
@@ -240,6 +575,31 @@
            rdfs:subClassOf :KeyboardDesignStyle .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Ethernet
+:Ethernet rdf:type owl:Class ;
+          rdfs:subClassOf :PortInterface .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FullyModular
+:FullyModular rdf:type owl:Class ;
+              rdfs:subClassOf :PSUModularityType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_nVidia_GeForce_GT_1030_OC
+:GIGABYTE_nVidia_GeForce_GT_1030_OC rdf:type owl:Class ;
+                                    rdfs:subClassOf :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Game
+:Game rdf:type owl:Class ;
+      rdfs:subClassOf :Software .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GamePad
+:GamePad rdf:type owl:Class ;
+         rdfs:subClassOf :Peripheral .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Gaming
 :Gaming rdf:type owl:Class ;
         rdfs:subClassOf :KeyboardDesignStyle .
@@ -247,6 +607,11 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GraphicsCard
 :GraphicsCard rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( :Dedicated
+                                                  :Integrated
+                                                )
+                                  ] ;
               rdfs:subClassOf :Internal .
 
 
@@ -254,6 +619,11 @@
 :HDD rdf:type owl:Class ;
      rdfs:subClassOf :Storage ;
      owl:disjointWith :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#HDMI
+:HDMI rdf:type owl:Class ;
+      rdfs:subClassOf :PortInterface .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#HardDriveCooling
@@ -272,6 +642,11 @@
           owl:disjointWith :Software .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#HeadphoneOutput
+:HeadphoneOutput rdf:type owl:Class ;
+                 rdfs:subClassOf :PortInterface .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Headphones
 :Headphones rdf:type owl:Class ;
             owl:equivalentClass [ rdf:type owl:Class ;
@@ -281,11 +656,6 @@
                                               )
                                 ] ;
             rdfs:subClassOf :Peripheral .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#HexaCore
-:HexaCore rdf:type owl:Class ;
-          rdfs:subClassOf :Processor .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#IPS
@@ -314,6 +684,7 @@
                                               :OpticalDrive
                                               :PowerSupply
                                               :Processor
+                                              :RGBContoller
                                               :SoundCard
                                               :Storage
                                             )
@@ -323,7 +694,13 @@
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KeyType
-:KeyType rdf:type owl:Class .
+:KeyType rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:unionOf ( :Mechanical
+                                             :Membrane
+                                             :SemiMechanical
+                                           )
+                             ] .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Keyboard
@@ -343,6 +720,12 @@
                                          ] .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#LGA
+:LGA rdf:type owl:Class ;
+     rdfs:subClassOf :ProcessorSocket ;
+     owl:disjointWith :PGA .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Laptop
 :Laptop rdf:type owl:Class ;
         rdfs:subClassOf :PersonalComputer .
@@ -355,13 +738,22 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Laser
 :Laser rdf:type owl:Class ;
-       rdfs:subClassOf :Mouse ;
-       owl:disjointWith :Optical .
+       rdfs:subClassOf :Mouse .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Linear
 :Linear rdf:type owl:Class ;
-        rdfs:subClassOf :MechanicalKeyboardType .
+        rdfs:subClassOf :MechanicalSwitchesType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Linux
+:Linux rdf:type owl:Class ;
+       rdfs:subClassOf :OperatingSystem .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MacOS
+:MacOS rdf:type owl:Class ;
+       rdfs:subClassOf :OperatingSystem .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Mechanical
@@ -369,10 +761,14 @@
             rdfs:subClassOf :KeyType .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MechanicalKeyboardType
-:MechanicalKeyboardType rdf:type owl:Class ;
-                        rdfs:subClassOf :Mechanical ,
-                                        :SemiMechanical .
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MechanicalSwitchesType
+:MechanicalSwitchesType rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:unionOf ( :Clicky
+                                                            :Linear
+                                                            :Tactile
+                                                          )
+                                            ] .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Membrane
@@ -399,7 +795,12 @@
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MemorySlot
-:MemorySlot rdf:type owl:Class .
+:MemorySlot rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( :DIMM
+                                                :SO-DIMM
+                                              )
+                                ] .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Micro-ATX
@@ -420,6 +821,11 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Microphone
 :Microphone rdf:type owl:Class ;
             rdfs:subClassOf :Peripheral .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MicrophoneIn
+:MicrophoneIn rdf:type owl:Class ;
+              rdfs:subClassOf :PortInterface .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Mini-ITX
@@ -458,35 +864,32 @@
              rdfs:subClassOf :Internal .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MotherboardInterface
-:MotherboardInterface rdf:type owl:Class ;
-                      owl:equivalentClass [ rdf:type owl:Class ;
-                                            owl:unionOf ( :PCI
-                                                          :PCIExpress
-                                                          :USB
-                                                        )
-                                          ] .
-
-
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Mouse
 :Mouse rdf:type owl:Class ;
        owl:equivalentClass [ rdf:type owl:Class ;
                              owl:unionOf ( :Laser
                                            :Optical
+                                           :Touchpad
                                          )
                            ] ;
        rdfs:subClassOf :Peripheral .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MultiChannel
+:MultiChannel rdf:type owl:Class ;
+              rdfs:subClassOf :RGBContoller ;
+              owl:disjointWith :SingleChannel .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NonModular
+:NonModular rdf:type owl:Class ;
+            rdfs:subClassOf :PSUModularityType .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OLED
 :OLED rdf:type owl:Class ;
       rdfs:subClassOf :Monitor ;
       owl:disjointWith <https://github.com/darkovrbaski/iz_projekat/master/classes.owl#LCD/LED> .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OctaCore
-:OctaCore rdf:type owl:Class ;
-          rdfs:subClassOf :Processor .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OnEar
@@ -496,6 +899,12 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OperatingSystem
 :OperatingSystem rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:unionOf ( :Linux
+                                                     :MacOS
+                                                     :Windows
+                                                   )
+                                     ] ;
                  rdfs:subClassOf :Software .
 
 
@@ -506,6 +915,11 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#OpticalDrive
 :OpticalDrive rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( :Blu-ray
+                                                  <https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DVD+/-RW>
+                                                )
+                                  ] ;
               rdfs:subClassOf :Internal .
 
 
@@ -516,18 +930,35 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PCI
 :PCI rdf:type owl:Class ;
-     rdfs:subClassOf :MotherboardInterface .
+     rdfs:subClassOf :PortInterface .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PCIExpress
 :PCIExpress rdf:type owl:Class ;
-            rdfs:subClassOf :MotherboardInterface .
+            rdfs:subClassOf :PortInterface .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PGA
+:PGA rdf:type owl:Class ;
+     rdfs:subClassOf :ProcessorSocket .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PSUModularityType
+:PSUModularityType rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:unionOf ( :FullyModular
+                                                       :NonModular
+                                                       :SemiModular
+                                                     )
+                                       ] .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Peripheral
 :Peripheral rdf:type owl:Class ;
             owl:equivalentClass [ rdf:type owl:Class ;
                                   owl:unionOf ( :Camera
+                                                :CardReader
+                                                :GamePad
                                                 :Headphones
                                                 :Keyboard
                                                 :Microphone
@@ -548,6 +979,25 @@
                                                       :Laptop
                                                     )
                                       ] .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PortInterface
+:PortInterface rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:unionOf ( :ComboMicHeadphone
+                                                   :DP
+                                                   :DVI
+                                                   :Ethernet
+                                                   :HDMI
+                                                   :HeadphoneOutput
+                                                   :MicrophoneIn
+                                                   :PCI
+                                                   :PCIExpress
+                                                   :SATA
+                                                   :USB
+                                                   :VGA
+                                                 )
+                                   ] .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PowerSupply
@@ -571,21 +1021,31 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Processor
 :Processor rdf:type owl:Class ;
-           owl:equivalentClass [ rdf:type owl:Class ;
-                                 owl:unionOf ( :DecaCore
-                                               :DualCore
-                                               :HexaCore
-                                               :OctaCore
-                                               :QuadCore
-                                               :SingleCore
-                                             )
-                               ] ;
            rdfs:subClassOf :Internal .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#QuadCore
-:QuadCore rdf:type owl:Class ;
-          rdfs:subClassOf :Processor .
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ProcessorSocket
+:ProcessorSocket rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:unionOf ( :LGA
+                                                     :PGA
+                                                   )
+                                     ] .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#RGBContoller
+:RGBContoller rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( :MultiChannel
+                                                  :SingleChannel
+                                                )
+                                  ] ;
+              rdfs:subClassOf :Internal .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SATA
+:SATA rdf:type owl:Class ;
+      rdfs:subClassOf :PortInterface .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SFX
@@ -613,9 +1073,14 @@
                 rdfs:subClassOf :KeyType .
 
 
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SingleCore
-:SingleCore rdf:type owl:Class ;
-            rdfs:subClassOf :Processor .
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SemiModular
+:SemiModular rdf:type owl:Class ;
+             rdfs:subClassOf :PSUModularityType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SingleChannel
+:SingleChannel rdf:type owl:Class ;
+               rdfs:subClassOf :RGBContoller .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Slim
@@ -625,6 +1090,13 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Software
 :Software rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:unionOf ( :Application
+                                              :Driver
+                                              :Game
+                                              :OperatingSystem
+                                            )
+                              ] ;
           rdfs:subClassOf :Component .
 
 
@@ -650,6 +1122,11 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Storage
 :Storage rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:unionOf ( :HDD
+                                             :SSD
+                                           )
+                             ] ;
          rdfs:subClassOf :Internal .
 
 
@@ -665,17 +1142,43 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Tactile
 :Tactile rdf:type owl:Class ;
-         rdfs:subClassOf :MechanicalKeyboardType .
+         rdfs:subClassOf :MechanicalSwitchesType .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Touchpad
+:Touchpad rdf:type owl:Class ;
+          rdfs:subClassOf :Mouse .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Type-A
+:Type-A rdf:type owl:Class ;
+        rdfs:subClassOf :USB ;
+        owl:disjointWith :Type-C .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Type-C
+:Type-C rdf:type owl:Class ;
+        rdfs:subClassOf :USB .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#USB
 :USB rdf:type owl:Class ;
-     rdfs:subClassOf :MotherboardInterface .
+     owl:equivalentClass [ rdf:type owl:Class ;
+                           owl:unionOf ( :Type-A
+                                         :Type-C
+                                       )
+                         ] ;
+     rdfs:subClassOf :PortInterface .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#VA
 :VA rdf:type owl:Class ;
     rdfs:subClassOf <https://github.com/darkovrbaski/iz_projekat/master/classes.owl#LCD/LED> .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#VGA
+:VGA rdf:type owl:Class ;
+     rdfs:subClassOf :PortInterface .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#VGACooling
@@ -688,9 +1191,1214 @@
        rdfs:subClassOf :CoolingType .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Windows
+:Windows rdf:type owl:Class ;
+         rdfs:subClassOf :OperatingSystem .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DVD+/-RW
+<https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DVD+/-RW> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf :OpticalDrive .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#LCD/LED
 <https://github.com/darkovrbaski/iz_projekat/master/classes.owl#LCD/LED> rdf:type owl:Class ;
+                                                                         owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                               owl:unionOf ( :IPS
+                                                                                                             :TN
+                                                                                                             :VA
+                                                                                                           )
+                                                                                             ] ;
                                                                          rdfs:subClassOf :Monitor .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#A-DATA_ASWORDFISH
+:A-DATA_ASWORDFISH rdf:type owl:NamedIndividual ,
+                            :PCIExpress ,
+                            :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AFOX_Radeon_RX_560
+:AFOX_Radeon_RX_560 rdf:type owl:NamedIndividual ,
+                             :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDFireProW4100
+:AMDFireProW4100 rdf:type owl:NamedIndividual ,
+                          :GraphicsCard ;
+                 :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDRadeonR5330
+:AMDRadeonR5330 rdf:type owl:NamedIndividual ,
+                         :GraphicsCard ;
+                :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDRadeonR5340X
+:AMDRadeonR5340X rdf:type owl:NamedIndividual ,
+                          :GraphicsCard ;
+                 :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDRadeonR9390X
+:AMDRadeonR9390X rdf:type owl:NamedIndividual ,
+                          :GraphicsCard ;
+                 :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_RYZEN_5_5500
+:AMD_RYZEN_5_5500 rdf:type owl:NamedIndividual ,
+                           :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_Ryzen_5_3500
+:AMD_Ryzen_5_3500 rdf:type owl:NamedIndividual ,
+                           :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_Ryzen_7_5800X3D
+:AMD_Ryzen_7_5800X3D rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_Ryzen_9_5900X
+:AMD_Ryzen_9_5900X rdf:type owl:NamedIndividual ,
+                            :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_Ryzen_9_5950X
+:AMD_Ryzen_9_5950X rdf:type owl:NamedIndividual ,
+                            :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ANTEC_Kućište_Striker_Phantom_Gaming
+:ANTEC_Kućište_Striker_Phantom_Gaming rdf:type owl:NamedIndividual ,
+                                               :Mini-ITX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ANTEC_SP1000_-_X8000A505-18
+:ANTEC_SP1000_-_X8000A505-18 rdf:type owl:NamedIndividual ,
+                                      :ATX ;
+                             :powerSupply 1000 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ANTEC_SP1300_X8000A506-18
+:ANTEC_SP1300_X8000A506-18 rdf:type owl:NamedIndividual ,
+                                    :ATX ;
+                           :powerSupply 1300 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ANTEC__EARTHWATTS_GOLD_PRO
+:ANTEC__EARTHWATTS_GOLD_PRO rdf:type owl:NamedIndividual ,
+                                     :ATX ;
+                            :powerSupply 550 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ANTEC__ST1000_-_X9000A505-18
+:ANTEC__ST1000_-_X9000A505-18 rdf:type owl:NamedIndividual ,
+                                       :ATX ;
+                              :powerSupply 1000 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#APACER
+:APACER rdf:type owl:NamedIndividual ,
+                 :DDR3 ,
+                 :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#APACER_ES.08G2V.GNH
+:APACER_ES.08G2V.GNH rdf:type owl:NamedIndividual ,
+                              :DDR4 ,
+                              :SO-DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASROCK_H670_Steel_Legend
+:ASROCK_H670_Steel_Legend rdf:type owl:NamedIndividual ,
+                                   :Motherboard ;
+                          :motherboardSupportedRamSlot "DDR4" .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASROckZ690Taichi
+:ASROckZ690Taichi rdf:type owl:NamedIndividual ,
+                           :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASRockA520MITX
+:ASRockA520MITX rdf:type owl:NamedIndividual ,
+                         :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUSTUGZ590PLUS
+:ASUSTUGZ590PLUS rdf:type owl:NamedIndividual ,
+                          :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_DUAL_GeForce_RTX_3060_Ti_MINI
+:ASUS_DUAL_GeForce_RTX_3060_Ti_MINI rdf:type owl:NamedIndividual ,
+                                             :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_Dual_Radeon_RX_6400
+:ASUS_Dual_Radeon_RX_6400 rdf:type owl:NamedIndividual ,
+                                   :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_Dual_nVidia_GeForce_RTX_2060_EVO
+:ASUS_Dual_nVidia_GeForce_RTX_2060_EVO rdf:type owl:NamedIndividual ,
+                                                :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_GeForce_GT_730
+:ASUS_GeForce_GT_730 rdf:type owl:NamedIndividual ,
+                              :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_Phoenix_nVidia_GeForce_RTX_3050
+:ASUS_Phoenix_nVidia_GeForce_RTX_3050 rdf:type owl:NamedIndividual ,
+                                               :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_Phoenix_nVidia_GeForce_RTX_3060_V2
+:ASUS_Phoenix_nVidia_GeForce_RTX_3060_V2 rdf:type owl:NamedIndividual ,
+                                                  :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_MAXIMUS_Z690_HERO
+:ASUS_ROG_MAXIMUS_Z690_HERO rdf:type owl:NamedIndividual ,
+                                     :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_STRIX_HELIOS_RGB_GX601
+:ASUS_ROG_STRIX_HELIOS_RGB_GX601 rdf:type owl:NamedIndividual ,
+                                          :Micro-ATX ,
+                                          :Mini-ITX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_Strix_GeForce_RTX_3090_GAMING_OC
+:ASUS_ROG_Strix_GeForce_RTX_3090_GAMING_OC rdf:type owl:NamedIndividual ,
+                                                    :Air ,
+                                                    :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_Strix_LC_Radeon_RX_6900_XT
+:ASUS_ROG_Strix_LC_Radeon_RX_6900_XT rdf:type owl:NamedIndividual ,
+                                              :Air ,
+                                              :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_Strix_nVidia_GeForce_RTX_3050_OC
+:ASUS_ROG_Strix_nVidia_GeForce_RTX_3050_OC rdf:type owl:NamedIndividual ,
+                                                    :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_Strix_nVidia_GeForce_RTX_3080_OC
+:ASUS_ROG_Strix_nVidia_GeForce_RTX_3080_OC rdf:type owl:NamedIndividual ,
+                                                    :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_GAMING_AMD_Radeon_RX_6800_OC
+:ASUS_TUF_GAMING_AMD_Radeon_RX_6800_OC rdf:type owl:NamedIndividual ,
+                                                :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_GAMING_GT501
+:ASUS_TUF_GAMING_GT501 rdf:type owl:NamedIndividual ,
+                                :ATXFullTower ,
+                                :ATXSuperTower ,
+                                :Micro-ATX ,
+                                :Mini-ITX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_Gaming_GeForce_GTX_1660_SUPER_OC
+:ASUS_TUF_Gaming_GeForce_GTX_1660_SUPER_OC rdf:type owl:NamedIndividual ,
+                                                    :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_Gaming_GeForce_RTX_3060_Ti_V2_OC
+:ASUS_TUF_Gaming_GeForce_RTX_3060_Ti_V2_OC rdf:type owl:NamedIndividual ,
+                                                    :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_Gaming_GeForce_RTX_3090_OC
+:ASUS_TUF_Gaming_GeForce_RTX_3090_OC rdf:type owl:NamedIndividual ,
+                                              :Air ,
+                                              :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_Gaming_Radeon_RX_6900_XT_OC
+:ASUS_TUF_Gaming_Radeon_RX_6900_XT_OC rdf:type owl:NamedIndividual ,
+                                               :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS__ROG_STRIX_HELIOS_RGB_WHITE_EDITION_GX601
+:ASUS__ROG_STRIX_HELIOS_RGB_WHITE_EDITION_GX601 rdf:type owl:NamedIndividual ,
+                                                         :ATXSuperTower ,
+                                                         :Micro-ATX ,
+                                                         :Mini-ITX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS__TUF_Gaming_GT501
+:ASUS__TUF_Gaming_GT501 rdf:type owl:NamedIndividual ,
+                                 :ATXFullTower ,
+                                 :ATXSuperTower ,
+                                 :Micro-ATX ,
+                                 :Mini-ITX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_nVidia_GeForce_GT_710
+:ASUS_nVidia_GeForce_GT_710 rdf:type owl:NamedIndividual ,
+                                     :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AsusROGCrosshairVIIIDarkHero
+:AsusROGCrosshairVIIIDarkHero rdf:type owl:NamedIndividual ,
+                                       :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AsusROGStrixB550EGaming
+:AsusROGStrixB550EGaming rdf:type owl:NamedIndividual ,
+                                  :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#COOLER_MASTER_COSMOS_C700P_BLACK_EDITION
+:COOLER_MASTER_COSMOS_C700P_BLACK_EDITION rdf:type owl:NamedIndividual ,
+                                                   :ATXSuperTower ,
+                                                   :Micro-ATX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#COOLER_MASTER_MASTERBOX_MB511
+:COOLER_MASTER_MASTERBOX_MB511 rdf:type owl:NamedIndividual ,
+                                        :ATXFullTower ,
+                                        :ATXMidTower ,
+                                        :ATXMiniTower ,
+                                        :ATXSuperTower ,
+                                        :Micro-ATX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#COOLER_MASTER_MASTERCASE_H500M
+:COOLER_MASTER_MASTERCASE_H500M rdf:type owl:NamedIndividual ,
+                                         :Micro-ATX ,
+                                         :Mini-ITX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#COOLER_MASTER_XG750_Platinum_Plus
+:COOLER_MASTER_XG750_Platinum_Plus rdf:type owl:NamedIndividual ,
+                                            :ATX ;
+                                   :powerSupply 750 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#COOLER_MASTER__XG850_Platinum_Plus
+:COOLER_MASTER__XG850_Platinum_Plus rdf:type owl:NamedIndividual ,
+                                             :ATX ;
+                                    :powerSupply 850 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CORSAIR_ValueSelect
+:CORSAIR_ValueSelect rdf:type owl:NamedIndividual ,
+                              :DDR4 ,
+                              :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CRUCIAL
+:CRUCIAL rdf:type owl:NamedIndividual ,
+                  :DDR4 ,
+                  :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CRUCIAL_CT2000P5SSD8
+:CRUCIAL_CT2000P5SSD8 rdf:type owl:NamedIndividual ,
+                               :PCIExpress ,
+                               :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CRUCIAL_CT4G4SFS8266
+:CRUCIAL_CT4G4SFS8266 rdf:type owl:NamedIndividual ,
+                               :DDR4 ,
+                               :SO-DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP_HEXA_PRO
+:FSP_HEXA_PRO rdf:type owl:NamedIndividual ,
+                       :ATX ;
+              :powerSupply 500 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP_HGE550
+:FSP_HGE550 rdf:type owl:NamedIndividual ,
+                     :ATX ;
+            :powerSupply 550 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP_HYPER_MF500MS
+:FSP_HYPER_MF500MS rdf:type owl:NamedIndividual ,
+                            :ATX ;
+                   :powerSupply 500 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP_Hydro_PTM_PRO
+:FSP_Hydro_PTM_PRO rdf:type owl:NamedIndividual ,
+                            :ATX ;
+                   :powerSupply 1200 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP_TWINS_PRO
+:FSP_TWINS_PRO rdf:type owl:NamedIndividual ,
+                        :ATX ;
+               :powerSupply 700 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#FSP__CANNON_PRO
+:FSP__CANNON_PRO rdf:type owl:NamedIndividual ,
+                          :ATX ;
+                 :powerSupply 2000 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#G.SKILL_Aegis
+:G.SKILL_Aegis rdf:type owl:NamedIndividual ,
+                        :DDR4 ,
+                        :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GEIL_Zenith_Z3
+:GEIL_Zenith_Z3 rdf:type owl:NamedIndividual ,
+                         :SATA ,
+                         :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE-A520M
+:GIGABYTE-A520M rdf:type owl:NamedIndividual ,
+                         :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_GP-GSTFS31240GNTD
+:GIGABYTE_GP-GSTFS31240GNTD rdf:type owl:NamedIndividual ,
+                                     :SATA ,
+                                     :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_GeForce_RTX_3090_GAMING_OC
+:GIGABYTE_GeForce_RTX_3090_GAMING_OC rdf:type owl:NamedIndividual ,
+                                              :Air ,
+                                              :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_Z690_AERO_G
+:GIGABYTE_Z690_AERO_G rdf:type owl:NamedIndividual ,
+                               :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE___GSM2NE3256GNTD
+:GIGABYTE___GSM2NE3256GNTD rdf:type owl:NamedIndividual ,
+                                    :PCIExpress ,
+                                    :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_nVidia_GeForce_GTX_1050Ti
+:GIGABYTE_nVidia_GeForce_GTX_1050Ti rdf:type owl:NamedIndividual ,
+                                             :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_nVidia_GeForce_RTX_3080_Ti_VISION_OC
+:GIGABYTE_nVidia_GeForce_RTX_3080_Ti_VISION_OC rdf:type owl:NamedIndividual ,
+                                                        :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GigabyteX570SAorusMaster
+:GigabyteX570SAorusMaster rdf:type owl:NamedIndividual ,
+                                   :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GigabyteZ590AorusTachyon
+:GigabyteZ590AorusTachyon rdf:type owl:NamedIndividual ,
+                                   :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GigabyteZ690AorusPro
+:GigabyteZ690AorusPro rdf:type owl:NamedIndividual ,
+                               :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GigavyteA520AourusElite
+:GigavyteA520AourusElite rdf:type owl:NamedIndividual ,
+                                  :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#IG-MAX_5600_SIXTUS
+:IG-MAX_5600_SIXTUS rdf:type owl:NamedIndividual ,
+                             :ATX ;
+                    :powerSupply 600 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INNO3D_nVidia_GeForce_RTX_3080_Ti_ICHILL_X4
+:INNO3D_nVidia_GeForce_RTX_3080_Ti_ICHILL_X4 rdf:type owl:NamedIndividual ,
+                                                      :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Celeron_G5900
+:INTEL_Celeron_G5900 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Celeron_G5905
+:INTEL_Celeron_G5905 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Celeron_G5925
+:INTEL_Celeron_G5925 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Celeron_G6900
+:INTEL_Celeron_G6900 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_I7-12700KF
+:INTEL_Core_I7-12700KF rdf:type owl:NamedIndividual ,
+                                :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-10100
+:INTEL_Core_i3-10100 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-10100F
+:INTEL_Core_i3-10100F rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-10105
+:INTEL_Core_i3-10105 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-10105F
+:INTEL_Core_i3-10105F rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-12100
+:INTEL_Core_i3-12100 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-12100F
+:INTEL_Core_i3-12100F rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-9100F
+:INTEL_Core_i3-9100F rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-10400
+:INTEL_Core_i5-10400 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-10400F
+:INTEL_Core_i5-10400F rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-11400F
+:INTEL_Core_i5-11400F rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-9400
+:INTEL_Core_i5-9400 rdf:type owl:NamedIndividual ,
+                             :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-9400F
+:INTEL_Core_i5-9400F rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-10700K
+:INTEL_Core_i7-10700K rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-11700F
+:INTEL_Core_i7-11700F rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-11700K
+:INTEL_Core_i7-11700K rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-12700
+:INTEL_Core_i7-12700 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-12700K
+:INTEL_Core_i7-12700K rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-10900
+:INTEL_Core_i9-10900 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-10900K
+:INTEL_Core_i9-10900K rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-10900X
+:INTEL_Core_i9-10900X rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-11900
+:INTEL_Core_i9-11900 rdf:type owl:NamedIndividual ,
+                              :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-11900F
+:INTEL_Core_i9-11900F rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-11900K
+:INTEL_Core_i9-11900K rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-11900KF
+:INTEL_Core_i9-11900KF rdf:type owl:NamedIndividual ,
+                                :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-12900F
+:INTEL_Core_i9-12900F rdf:type owl:NamedIndividual ,
+                               :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-12900KF
+:INTEL_Core_i9-12900KF rdf:type owl:NamedIndividual ,
+                                :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Pentium_Gold_G6400
+:INTEL_Pentium_Gold_G6400 rdf:type owl:NamedIndividual ,
+                                   :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Pentium_Gold_G6405
+:INTEL_Pentium_Gold_G6405 rdf:type owl:NamedIndividual ,
+                                   :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_120G
+:KINGSTON_120G rdf:type owl:NamedIndividual ,
+                        :SATA ,
+                        :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_A400_Serija_-_SA400S37
+:KINGSTON_A400_Serija_-_SA400S37 rdf:type owl:NamedIndividual ,
+                                          :SATA ,
+                                          :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Beast_KF426C16BB
+:KINGSTON_Beast_KF426C16BB rdf:type owl:NamedIndividual ,
+                                    :DDR4 ,
+                                    :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_FURY_KF560C40BBK2-32
+:KINGSTON_FURY_KF560C40BBK2-32 rdf:type owl:NamedIndividual ,
+                                        :DDR5 ,
+                                        :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Fury_Impact_KF426S15IB1
+:KINGSTON_Fury_Impact_KF426S15IB1 rdf:type owl:NamedIndividual ,
+                                           :DDR4 ,
+                                           :SO-DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Fury_Renegade
+:KINGSTON_Fury_Renegade rdf:type owl:NamedIndividual ,
+                                 :PCIExpress ,
+                                 :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_HyperX_Impact
+:KINGSTON_HyperX_Impact rdf:type owl:NamedIndividual ,
+                                 :DDR4 ,
+                                 :SO-DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KC3000_Series__SKC3000D
+:KINGSTON_KC3000_Series__SKC3000D rdf:type owl:NamedIndividual ,
+                                           :PCIExpress ,
+                                           :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KVR32N22S6
+:KINGSTON_KVR32N22S6 rdf:type owl:NamedIndividual ,
+                              :DDR4 ,
+                              :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Renegade_RGB
+:KINGSTON_Renegade_RGB rdf:type owl:NamedIndividual ,
+                                :DDR4 ,
+                                :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SA400M8
+:KINGSTON_SA400M8 rdf:type owl:NamedIndividual ,
+                           :SATA ,
+                           :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SKC600
+:KINGSTON_SKC600 rdf:type owl:NamedIndividual ,
+                          :SATA ,
+                          :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SNVS
+:KINGSTON_SNVS rdf:type owl:NamedIndividual ,
+                        :PCIExpress ,
+                        :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SO-DIMM_ValueRAM
+:KINGSTON_SO-DIMM_ValueRAM rdf:type owl:NamedIndividual ,
+                                    :DDR4 ,
+                                    :SO-DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_ValueRAM_KVR26N19S6
+:KINGSTON_ValueRAM_KVR26N19S6 rdf:type owl:NamedIndividual ,
+                                       :DDR4 ,
+                                       :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MISSION_Q
+:MISSION_Q rdf:type owl:NamedIndividual ,
+                    :ATX ;
+           :powerSupply 400 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MISSION_Q_S5
+:MISSION_Q_S5 rdf:type owl:NamedIndividual ,
+                       :ATX ;
+              :powerSupply 500 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSIMAGB550MMortar
+:MSIMAGB550MMortar rdf:type owl:NamedIndividual ,
+                            :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSIMAGB660MMortar
+:MSIMAGB660MMortar rdf:type owl:NamedIndividual ,
+                            :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSIMAGB660Tomahawk
+:MSIMAGB660Tomahawk rdf:type owl:NamedIndividual ,
+                             :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSIMPGX570GAMINGPROCARBON
+:MSIMPGX570GAMINGPROCARBON rdf:type owl:NamedIndividual ,
+                                    :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSI_A320M-A_PRO
+:MSI_A320M-A_PRO rdf:type owl:NamedIndividual ,
+                          :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSI_GeForce_RTX_3070_Ti_GAMING_X_TRIO
+:MSI_GeForce_RTX_3070_Ti_GAMING_X_TRIO rdf:type owl:NamedIndividual ,
+                                                :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSI_PRO_B660M-E_DDR4
+:MSI_PRO_B660M-E_DDR4 rdf:type owl:NamedIndividual ,
+                               :DDR4 ,
+                               :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MS_Gaming_ARMOR_V710
+:MS_Gaming_ARMOR_V710 rdf:type owl:NamedIndividual ,
+                               :ATXMidTower ,
+                               :ATXMiniTower ,
+                               :Micro-ATX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MS_Gaming_FIGHTER_S301
+:MS_Gaming_FIGHTER_S301 rdf:type owl:NamedIndividual ,
+                                 :Micro-ATX ,
+                                 :Mini-ITX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NJOY_Theta_750
+:NJOY_Theta_750 rdf:type owl:NamedIndividual ,
+                         :ATX ;
+                :powerSupply 750 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAGeForceRTX2070SUPER
+:NVIDIAGeForceRTX2070SUPER rdf:type owl:NamedIndividual ,
+                                    :GraphicsCard ;
+                           :graphicCardIsDiscrete "YES"^^xsd:string ;
+                           :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_705
+:NVIDIA_GeForce_705 rdf:type owl:NamedIndividual ,
+                             :GraphicsCard ;
+                    :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GT705
+:NVIDIA_GeForce_GT705 rdf:type owl:NamedIndividual ,
+                               :GraphicsCard ;
+                      :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GT730
+:NVIDIA_GeForce_GT730 rdf:type owl:NamedIndividual ,
+                               :GraphicsCard ;
+                      :graphicCardIsDiscrete "YES"^^xsd:string ;
+                      :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1050
+:NVIDIA_GeForce_GTX1050 rdf:type owl:NamedIndividual ,
+                                 :GraphicsCard ;
+                        :graphicCardIsDiscrete "YES"^^xsd:string ;
+                        :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1050Ti
+:NVIDIA_GeForce_GTX1050Ti rdf:type owl:NamedIndividual ,
+                                   :GraphicsCard ;
+                          :graphicCardIsDiscrete "YES"^^xsd:string ;
+                          :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1060
+:NVIDIA_GeForce_GTX1060 rdf:type owl:NamedIndividual ,
+                                 :GraphicsCard ;
+                        :graphicCardIsDiscrete "YES"^^xsd:string ;
+                        :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1070
+:NVIDIA_GeForce_GTX1070 rdf:type owl:NamedIndividual ,
+                                 :GraphicsCard ;
+                        :graphicCardIsDiscrete "YES"^^xsd:string ;
+                        :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1080
+:NVIDIA_GeForce_GTX1080 rdf:type owl:NamedIndividual ,
+                                 :GraphicsCard ;
+                        :graphicCardIsDiscrete "YES"^^xsd:string ;
+                        :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1080Ti
+:NVIDIA_GeForce_GTX1080Ti rdf:type owl:NamedIndividual ,
+                                   :GraphicsCard ;
+                          :graphicCardIsDiscrete "YES"^^xsd:string ;
+                          :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX745
+:NVIDIA_GeForce_GTX745 rdf:type owl:NamedIndividual ,
+                                :GraphicsCard ;
+                       :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX750Ti
+:NVIDIA_GeForce_GTX750Ti rdf:type owl:NamedIndividual ,
+                                  :GraphicsCard ;
+                         :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX760Ti
+:NVIDIA_GeForce_GTX760Ti rdf:type owl:NamedIndividual ,
+                                  :GraphicsCard ;
+                         :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX950
+:NVIDIA_GeForce_GTX950 rdf:type owl:NamedIndividual ,
+                                :GraphicsCard ;
+                       :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX960
+:NVIDIA_GeForce_GTX960 rdf:type owl:NamedIndividual ,
+                                :GraphicsCard ;
+                       :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX970
+:NVIDIA_GeForce_GTX970 rdf:type owl:NamedIndividual ,
+                                :GraphicsCard ;
+                       :graphicCardIsOnBoard "YES"^^xsd:string .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NZXT_C650
+:NZXT_C650 rdf:type owl:NamedIndividual ,
+                    :ATX ;
+           :powerSupply 650 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NZXT_C750
+:NZXT_C750 rdf:type owl:NamedIndividual ,
+                    :ATX ;
+           :powerSupply 750 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NZXT_N7_B550_Black
+:NZXT_N7_B550_Black rdf:type owl:NamedIndividual ,
+                             :Motherboard .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NZXT_kućište_H210
+:NZXT_kućište_H210 rdf:type owl:NamedIndividual ,
+                            :Mini-ITX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PALIT_nVidia_GeForce_GTX_1660_Ti_StormX
+:PALIT_nVidia_GeForce_GTX_1660_Ti_StormX rdf:type owl:NamedIndividual ,
+                                                  :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#POWERCOLOR_Red_Devil_AMD_Radeon_RX_6600_XT
+:POWERCOLOR_Red_Devil_AMD_Radeon_RX_6600_XT rdf:type owl:NamedIndividual ,
+                                                     :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#POWERCOLOR_Red_Devil_AMD_Radeon_RX_6800_XT_16GB
+:POWERCOLOR_Red_Devil_AMD_Radeon_RX_6800_XT_16GB rdf:type owl:NamedIndividual ,
+                                                          :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#POWERCOLOR_Red_Devil_AMD_Radeon_RX_6900_XT_Ultimate
+:POWERCOLOR_Red_Devil_AMD_Radeon_RX_6900_XT_Ultimate rdf:type owl:NamedIndividual ,
+                                                              :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#POWERCOLOR_Red_Dragon_AMD_Radeon_RX_550
+:POWERCOLOR_Red_Dragon_AMD_Radeon_RX_550 rdf:type owl:NamedIndividual ,
+                                                  :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#RAIDMAX_VORTEX_BRONZE_RX
+:RAIDMAX_VORTEX_BRONZE_RX rdf:type owl:NamedIndividual ,
+                                   :ATX ;
+                          :powerSupply 700 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#RAIDMAX_VORTEX_WHITE_RX
+:RAIDMAX_VORTEX_WHITE_RX rdf:type owl:NamedIndividual ,
+                                  :ATX ;
+                         :powerSupply 800 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#REDRAGON_GRINDOR_Sideswipe_GC-601_Pro
+:REDRAGON_GRINDOR_Sideswipe_GC-601_Pro rdf:type owl:NamedIndividual ,
+                                                :ATXFullTower ,
+                                                :ATXMidTower ,
+                                                :ATXMiniTower ,
+                                                :ATXSuperTower ,
+                                                :Micro-ATX ,
+                                                :Mini-ITX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SAMSUNG_MZ-77Q4T0BW
+:SAMSUNG_MZ-77Q4T0BW rdf:type owl:NamedIndividual ,
+                              :SATA ,
+                              :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SAMSUNG_MZ-V7S2T0BW
+:SAMSUNG_MZ-V7S2T0BW rdf:type owl:NamedIndividual ,
+                              :PCIExpress ,
+                              :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SAMSUNG_MZ-V8P2T0BW
+:SAMSUNG_MZ-V8P2T0BW rdf:type owl:NamedIndividual ,
+                              :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SAMSUNG_SSD_980_PRO
+:SAMSUNG_SSD_980_PRO rdf:type owl:NamedIndividual ,
+                              :PCIExpress ,
+                              :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SAPPHIRE_PULSE_AMD_Radeon_RX_6700_XT
+:SAPPHIRE_PULSE_AMD_Radeon_RX_6700_XT rdf:type owl:NamedIndividual ,
+                                               :Dedicated .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SEAGATE_ST1000DM010
+:SEAGATE_ST1000DM010 rdf:type owl:NamedIndividual ,
+                              :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SEAGATE_ST1000LM048
+:SEAGATE_ST1000LM048 rdf:type owl:NamedIndividual ,
+                              :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SEAGATE_ST1000VN002
+:SEAGATE_ST1000VN002 rdf:type owl:NamedIndividual ,
+                              :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SEAGATE_ST2000DM008
+:SEAGATE_ST2000DM008 rdf:type owl:NamedIndividual ,
+                              :HDD ,
+                              :SATA .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SEAGATE_ST8000VN004
+:SEAGATE_ST8000VN004 rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SEASONIC_SYNCRO_Q704
+:SEASONIC_SYNCRO_Q704 rdf:type owl:NamedIndividual ,
+                               :ATXSuperTower ,
+                               :Micro-ATX .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SILICON_POWER
+:SILICON_POWER rdf:type owl:NamedIndividual ,
+                        :DDR4 ,
+                        :DIMM .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SILICON_POWER__SP256GBSS3A55S25
+:SILICON_POWER__SP256GBSS3A55S25 rdf:type owl:NamedIndividual ,
+                                          :SATA ,
+                                          :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SYNOLOGY_HAT5300-12T
+:SYNOLOGY_HAT5300-12T rdf:type owl:NamedIndividual ,
+                               :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#THERMALTAKE__Litepower_RGB
+:THERMALTAKE__Litepower_RGB rdf:type owl:NamedIndividual ,
+                                     :ATX ;
+                            :powerSupply 650 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#TOSHIBA_HDWD110UZSVA
+:TOSHIBA_HDWD110UZSVA rdf:type owl:NamedIndividual ,
+                               :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#TOSHIBA_P300_HDWD220UZSVA
+:TOSHIBA_P300_HDWD220UZSVA rdf:type owl:NamedIndividual ,
+                                    :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#TRANSCEND_SSD230
+:TRANSCEND_SSD230 rdf:type owl:NamedIndividual ,
+                           :SATA ,
+                           :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#TRANSCEND_TS256GMTE110S
+:TRANSCEND_TS256GMTE110S rdf:type owl:NamedIndividual ,
+                                  :PCIExpress ,
+                                  :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#VERBATIM_Vi550
+:VERBATIM_Vi550 rdf:type owl:NamedIndividual ,
+                         :SATA ,
+                         :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD101EFBX
+:WD101EFBX rdf:type owl:NamedIndividual ,
+                    :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD102KFBX
+:WD102KFBX rdf:type owl:NamedIndividual ,
+                    :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD10EZEX
+:WD10EZEX rdf:type owl:NamedIndividual ,
+                   :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD10PURZ
+:WD10PURZ rdf:type owl:NamedIndividual ,
+                   :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD10SPZX
+:WD10SPZX rdf:type owl:NamedIndividual ,
+                   :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD140EFGX
+:WD140EFGX rdf:type owl:NamedIndividual ,
+                    :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD141KRYZ
+:WD141KRYZ rdf:type owl:NamedIndividual ,
+                    :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD20PURZ
+:WD20PURZ rdf:type owl:NamedIndividual ,
+                   :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD6003FRYZ
+:WD6003FRYZ rdf:type owl:NamedIndividual ,
+                     :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD8004FRYZ
+:WD8004FRYZ rdf:type owl:NamedIndividual ,
+                     :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD80EFBX
+:WD80EFBX rdf:type owl:NamedIndividual ,
+                   :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD84PURZ
+:WD84PURZ rdf:type owl:NamedIndividual ,
+                   :HDD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD_Black_SN850
+:WD_Black_SN850 rdf:type owl:NamedIndividual ,
+                         :PCIExpress ,
+                         :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#WD_Black_SN850_NVMe_WDS200T1X0E
+:WD_Black_SN850_NVMe_WDS200T1X0E rdf:type owl:NamedIndividual ,
+                                          :PCIExpress ,
+                                          :SSD .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i3-61003.7GHz
+:i3-61003.7GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i3-6100T3.2GHz
+:i3-6100T3.2GHz rdf:type owl:NamedIndividual ,
+                         :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i3-81003.6GHz
+:i3-81003.6GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-44603.2GHz
+:i5-44603.2GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-64002.7GHz
+:i5-64002.7GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-6400T2.2GHz
+:i5-6400T2.2GHz rdf:type owl:NamedIndividual ,
+                         :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-65003.2GHz
+:i5-65003.2GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-6500T2.5GHz
+:i5-6500T2.5GHz rdf:type owl:NamedIndividual ,
+                         :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-84002.8GHz
+:i5-84002.8GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-107002.9GHz
+:i7-107002.9GHz rdf:type owl:NamedIndividual ,
+                         :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-47903.6GHz
+:i7-47903.6GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-67003.4GHz
+:i7-67003.4GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-6700K4GHz
+:i7-6700K4GHz rdf:type owl:NamedIndividual ,
+                       :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-6700T2.8GHz
+:i7-6700T2.8GHz rdf:type owl:NamedIndividual ,
+                         :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-77003.6GHz
+:i7-77003.6GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-87003.2GHz
+:i7-87003.2GHz rdf:type owl:NamedIndividual ,
+                        :Processor .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-8700K3.7GHz
+:i7-8700K3.7GHz rdf:type owl:NamedIndividual ,
+                         :Processor .
 
 
 #################################################################
@@ -720,8 +2428,33 @@
 
 
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Application
+                :Driver
+                :Game
+                :OperatingSystem
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Brand
+                :Component
+                :CoolingType
+                :KeyType
+                :KeyboardDesignStyle
+                :MechanicalSwitchesType
+                :MemorySlot
+                :PSUModularityType
+                :PersonalComputer
+                :PortInterface
+                :ProcessorSocket
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( :CPUCooling
-                :CaseFans
+                :CaseFan
                 :HardDriveCooling
                 :MemoryCooling
                 :VGACooling
@@ -731,6 +2464,8 @@
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :Camera
+                :CardReader
+                :GamePad
                 :Headphones
                 :Keyboard
                 :Microphone
@@ -752,8 +2487,34 @@
                 :OpticalDrive
                 :PowerSupply
                 :Processor
+                :RGBContoller
                 :SoundCard
                 :Storage
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Clicky
+                :Linear
+                :Tactile
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ComboMicHeadphone
+                :DP
+                :DVI
+                :Ethernet
+                :HDMI
+                :HeadphoneOutput
+                :MicrophoneIn
+                :PCI
+                :PCIExpress
+                :SATA
+                :USB
+                :VGA
               )
 ] .
 
@@ -769,12 +2530,27 @@
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :DecaCore
-                :DualCore
-                :HexaCore
-                :OctaCore
-                :QuadCore
-                :SingleCore
+  owl:members ( :Ergonomic
+                :Gaming
+                :Large
+                :Slim
+                :Standard
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :FullyModular
+                :NonModular
+                :SemiModular
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :IPS
+                :TN
+                :VA
               )
 ] .
 
@@ -788,17 +2564,33 @@
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :MicroATXBoard
-                :MiniATXBoard
-                :StandardATXBoard
+  owl:members ( :Laser
+                :Optical
+                :Touchpad
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :PCI
-                :PCIExpress
-                :USB
+  owl:members ( :Linux
+                :MacOS
+                :Windows
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Mechanical
+                :Membrane
+                :SemiMechanical
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :MicroATXBoard
+                :MiniATXBoard
+                :StandardATXBoard
               )
 ] .
 
