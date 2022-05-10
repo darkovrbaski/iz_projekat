@@ -101,5 +101,95 @@ public class SuggestionService {
         return QueryUtil.executeQueryOneColumn(queryString);
 
     }
+    
+    
+    public List<String> getComponentCompatibleProcessorForMotherboard(String motherboardName){
+        String motherboardMemorySlotQuery= 
+        		izproject.util.Prefix.RDF
+                + izproject.util.Prefix.OWL
+                + izproject.util.Prefix.RDFS
+                + izproject.util.Prefix.XML
+                + izproject.util.Prefix.CLASSES
+                + " "
+                + "SELECT ?x "
+                + "WHERE "
+                + "{ classes:"
+                + motherboardName 
+                + " a classes:Motherboard ;"
+                + " classes:motherboardSocketCPU ?x"
+                + " ."
+                + "} ";
+        String motherboardSocketCPU ="";
+        if(QueryUtil.executeQueryOneColumnLiteral(motherboardMemorySlotQuery).size()>0)
+        	motherboardSocketCPU= QueryUtil.executeQueryOneColumnLiteral(motherboardMemorySlotQuery).get(0);
+        String queryString = 
+        		izproject.util.Prefix.RDF
+                + izproject.util.Prefix.OWL
+                + izproject.util.Prefix.RDFS
+                + izproject.util.Prefix.XML
+                + izproject.util.Prefix.CLASSES
+                + " "
+                + "SELECT ?x "
+                + "WHERE "
+                + "{ "
+                + "?x a classes:Processor ;"
+                + " classes:processorSocket  "
+                + "\""+motherboardSocketCPU+ "\"" + "^^xsd:string"
+                + " ."
+                + "} ";
+
+        
+        //queryString = String.format(queryString, value);
+        //System.out.println(queryString);
+        //List<List<String>> rows = OwlReaderUtil.executeQueryTwoColumn(getServletContext(), queryString);
+        return QueryUtil.executeQueryOneColumn(queryString);
+
+    }
+    
+    
+    
+    public List<String> getComponentCompatibleCaseForMotherboard(String motherboardName){
+        String motherboardMemorySlotQuery= 
+        		izproject.util.Prefix.RDF
+                + izproject.util.Prefix.OWL
+                + izproject.util.Prefix.RDFS
+                + izproject.util.Prefix.XML
+                + izproject.util.Prefix.CLASSES
+                + " "
+                + "SELECT ?x "
+                + "WHERE "
+                + "{ classes:"
+                + motherboardName 
+                + " a ?x "
+                + " ."
+                + "} ";
+        String motherboardSize ="";
+        if(QueryUtil.executeQueryOneColumn(motherboardMemorySlotQuery).size()>0)
+        	motherboardSize= QueryUtil.executeQueryOneColumn(motherboardMemorySlotQuery).get(0);
+        if(motherboardSize.equals("MicroATXBoard")) {
+        	motherboardSize ="Micro-ATX";
+        }
+        String queryString = 
+        		izproject.util.Prefix.RDF
+                + izproject.util.Prefix.OWL
+                + izproject.util.Prefix.RDFS
+                + izproject.util.Prefix.XML
+                + izproject.util.Prefix.CLASSES
+                + " "
+                + "SELECT ?x "
+                + "WHERE "
+                + "{ "
+                + "?x a classes:"+ motherboardSize       
+                + " ."
+                + "} ";
+
+        
+        //queryString = String.format(queryString, value);
+        //System.out.println(queryString);
+        //List<List<String>> rows = OwlReaderUtil.executeQueryTwoColumn(getServletContext(), queryString);
+        return QueryUtil.executeQueryOneColumn(queryString);
+
+    }
+    
 
 }
