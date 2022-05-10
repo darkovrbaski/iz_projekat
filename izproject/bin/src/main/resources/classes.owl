@@ -1325,13 +1325,12 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASROckZ690Taichi
 :ASROckZ690Taichi rdf:type owl:NamedIndividual ,
-                           :Motherboard ;
-                  :motherboardSocketCPU "LGA1700" .
+                           :Motherboard .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASRockA520MITX
 :ASRockA520MITX rdf:type owl:NamedIndividual ,
-                         :MicroATXBoard .
+                         :Motherboard .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUSTUGZ590PLUS
@@ -1747,8 +1746,7 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-12700K
 :INTEL_Core_i7-12700K rdf:type owl:NamedIndividual ,
-                               :Processor ;
-                      :processorSocket "LGA1700" .
+                               :Processor .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-10900

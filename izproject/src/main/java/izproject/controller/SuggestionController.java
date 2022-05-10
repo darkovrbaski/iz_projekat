@@ -41,4 +41,16 @@ public class SuggestionController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 	
+	@GetMapping("/motherboard/{name}/processor")
+    public ResponseEntity<List<String>> getComponentCompatibleProcessorForMotherboard(@PathVariable("name") String motherboardName){
+        List<String> response = suggestionService.getComponentCompatibleProcessorForMotherboard(motherboardName);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+	
+	@GetMapping("/motherboard/{name}/case")
+    public ResponseEntity<List<String>> getComponentCompatibleCaseForMotherboard(@PathVariable("name") String motherboardName){
+        List<String> response = suggestionService.getComponentCompatibleCaseForMotherboard(motherboardName);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+	
 }
