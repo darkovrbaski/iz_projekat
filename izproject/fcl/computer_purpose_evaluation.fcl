@@ -73,10 +73,21 @@ RULEBLOCK No1
 	ACT : MIN;			// Use 'min' activation method
 	ACCU : MAX;			// Use 'max' accumulation method
 
-	RULE 1 : IF number_of_cores IS low THEN home_use IS high;
-	RULE 2 : IF number_of_cores IS middle THEN home_use IS high;
-	RULE 3 : IF number_of_cores IS high THEN home_use IS high;
-	RULE 4 : IF number_of_cores IS very_high THEN home_use IS low;
+	RULE 1 : IF number_of_cores IS low THEN gaming IS low;
+	RULE 2 : IF number_of_cores IS low THEN mining IS low;
+	RULE 3 : IF number_of_cores IS low THEN hosting IS low;
+	
+	RULE 4 : IF single_core_clock IS low THEN gaming IS low;
+	RULE 5 : IF single_core_clock IS low THEN mining IS low;
+	RULE 6 : IF single_core_clock IS low THEN hosting IS low;
+
+	RULE 7 : IF ram_size IS low THEN gaming IS low;
+	RULE 8 : IF ram_size IS low THEN mining IS low;
+	RULE 9 : IF ram_size IS low THEN hosting IS low;	
+	
+	RULE 10 : IF v_ram_size IS low THEN gaming IS low;
+	RULE 11 : IF v_ram_size IS low THEN mining IS low;
+	
 
 END_RULEBLOCK
 
