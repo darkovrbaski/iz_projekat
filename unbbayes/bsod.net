@@ -1,0 +1,139 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     tree = "(C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C14)";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node Storage
+{
+     label = "C1";
+     position = (160 217);
+     states = ("HDD" "SSD");
+}
+
+node blue_screen_of_death
+{
+     label = "C2";
+     position = (835 97);
+     states = ("yes" "no");
+}
+
+node storage_corruption
+{
+     label = "C3";
+     position = (461 77);
+     states = ("yes" "no");
+}
+
+node outdated_driver
+{
+     label = "C5";
+     position = (144 48);
+     states = ("yes" "no");
+}
+
+node bad_hardware_installation
+{
+     label = "C7";
+     position = (720 277);
+     states = ("yes" "no");
+}
+
+node lack_of_memory_space
+{
+     label = "C8";
+     position = (422 221);
+     states = ("yes" "no");
+}
+
+node cpu
+{
+     label = "C9";
+     position = (1001 352);
+     states = ("amd" "intel");
+}
+
+node gpu
+{
+     label = "C11";
+     position = (1235 331);
+     states = ("Amd" "Nvidia");
+}
+
+node component_overheat
+{
+     label = "C12";
+     position = (1043 220);
+     states = ("yes" "no");
+}
+
+potential (Storage)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (blue_screen_of_death | lack_of_memory_space storage_corruption component_overheat bad_hardware_installation)
+{
+ data = ((((( 0.95 0.050000012 )
+( 0.85 0.14999998 ))
+(( 0.9 0.100000024 )
+( 0.75 0.25 )))
+((( 0.8 0.19999999 )
+( 0.7 0.3 ))
+(( 0.65 0.35000002 )
+( 0.55 0.45 ))))
+(((( 0.8 0.2 )
+( 0.7 0.3 ))
+(( 0.75 0.25 )
+( 0.65 0.35000002 )))
+((( 0.7 0.3 )
+( 0.6 0.39999998 ))
+(( 0.5 0.5 )
+( 0.4 0.6 )))));
+}
+
+potential (storage_corruption | Storage outdated_driver)
+{
+ data = ((( 0.7 0.3 )
+( 0.6 0.4 ))
+(( 0.4 0.6 )
+( 0.3 0.7 )));
+}
+
+potential (outdated_driver)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (bad_hardware_installation)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (lack_of_memory_space | Storage)
+{
+ data = (( 0.4 0.6 )
+( 0.6 0.4 ));
+}
+
+potential (cpu)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (gpu)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (component_overheat | cpu gpu)
+{
+ data = ((( 0.65 0.35 )
+( 0.45 0.55 ))
+(( 0.5 0.5 )
+( 0.3 0.7 )));
+}
+
