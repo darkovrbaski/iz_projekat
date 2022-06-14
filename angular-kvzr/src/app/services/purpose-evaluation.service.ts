@@ -1,3 +1,4 @@
+import { IPurposeEvaluation } from './../model/purposeEvaluation';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -13,9 +14,9 @@ export class PurposeEvaluationService {
 
   constructor(private http: HttpClient) {}
 
-  getPurposeEvaluation(computerSpec: IComputerSpec): Observable<IComputerSpec> {
+  getPurposeEvaluation(computerSpec: IComputerSpec): Observable<IPurposeEvaluation> {
     return this.http
-      .post<IComputerSpec>(`${this.purposeEvaluationUrl}`, computerSpec)
+      .post<IPurposeEvaluation>(`${this.purposeEvaluationUrl}`, computerSpec)
       .pipe(catchError(this.handleError));
   }
 
