@@ -28,6 +28,9 @@ public class PurposeEvaluationService {
 		Variable miningAnalise = fis.getFunctionBlock("computer_purpose_evaluation").getVariable("mining");
 		Variable hostingAnalise = fis.getFunctionBlock("computer_purpose_evaluation").getVariable("hosting");
 		JFuzzyChart.get().chart(homeUseAnalise, homeUseAnalise.getDefuzzifier(), true);
+		JFuzzyChart.get().chart(gamingAnalise, gamingAnalise.getDefuzzifier(), true);
+		JFuzzyChart.get().chart(miningAnalise, gamingAnalise.getDefuzzifier(), true);
+		JFuzzyChart.get().chart(hostingAnalise, gamingAnalise.getDefuzzifier(), true);
 
 		PurposeEvaluationDTO prposeEvaluationDTO = new PurposeEvaluationDTO();
 		prposeEvaluationDTO.setHomeUse((double) Math.round(homeUseAnalise.getValue() * 100d) / 100d);

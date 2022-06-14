@@ -3,15 +3,15 @@ package izproject.dto;
 public class ComputerSpecDTO {
 
 	private int numberOfCores;
-	private int singleCoreClock;
+	private double singleCoreClock;
 	private int ramSize;
-	private int vRamSize;
+	private double vRamSize;
 
 	public int getNumberOfCores() {
 		return numberOfCores;
 	}
 
-	public int getSingleCoreClock() {
+	public double getSingleCoreClock() {
 		return singleCoreClock;
 	}
 
@@ -19,7 +19,7 @@ public class ComputerSpecDTO {
 		return ramSize;
 	}
 
-	public int getvRamSize() {
+	public double getvRamSize() {
 		return vRamSize;
 	}
 
