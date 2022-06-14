@@ -9,6 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PurposeEvaluationComponent } from './pages/purpose-evaluation/purpose-evaluation.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { FormsModule } from '@angular/forms';
+import { MalfunctionEvaluationComponent } from './pages/malfunction-evaluation/malfunction-evaluation.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     PurposeEvaluationComponent,
-    HomepageComponent
+    HomepageComponent,
+    MalfunctionEvaluationComponent,
   ],
   imports: [
     BrowserModule,

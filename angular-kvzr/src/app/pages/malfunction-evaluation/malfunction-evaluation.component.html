@@ -1,0 +1,430 @@
+<div class="card p-3 my-5">
+  <div class="card-header">Report PC error</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="cpu-select">CPU</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.processor"
+      >
+        <option value="" data-select2-id="2">Select a CPU..</option>
+
+        <option value="AMD RYZEN 5 5500" price="329">
+          AMD RYZEN 5 5500 ($329)
+        </option>
+        <option value="AMD Ryzen 5 3500" price="329">
+          AMD RYZEN 5 3500 ($329)
+        </option>
+        <option value="AMD Ryzen 7 5800X" price="329">
+          AMD Ryzen 7 5800X ($329)
+        </option>
+        <option value="AMD Ryzen 9 5900X" price="329">
+          AMD Ryzen 9 5900X ($329)
+        </option>
+        <option value="AMD Ryzen 9 5950X" price="329">
+          AMD Ryzen 9 5950X ($329)
+        </option>
+        <option value="INTEL Celeron G5900" price="329">
+          INTEL Celeron G5900 ($329)
+        </option>
+        <option value="INTEL Celeron G5905" price="329">
+          INTEL Celeron G5905 ($329)
+        </option>
+        <option value="INTEL Celeron G5925" price="329">
+          INTEL Celeron G5925 ($329)
+        </option>
+        <option value="INTEL Celeron G6900" price="329">
+          INTEL Celeron G6900 ($329)
+        </option>
+        <option value="INTEL Core I7 12700KF" price="329">
+          INTEL Core I7 12700KF ($329)
+        </option>
+        <option value="INTEL Core i3 10100" price="329">
+          INTEL Core i3 10100 ($329)
+        </option>
+        <option value="INTEL Core i3 10100F" price="329">
+          INTEL Core i3 10100F ($329)
+        </option>
+        <option value="INTEL Core i3 10105" price="329">
+          INTEL Core i3 10105 ($329)
+        </option>
+        <option value="INTEL Core i3 10105F" price="329">
+          INTEL Core i3 10105F ($329)
+        </option>
+        <option value="INTEL Core i3 12100" price="329">
+          INTEL Core i3 12100 ($329)
+        </option>
+        <option value="INTEL Core i3 12100f" price="329">
+          INTEL Core i3 12100F ($329)
+        </option>
+       </select
+      >
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">GPU</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.graphicCard"
+      >
+        <option value="" data-select2-id="2">Select a GPU..</option>
+
+        <option ddr="4" value="AMD AFOX Radeon RX 560" price="329">
+          AMD AFOX Radeon RX 560
+        </option>
+        <option ddr="4" value="   AMD Fire Pro W4100" price="371.64">
+          AMD Fire Pro W4100
+        </option>
+        <option ddr="4" value=" AMD Radeon R5330" price="284.13">
+          AMD Radeon R5330
+        </option>
+        <option ddr="4" value=" AMD Radeon R5340X" price="284.13">
+          AMD Radeon R5340X
+        </option>
+        <option ddr="4" value=" AMD Radeon R9390X" price="284.13">
+          AMD Radeon R9390X
+        </option>
+        <option ddr="4" value=" AMD Radeon R9390X" price="284.13">
+          AMD Radeon R9390X
+        </option>
+        <option value="NVIDIA GeForce RTX 2070 SUPER" price="329">
+          NVIDIA GeForce RTX 2070 SUPER
+        </option>
+        <option value="NVIDIA GeForce 705" price="329">
+          NVIDIA GeForce 705
+        </option>
+        <option value="NVIDIA GeForce GT 705" price="329">
+          NVIDIA GeForce GT 705
+        </option>
+        <option value="NVIDIA GeForce GT 730" price="329">
+          NVIDIA GeForce GT 730
+        </option>
+        <option value="NVIDIA GeForce GTX 1050" price="329">
+          NVIDIA GeForce GTX 1050
+        </option>
+        <option value="NVIDIA GeForce GTX 1050 Ti" price="329">
+          NVIDIA GeForce GTX 1050 Ti
+        </option>
+        <option value="NVIDIA GeForce GTX 1060" price="329">
+          NVIDIA GeForce GTX 1060
+        </option>
+        <option value="NVIDIA GeForce GTX 1070" price="329">
+          NVIDIA GeForce GTX 1070
+        </option>
+        <option value="NVIDIA GeForce GTX 1080 Ti" price="329">
+          NVIDIA GeForce GTX 1080 Ti
+        </option>
+        <option value="NVIDIA GeForce GTX 745" price="329">
+          NVIDIA GeForce GTX 745
+        </option>
+        <option value="NVIDIA GeForce GTX 750 Ti" price="329">
+          NVIDIA GeForce GTX 750 Ti
+        </option>
+        <option value="NVIDIA GeForce GTX 760 Ti" price="329">
+          NVIDIA GeForce GTX 760 Ti
+        </option>
+        <option value="NVIDIA GeForce GTX 950" price="329">
+          NVIDIA GeForce GTX 950
+        </option>
+        <option value="NVIDIA GeForce GTX 960" price="329">
+          NVIDIA GeForce GTX 960
+        </option>
+        </select
+      >
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">Storage</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.storageType"
+      >
+        <option value="" data-select2-id="2">Select a storage type..</option>
+        <option value="HDD" >HDD</option>
+        <option value="SSD" >SSD</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">Motherboard</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.motherboard"
+      >
+        <option value="" data-select2-id="2">Select a motherboard.</option>
+        <option value="Gigabyte" >Gigabyte</option>
+        <option value="Else" >Else</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">Mouse manufacturer</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.mouseManufacturer"
+      >
+        <option value="" data-select2-id="2">Select a mouse manufacturer.</option>
+        <option value="Logitech" >Logitech</option>
+        <option value="Bloody" >Bloody</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">Keyboard</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.keyboardType"
+      >
+        <option value="" data-select2-id="2">Select a keyboard type.</option>
+        <option value="Wireless" >Wireless</option>
+        <option value="Wired" >Wired</option>
+        </select>
+        <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <option value="" data-select2-id="2">Select a keyboard case.</option>
+        <option value="pc" >pc</option>
+        <option value="laptop" >laptop</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">Mouse</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.mouseType"
+      >
+        <option value="" data-select2-id="2">Select a mouse type.</option>
+        <option value="Wireless" >Wireless</option>
+        <option value="Wired" >Wired</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">Operating System</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.operatingSystem"
+      >
+        <option value="" data-select2-id="2">Select a operating system.</option>
+        <option value="Windows" >Windows</option>
+        <option value="Linux" >Linux</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">Antivirus System Active</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.antivirusSoftware"
+      >
+        <option value="" data-select2-id="2">Your antivirus is active?</option>
+        <option value="yes" >Yes</option>
+        <option value="no" >No</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">Monitor</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.monitor"
+      >
+        <option value="" data-select2-id="2">Monitor</option>
+        <option value="VA" >VA</option>
+        <option value="TN/IPS" >TN/IPS</option>
+        <option value="OLED" >OLED</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">CMOS</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.cmosUsage"
+      >
+        <option value="" data-select2-id="2">CMOS usage</option>
+        <option value="less_than_year" >less than year</option>
+        <option value="2-3years" >2-3 years</option>
+        <option value="more_than_3years" >more than 3 years</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">Interent Connection </label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.connectionType"
+      >
+        <option value="" data-select2-id="2">Interent Connection type</option>
+        <option value="lan" >Lan</option>
+        <option value="wifi" >Wifi</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="cpu-select">RAM</label>
+      <select
+        id="cpu-select"
+        class="form-control select"
+        data-select2-id="cpu-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="malfunctionSpec.memoryType"
+      >
+        <option value="" data-select2-id="2">Select a RAM memory type..</option>
+        <option value="DDR3" data-select2-id="2">DDR3</option>
+        <option value="DDR4" data-select2-id="2">DDR4</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="symptom1-select">Symptom 1</label>
+      <select
+        id="symptom1-select"
+        class="form-control select"
+        data-select2-id="symptom1-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="symptom1"
+      >
+        <option value="" data-select2-id="15">Select a symptom..</option>
+
+        <option value="BlueScreen">
+          Blue Screen
+        </option>
+        <option value="PCWontRun">
+          PC Wont Run
+        </option>
+        <option value="KeyboardFailure">
+          Keyboard Failure
+        </option>
+        <option value="DroppedComputer">
+          Dropped Computer
+        </option>
+        <option value="PCBEEP">
+          PC Beep
+        </option>
+        <option value="NoInternetConnection">
+          No Internet Connection
+        </option>
+        <option value="FrozenScreen">
+          Frozen Screen
+        </option>
+        <option value="PopUpAd">
+          Pop Up Ad
+        </option>
+        <option value="LowResolution">
+          Low Resolution
+        </option>
+        <option value="BlankMonitor">
+          Blank Monitor
+        </option>
+        <option value="ApplicationFailure">
+          Application Failure
+        </option>
+        <option value="MissingOperatinSystem">
+          Operating System Failure
+        </option>
+        </select
+      >
+    </div>
+    <div class="form-group">
+      <label for="symptom2-select">Symptom 2</label>
+      <select
+        id="symptom2-select"
+        class="form-control select"
+        data-select2-id="symptom2-select"
+        tabindex="-1"
+        aria-hidden="true"
+        [(ngModel)]="symptom2"
+      >
+        <option value="" data-select2-id="12">Select a symptom..</option>
+
+        <option value="BlueScreen">
+          Blue Screen
+        </option>
+        <option value="PCWontRun">
+          PC Wont Run
+        </option>
+        <option value="KeyboardFailure">
+          Keyboard Failure
+        </option>
+        <option value="DroppedComputer">
+          Dropped Computer
+        </option>
+        <option value="PCBEEP">
+          PC Beep
+        </option>
+        <option value="NoInternetConnection">
+          No Internet Connection
+        </option>
+        <option value="FrozenScreen">
+          Frozen Screen
+        </option>
+        <option value="PopUpAd">
+          Pop Up Ad
+        </option>
+        <option value="LowResolution">
+          Low Resolution
+        </option>
+        <option value="BlankMonitor">
+          Blank Monitor
+        </option>
+        <option value="ApplicationFailure">
+          Application Failure
+        </option>
+        <option value="MissingOperatinSystem">
+          Operating System Failure
+        </option>
+        </select
+      >
+    </div>
+  </div>
+  <div class="card-footer">
+    <h4>PC Malfunction Evaluation</h4>
+    <button id="btn_compare" class="btn btn-primary" (click)="getMalfunctionEvaluation()" >Evaluate</button>
+  </div>
+  <ul>
+    <li *ngFor="let evaluation of malfunctionEvaluations">{{evaluation.output}} : {{evaluation.percentage*100 | number : '1.2-2'}}%</li>
+  </ul>
+</div>
