@@ -7,6 +7,7 @@ public class MalfunctionSpecsDTO {
 	private String processor;
 	private String memoryType;
 	private String memorySize;
+	private String storageType;
 	private String graphicCard;
 	private List<String> symptoms;
 
@@ -48,6 +49,14 @@ public class MalfunctionSpecsDTO {
 
 	public void setGraphicCard(String graphicCard) {
 		this.graphicCard = graphicCard;
+	}
+
+	public String getStorageType() {
+		return storageType;
+	}
+
+	public void setStorageType(String storageType) {
+		this.storageType = storageType;
 	}
 
 }
