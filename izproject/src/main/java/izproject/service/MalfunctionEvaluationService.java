@@ -182,6 +182,26 @@ public class MalfunctionEvaluationService {
 				componentNode.addFinding(1);
 			}
 		}
+		
+		if(malfunctionSpecsDTO.getMemoryType()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("RAM");
+			if(malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr3")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr4")){
+				componentNode.addFinding(1);
+			}
+		}
+		
+		if(malfunctionSpecsDTO.getMonitor()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Monitor");
+			if(malfunctionSpecsDTO.getMonitor().toLowerCase().equals("va")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getMonitor().toLowerCase().equals("tn/ips")){
+				componentNode.addFinding(1);
+			}else if(malfunctionSpecsDTO.getMonitor().toLowerCase().equals("oled")){
+				componentNode.addFinding(2);
+			}
+		}
 	}
 
 }

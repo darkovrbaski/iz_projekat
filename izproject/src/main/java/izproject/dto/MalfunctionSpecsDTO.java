@@ -16,7 +16,16 @@ public class MalfunctionSpecsDTO {
 	private String mouseType;
 	private String operatingSystem;
 	private String antivirusSoftware;
+	private String monitor;
 	private List<String> symptoms;
+
+	public String getMonitor() {
+		return monitor;
+	}
+
+	public void setMonitor(String monitor) {
+		this.monitor = monitor;
+	}
 
 	public String getOperatingSystem() {
 		return operatingSystem;
