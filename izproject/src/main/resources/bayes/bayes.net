@@ -2,7 +2,7 @@ net
 {
      node_size = (0 0);
      name = "New BN";
-     tree = "(C1,C3,C4,C5,C8,C7,C10,C13,C17,C2)";
+     tree = "(C1,C3,C4,C5,C8,C7,C10,C13,C17,C2,C6)";
      UnBBayes_Color_Probabilistic_Description = "-256";
      UnBBayes_Color_Probabilistic_Explanation = "-16711936";
 }
@@ -17,7 +17,7 @@ node BlueScreen_DroppedComputer
 node Storage
 {
      label = "C3";
-     position = (890 463);
+     position = (858 426);
      states = ("hdd" "ssd");
 }
 
@@ -45,14 +45,14 @@ node BlueScreen_DroppedComputer_Cause
 node BlueScreen_Cause
 {
      label = "C7";
-     position = (1135 238);
+     position = (1069 235);
      states = ("storage_corruption" "lack_of_memory_space" "bad_hardware_installation" "component_overheat");
 }
 
 node BlueScreen
 {
      label = "C10";
-     position = (1236 42);
+     position = (1155 65);
      states = ("yes" "no");
 }
 
@@ -136,21 +136,21 @@ node MouseManufacturer
 node ApplicationFailure_Cause
 {
      label = "C1";
-     position = (1401 229);
+     position = (1430 214);
      states = ("bad_os_update" "storage_failure" "missing_dll");
 }
 
 node ApplicationFailure
 {
      label = "C2";
-     position = (1402 80);
+     position = (1447 72);
      states = ("yes" "no");
 }
 
 node OperatingSystem
 {
      label = "C3";
-     position = (1334 313);
+     position = (1330 353);
      states = ("Windows" "Linux");
 }
 
@@ -164,14 +164,14 @@ node AntivirusSoftware
 node FrozenScreen_Cause
 {
      label = "C1";
-     position = (1043 565);
+     position = (973 564);
      states = ("ram_overused" "gpu_overused" "cpu_overheat" "gpu_driver" "lack_of_storage");
 }
 
 node FrozenScreen
 {
      label = "C2";
-     position = (1043 633);
+     position = (1077 654);
      states = ("yes" "no");
 }
 
@@ -206,35 +206,49 @@ node PCWontRun
 node PopUpAd
 {
      label = "C1";
-     position = (1636 110);
+     position = (1669 83);
      states = ("yes" "no");
 }
 
 node PopUpAd_Cause
 {
      label = "C2";
-     position = (1636 236);
+     position = (1643 221);
      states = ("adware" "ransomware" "virus");
 }
 
 node PCWontRun_DroppedComputer_Cause
 {
      label = "C6";
-     position = (1395 593);
+     position = (1557 601);
      states = ("ram_disc" "storage_disc" "cmos_disc" "power_supply_dead" "cpu_overheat" "gpu_overheat");
 }
 
 node PCWontRun_DroppedComputer
 {
      label = "C7";
-     position = (1283 425);
+     position = (1466 412);
      states = ("yes" "no");
 }
 
 node DroppedComputer_PCWontRun
 {
      label = "C8";
-     position = (1566 425);
+     position = (1722 410);
+     states = ("yes" "no");
+}
+
+node LowResolution_Cause
+{
+     label = "C1";
+     position = (1210 265);
+     states = ("bad_gpu_driver" "wrong_monitor_resolution");
+}
+
+node LowResolution
+{
+     label = "C2";
+     position = (1304 75);
      states = ("yes" "no");
 }
 
@@ -479,5 +493,17 @@ potential (DroppedComputer_PCWontRun | PCWontRun_DroppedComputer_Cause)
 ( 0.3 0.7 )
 ( 0.2 0.8 )
 ( 0.15 0.85 ));
+}
+
+potential (LowResolution_Cause | GPU)
+{
+ data = (( 0.6 0.4 )
+( 0.7 0.3 ));
+}
+
+potential (LowResolution | LowResolution_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.6 0.4 ));
 }
 

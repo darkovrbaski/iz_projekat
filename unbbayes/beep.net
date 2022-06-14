@@ -1,0 +1,49 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node PCBEEP
+{
+     label = "C1";
+     position = (485 26);
+     states = ("yes" "no");
+}
+
+node PCBEEP_Cause
+{
+     label = "C2";
+     position = (413 149);
+     states = ("ram_disconnected" "new_hardware_cmos_need_restart" "cpu_disconnected" "storage_disconnected");
+}
+
+node CmosUsage
+{
+     label = "C3";
+     position = (330 304);
+     states = ("less than year" "2-3years" "more than 3 years");
+}
+
+potential (PCBEEP | PCBEEP_Cause)
+{
+ data = (( 0.6999999 0.3 )
+( 0.6999999 0.3 )
+( 0.6999999 0.3 )
+( 0.6999999 0.3 ));
+}
+
+potential (PCBEEP_Cause | CmosUsage)
+{
+ data = (( 0.4 0.3 0.15 0.15 )
+( 0.2 0.55 0.15 0.1 )
+( 0.1 0.8 0.03 0.07 ));
+}
+
+potential (CmosUsage)
+{
+ data = ( 0.4 0.35 0.25 );
+}
+
