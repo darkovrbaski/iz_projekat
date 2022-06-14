@@ -1,0 +1,48 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node BlankMonitor_Cause
+{
+     label = "C1";
+     position = (474 158);
+     states = ("monitor_failure" "contact_failure" "gpu_failure" "power_supply_failure");
+}
+
+node BlankMonitor
+{
+     label = "C2";
+     position = (458 15);
+     states = ("yes" "no");
+}
+
+node GPU
+{
+     label = "C3";
+     position = (250 333);
+     states = ("Amd" "Nvidia");
+}
+
+potential (BlankMonitor_Cause | GPU)
+{
+ data = (( 0.2 0.3 0.3 0.2 )
+( 0.3 0.3 0.2 0.2 ));
+}
+
+potential (BlankMonitor | BlankMonitor_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.65 0.35000002 )
+( 0.5 0.5 )
+( 0.7 0.3 ));
+}
+
+potential (GPU)
+{
+ data = ( 0.6 0.4 );
+}
+

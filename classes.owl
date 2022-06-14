@@ -244,14 +244,14 @@
 :graphicCardIsDiscrete rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf owl:topDataProperty ;
                        rdfs:domain :GraphicsCard ;
-                       rdfs:range xsd:boolean .
+                       rdfs:range xsd:string .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardIsOnBoard
 :graphicCardIsOnBoard rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf owl:topDataProperty ;
                       rdfs:domain :GraphicsCard ;
-                      rdfs:range xsd:boolean .
+                      rdfs:range xsd:string .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardMaxDisplays
@@ -358,7 +358,7 @@
 :motherboardSupportedRamSlot rdf:type owl:DatatypeProperty ;
                              rdfs:subPropertyOf owl:topDataProperty ;
                              rdfs:domain :Motherboard ;
-                             rdfs:range xsd:int .
+                             rdfs:range xsd:string .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#powerSupply
