@@ -17,7 +17,7 @@ node BlueScreen_DroppedComputer
 node Storage
 {
      label = "C3";
-     position = (858 426);
+     position = (890 463);
      states = ("hdd" "ssd");
 }
 
@@ -45,28 +45,28 @@ node BlueScreen_DroppedComputer_Cause
 node BlueScreen_Cause
 {
      label = "C7";
-     position = (1069 235);
+     position = (1135 238);
      states = ("storage_corruption" "lack_of_memory_space" "bad_hardware_installation" "component_overheat");
 }
 
 node BlueScreen
 {
      label = "C10";
-     position = (1155 65);
+     position = (1236 42);
      states = ("yes" "no");
 }
 
 node DroppedComputer
 {
      label = "C13";
-     position = (522 57);
+     position = (552 132);
      states = ("yes" "no");
 }
 
 node DroppedComputer_Cause
 {
      label = "C17";
-     position = (504 238);
+     position = (553 297);
      states = ("ram_disc" "storage_disc" "cmos_disc");
 }
 
@@ -94,7 +94,7 @@ node Motherboard
 node CaseType
 {
      label = "C4";
-     position = (355 286);
+     position = (410 261);
      states = ("pc" "laptop");
 }
 
@@ -122,7 +122,7 @@ node MouseFailure
 node MouseFailure_Cause
 {
      label = "C4";
-     position = (219 474);
+     position = (227 526);
      states = ("bad_driver" "bad_connection" "bad_motherboard");
 }
 
@@ -136,42 +136,42 @@ node MouseManufacturer
 node ApplicationFailure_Cause
 {
      label = "C1";
-     position = (1430 214);
+     position = (1456 203);
      states = ("bad_os_update" "storage_failure" "missing_dll");
 }
 
 node ApplicationFailure
 {
      label = "C2";
-     position = (1447 72);
+     position = (1509 82);
      states = ("yes" "no");
 }
 
 node OperatingSystem
 {
      label = "C3";
-     position = (1330 353);
+     position = (1410 322);
      states = ("Windows" "Linux");
 }
 
 node AntivirusSoftware
 {
      label = "C1";
-     position = (1539 326);
+     position = (1602 331);
      states = ("yes" "no");
 }
 
 node FrozenScreen_Cause
 {
      label = "C1";
-     position = (973 564);
+     position = (1043 565);
      states = ("ram_overused" "gpu_overused" "cpu_overheat" "gpu_driver" "lack_of_storage");
 }
 
 node FrozenScreen
 {
      label = "C2";
-     position = (1077 654);
+     position = (1043 633);
      states = ("yes" "no");
 }
 
@@ -206,50 +206,71 @@ node PCWontRun
 node PopUpAd
 {
      label = "C1";
-     position = (1669 83);
+     position = (1719 94);
      states = ("yes" "no");
 }
 
 node PopUpAd_Cause
 {
      label = "C2";
-     position = (1643 221);
+     position = (1666 208);
      states = ("adware" "ransomware" "virus");
 }
 
 node PCWontRun_DroppedComputer_Cause
 {
      label = "C6";
-     position = (1557 601);
+     position = (1395 593);
      states = ("ram_disc" "storage_disc" "cmos_disc" "power_supply_dead" "cpu_overheat" "gpu_overheat");
 }
 
 node PCWontRun_DroppedComputer
 {
      label = "C7";
-     position = (1466 412);
+     position = (1283 425);
      states = ("yes" "no");
 }
 
 node DroppedComputer_PCWontRun
 {
      label = "C8";
-     position = (1722 410);
+     position = (1566 425);
      states = ("yes" "no");
 }
 
 node LowResolution_Cause
 {
      label = "C1";
-     position = (1210 265);
+     position = (1227 325);
      states = ("bad_gpu_driver" "wrong_monitor_resolution");
 }
 
 node LowResolution
 {
      label = "C2";
-     position = (1304 75);
+     position = (1346 153);
      states = ("yes" "no");
+}
+
+node PCBEEP
+{
+     label = "C1";
+     position = (506 496);
+     states = ("yes" "no");
+}
+
+node PCBEEP_Cause
+{
+     label = "C2";
+     position = (503 574);
+     states = ("ram_disconnected" "new_hardware_cmos_need_restart" "cpu_disconnected" "storage_disconnected");
+}
+
+node CmosUsage
+{
+     label = "C3";
+     position = (559 638);
+     states = ("less_than_year" "2-3years" "more_than_3years");
 }
 
 potential (BlueScreen_DroppedComputer | BlueScreen_DroppedComputer_Cause)
@@ -505,5 +526,25 @@ potential (LowResolution | LowResolution_Cause)
 {
  data = (( 0.7 0.3 )
 ( 0.6 0.4 ));
+}
+
+potential (PCBEEP | PCBEEP_Cause)
+{
+ data = (( 0.6999999 0.3 )
+( 0.6999999 0.3 )
+( 0.6999999 0.3 )
+( 0.6999999 0.3 ));
+}
+
+potential (PCBEEP_Cause | CmosUsage)
+{
+ data = (( 0.4 0.3 0.15 0.15 )
+( 0.2 0.55 0.15 0.1 )
+( 0.1 0.8 0.03 0.07 ));
+}
+
+potential (CmosUsage)
+{
+ data = ( 0.4 0.35 0.25 );
 }
 

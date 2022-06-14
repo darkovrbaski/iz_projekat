@@ -17,7 +17,16 @@ public class MalfunctionSpecsDTO {
 	private String operatingSystem;
 	private String antivirusSoftware;
 	private String monitor;
+	private String cmosUsage;
 	private List<String> symptoms;
+
+	public String getCmosUsage() {
+		return cmosUsage;
+	}
+
+	public void setCmosUsage(String cmosUsage) {
+		this.cmosUsage = cmosUsage;
+	}
 
 	public String getMonitor() {
 		return monitor;

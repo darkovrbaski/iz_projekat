@@ -202,6 +202,17 @@ public class MalfunctionEvaluationService {
 				componentNode.addFinding(2);
 			}
 		}
+		
+		if(malfunctionSpecsDTO.getCmosUsage()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("CmosUsage");
+			if(malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("less than 1 year")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("2-3 years")){
+				componentNode.addFinding(1);
+			}else if(malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("more than 3 years")){
+				componentNode.addFinding(2);
+			}
+		}
 	}
 
 }
