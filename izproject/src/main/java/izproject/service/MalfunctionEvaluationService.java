@@ -1,121 +1,225 @@
 package izproject.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.jena.rdf.model.InvalidListException;
+import org.springframework.asm.TypeReference;
 import org.springframework.stereotype.Service;
 
+import izproject.dto.BayesEvaluationDTO;
 import izproject.dto.MalfunctionSpecsDTO;
-import izproject.dto.PurposeEvaluationDTO;
-import unbbayes.prs.Edge;
+import unbbayes.io.BaseIO;
+import unbbayes.io.NetIO;
 import unbbayes.prs.Node;
 import unbbayes.prs.bn.JunctionTreeAlgorithm;
-import unbbayes.prs.bn.PotentialTable;
 import unbbayes.prs.bn.ProbabilisticNetwork;
 import unbbayes.prs.bn.ProbabilisticNode;
-import unbbayes.prs.exception.InvalidParentException;
 import unbbayes.util.extension.bn.inference.IInferenceAlgorithm;
 
 @Service
 public class MalfunctionEvaluationService {
-	
-	ProbabilisticNetwork net = new ProbabilisticNetwork("malfunctionEvaluation");
-	
-	ProbabilisticNode initNode(String nodeName, List<String> stateNames, List<Float> probabiltyValues) {
-		
-		if(stateNames.size() != probabiltyValues.size())
-			throw new InvalidListException();
-			
-		ProbabilisticNode node = new ProbabilisticNode();
-		node.setName(nodeName);
-		
-		for (String stateName : stateNames) {
-			node.appendState(stateName);
+
+	ProbabilisticNetwork net = new ProbabilisticNetwork("faultEvaluation");
+
+	public List<BayesEvaluationDTO> getEvaluation(MalfunctionSpecsDTO malfunctionSpecsDTO) {
+
+		// get symptoms
+		List<String> symptom = malfunctionSpecsDTO.getSymptoms();
+		String finalSymptom1 = "";
+		String finalSymptom2 = "";
+		String symptomCause = "";
+		for (int i = 0; i < symptom.size(); i++) {
+			if (i == symptom.size() - 1) {
+				finalSymptom1 = finalSymptom1.concat(symptom.get(i));
+			} else {
+				finalSymptom1 = finalSymptom1.concat(symptom.get(i) + "_");
+			}
 		}
-		
-		PotentialTable prob= node.getProbabilityFunction();
-		prob.addVariable(node);
-		
-		for (int i = 0; i < probabiltyValues.size(); i++) {
-			prob.setValue(i, probabiltyValues.get(i));
+
+		for (int i = symptom.size() - 1; i > -1; i--) {
+			if (i == 1) {
+				finalSymptom2 = finalSymptom2.concat(symptom.get(i) + "_");
+			} else {
+				finalSymptom2 = finalSymptom2.concat(symptom.get(i));
+			}
 		}
-		
-		return node;
-	}
 
-	public PurposeEvaluationDTO getEvaluation(MalfunctionSpecsDTO malfunctionSpecsDTO) {
-		
-		ProbabilisticNode var = initNode("symptoms", malfunctionSpecsDTO.getSymptoms(), null);
+		symptomCause = finalSymptom1.concat("_Cause");
 
-		net.addNode(var);
-		
-		ProbabilisticNode varTaxi = new ProbabilisticNode();
-		varTaxi.setName("taxi");
-		varTaxi.appendState("blue");
-		varTaxi.appendState("green");
-		PotentialTable probTaxi = varTaxi.getProbabilityFunction();
-		probTaxi.addVariable(varTaxi);
-		probTaxi.setValue(0, 0.85f);
-		probTaxi.setValue(1, 0.15f);
-		net.addNode(varTaxi);
-
-		ProbabilisticNode varWitness = new ProbabilisticNode();
-		varWitness.setName("witness");
-		varWitness.appendState("blue");
-		varWitness.appendState("green");
-		net.addNode(varWitness);
-		PotentialTable probWitness = varWitness.getProbabilityFunction();
-		probWitness.addVariable(varWitness);
-		
+		// loading from file
+		BaseIO io = new NetIO();
 		try {
-			net.addEdge( new Edge(varTaxi, varWitness) );
-		} catch (InvalidParentException e1) {
+			net = (ProbabilisticNetwork) io
+					.load(new File(TypeReference.class.getResource("/bayes/bayes.net").toURI().getPath()));
+		} catch (IOException | URISyntaxException e2) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e2.printStackTrace();
 		}
-		
-		probWitness.setValue(0, 0.8f);  // taxi is blue & witness observed as blue
-		probWitness.setValue(1, 0.2f);  // taxi is green & witness observed as blue
-		probWitness.setValue(2, 0.2f);  // taxi is blue & witness observed as green
-		probWitness.setValue(3, 0.8f);  // taxi is green & witness observed as green
-		
 
-		// compiling
+		// compile
 		IInferenceAlgorithm algorithm = new JunctionTreeAlgorithm();
 		algorithm.setNetwork(net);
 		algorithm.run();
-		
+		// set state
+		ProbabilisticNode symptomNode = (ProbabilisticNode) net.getNode(finalSymptom1);
+		symptomNode.addFinding(0);
+		if (symptom.size() > 1) {
+			ProbabilisticNode symptomNode2 = (ProbabilisticNode) net.getNode(finalSymptom2);
+			symptomNode2.addFinding(0);
+		}
+
+		// setComponents
+		setComponentInputs(malfunctionSpecsDTO);
+
 		// states overview
 		List<Node> nodeList = net.getNodes();
-		for (Node node: nodeList) {
-			System.out.println(node.getName());
-			for (int i = 0; i < node.getStatesSize(); i++) {
-				System.out.println(node.getStateAt(i) + ": " + ((ProbabilisticNode)node).getMarginalAt(i));
-			}
-		}
-		
-		// adding an evidence
-		ProbabilisticNode factNode = (ProbabilisticNode)net.getNode("witness");
-		int stateIndex = 1; // index of state "green"
-		factNode.addFinding(stateIndex);
-		
-		System.out.println();
-		
+
 		// propagation
 		try {
-        	net.updateEvidences();
-        } catch (Exception e) {
-        	System.out.println(e.getMessage());               	
-        }
-        
-        // states overview after propagation
+			net.updateEvidences();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		// states overview after propagation
 		for (Node node : nodeList) {
 			System.out.println(node.getName());
 			for (int i = 0; i < node.getStatesSize(); i++) {
-				System.out.println(node.getStateAt(i) + ": " + ((ProbabilisticNode)node).getMarginalAt(i));
+				System.out.println(node.getStateAt(i) + ": " + ((ProbabilisticNode) node).getMarginalAt(i));
 			}
 		}
-		return null;
+
+		List<BayesEvaluationDTO> bayesEvaluationDTOs = new ArrayList<>();
+		ProbabilisticNode outputNode = (ProbabilisticNode) net.getNode(symptomCause);
+		for (int i = 0; i < outputNode.getStatesSize(); i++) {
+			bayesEvaluationDTOs.add(new BayesEvaluationDTO(outputNode.getStateAt(i),
+					((ProbabilisticNode) outputNode).getMarginalAt(i)));
+		}
+		return bayesEvaluationDTOs;
 	}
 
+	private void setComponentInputs(MalfunctionSpecsDTO malfunctionSpecsDTO) {
+		if (malfunctionSpecsDTO.getGraphicCard() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("GPU");
+			if (malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("amd")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("nvidia")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getStorageType() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Storage");
+			if (malfunctionSpecsDTO.getStorageType().toLowerCase().equals("hdd")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getStorageType().toLowerCase().equals("ssd")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getKeyboardCaseType() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("CaseType");
+			if (malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("pc")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("laptop")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getKeyboardType() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Keyboard");
+			if (malfunctionSpecsDTO.getKeyboardType().toLowerCase().equals("wireless")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getKeyboardType().toLowerCase().equals("wired")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getMouseManufacturer() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("MouseManufacturer");
+			if (malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("logitech")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("bloody")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getMouseType() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("MouseType");
+			if (malfunctionSpecsDTO.getMouseType().toLowerCase().equals("wireless")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getMouseType().toLowerCase().equals("wired")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getMotherboard() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Motherboard");
+			if (malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("gigabyte")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("else")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getAntivirusSoftware() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("AntivirusSoftware");
+			if (malfunctionSpecsDTO.getAntivirusSoftware().toLowerCase().equals("yes")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getAntivirusSoftware().toLowerCase().equals("no")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getOperatingSystem() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("OperatingSystem");
+			if (malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("windows")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("linux")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getMemoryType() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("RAM");
+			if (malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr3")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr4")) {
+				componentNode.addFinding(1);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getMonitor() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Monitor");
+			if (malfunctionSpecsDTO.getMonitor().toLowerCase().equals("va")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getMonitor().toLowerCase().equals("tn/ips")) {
+				componentNode.addFinding(1);
+			} else if (malfunctionSpecsDTO.getMonitor().toLowerCase().equals("oled")) {
+				componentNode.addFinding(2);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getCmosUsage() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("CmosUsage");
+			if (malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("less than 1 year")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("2-3 years")) {
+				componentNode.addFinding(1);
+			} else if (malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("more than 3 years")) {
+				componentNode.addFinding(2);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getConnectionType() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("ConnectionType");
+			if (malfunctionSpecsDTO.getConnectionType().toLowerCase().equals("lan")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getConnectionType().toLowerCase().equals("wifi")) {
+				componentNode.addFinding(1);
+			}
+		}
+	}
 }

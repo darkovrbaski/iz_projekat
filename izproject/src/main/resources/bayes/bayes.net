@@ -1,0 +1,646 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     tree = "(C1,C3,C4,C5,C8,C7,C10,C13,C17,C2,C6)";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node BlueScreen_DroppedComputer
+{
+     label = "C1";
+     position = (935 45);
+     states = ("yes" "no");
+}
+
+node Storage
+{
+     label = "C3";
+     position = (1110 424);
+     states = ("hdd" "ssd");
+}
+
+node GPU
+{
+     label = "C4";
+     position = (834 412);
+     states = ("amd" "nvidia");
+}
+
+node DroppedComputer_BlueScreen
+{
+     label = "C5";
+     position = (704 45);
+     states = ("yes" "no");
+}
+
+node BlueScreen_DroppedComputer_Cause
+{
+     label = "C8";
+     position = (708 271);
+     states = ("storage_corruption" "lack_of_memory_space" "bad_hardware_installation" "component_overheat" "ram_disc" "cmos_disc" "storage_disc");
+}
+
+node BlueScreen_Cause
+{
+     label = "C7";
+     position = (1135 238);
+     states = ("storage_corruption" "lack_of_memory_space" "bad_hardware_installation" "component_overheat");
+}
+
+node BlueScreen
+{
+     label = "C10";
+     position = (1236 42);
+     states = ("yes" "no");
+}
+
+node DroppedComputer
+{
+     label = "C13";
+     position = (492 58);
+     states = ("yes" "no");
+}
+
+node DroppedComputer_Cause
+{
+     label = "C17";
+     position = (503 239);
+     states = ("ram_disc" "storage_disc" "cmos_disc");
+}
+
+node KeyboardFailure_Cause
+{
+     label = "C1";
+     position = (239 169);
+     states = ("bad_driver" "bad_connection" "bad_motherboard");
+}
+
+node KeyboardFailure
+{
+     label = "C2";
+     position = (278 56);
+     states = ("yes" "no");
+}
+
+node Motherboard
+{
+     label = "C3";
+     position = (80 301);
+     states = ("Gigabyte" "Else");
+}
+
+node CaseType
+{
+     label = "C4";
+     position = (369 273);
+     states = ("pc" "laptop");
+}
+
+node Keyboard
+{
+     label = "C1";
+     position = (247 288);
+     states = ("wireless" "wired");
+}
+
+node MouseType
+{
+     label = "C2";
+     position = (266 390);
+     states = ("wireless" "wired");
+}
+
+node MouseFailure
+{
+     label = "C3";
+     position = (258 631);
+     states = ("yes" "no");
+}
+
+node MouseFailure_Cause
+{
+     label = "C4";
+     position = (219 474);
+     states = ("bad_driver" "bad_connection" "bad_motherboard");
+}
+
+node MouseManufacturer
+{
+     label = "C5";
+     position = (388 435);
+     states = ("logitech" "bloody");
+}
+
+node ApplicationFailure_Cause
+{
+     label = "C1";
+     position = (1473 227);
+     states = ("bad_os_update" "storage_failure" "missing_dll");
+}
+
+node ApplicationFailure
+{
+     label = "C2";
+     position = (1402 80);
+     states = ("yes" "no");
+}
+
+node OperatingSystem
+{
+     label = "C3";
+     position = (1451 358);
+     states = ("Windows" "Linux");
+}
+
+node AntivirusSoftware
+{
+     label = "C1";
+     position = (1606 366);
+     states = ("yes" "no");
+}
+
+node FrozenScreen_Cause
+{
+     label = "C1";
+     position = (798 618);
+     states = ("ram_overused" "gpu_overused" "cpu_overheat" "gpu_driver" "lack_of_storage");
+}
+
+node FrozenScreen
+{
+     label = "C2";
+     position = (961 722);
+     states = ("yes" "no");
+}
+
+node RAM
+{
+     label = "C4";
+     position = (723 716);
+     states = ("DDR3" "DDR4");
+}
+
+node Monitor
+{
+     label = "C5";
+     position = (722 519);
+     states = ("VA" "TN/IPS" "OLED");
+}
+
+node PCWontRun_Cause
+{
+     label = "C1";
+     position = (53 194);
+     states = ("power_supply_dead" "ram_memory_disconnected" "storage_disconneted" "cpu_overheat" "gpu_overheat");
+}
+
+node PCWontRun
+{
+     label = "C3";
+     position = (98 64);
+     states = ("yes" "no");
+}
+
+node PopUpAd
+{
+     label = "C1";
+     position = (1708 84);
+     states = ("yes" "no");
+}
+
+node PopUpAd_Cause
+{
+     label = "C2";
+     position = (1662 226);
+     states = ("adware" "ransomware" "virus");
+}
+
+node PCWontRun_DroppedComputer_Cause
+{
+     label = "C6";
+     position = (1491 612);
+     states = ("ram_disc" "storage_disc" "cmos_disc" "power_supply_dead" "cpu_overheat" "gpu_overheat");
+}
+
+node PCWontRun_DroppedComputer
+{
+     label = "C7";
+     position = (1313 456);
+     states = ("yes" "no");
+}
+
+node DroppedComputer_PCWontRun
+{
+     label = "C8";
+     position = (1605 490);
+     states = ("yes" "no");
+}
+
+node LowResolution_Cause
+{
+     label = "C1";
+     position = (1174 573);
+     states = ("bad_gpu_driver" "wrong_monitor_resolution");
+}
+
+node LowResolution
+{
+     label = "C2";
+     position = (1373 687);
+     states = ("yes" "no");
+}
+
+node PCBEEP
+{
+     label = "C1";
+     position = (103 458);
+     states = ("yes" "no");
+}
+
+node PCBEEP_Cause
+{
+     label = "C2";
+     position = (66 531);
+     states = ("ram_disconnected" "new_hardware_cmos_need_restart" "cpu_disconnected" "storage_disconnected");
+}
+
+node CmosUsage
+{
+     label = "C3";
+     position = (51 641);
+     states = ("less than year" "2-3years" "more than 3 years");
+}
+
+node BlankMonitor_Cause
+{
+     label = "C1";
+     position = (1017 602);
+     states = ("monitor_failure" "contact_failure" "gpu_failure" "power_supply_failure");
+}
+
+node BlankMonitor
+{
+     label = "C2";
+     position = (1170 731);
+     states = ("yes" "no");
+}
+
+node MissingOperatingSystem_Cause
+{
+     label = "C2";
+     position = (1218 310);
+     states = ("storage_failure" "storage_disconnected" "wrong_bios_version");
+}
+
+node MissingOperatingSystem
+{
+     label = "C4";
+     position = (1295 171);
+     states = ("yes" "no");
+}
+
+node NoInternetConnection_Cause
+{
+     label = "C1";
+     position = (497 566);
+     states = ("power_failure" "driver_failure" "faulty_wifi_card");
+}
+
+node NoInternetConnection
+{
+     label = "C2";
+     position = (569 415);
+     states = ("yes" "no");
+}
+
+node ConnectionType
+{
+     label = "C4";
+     position = (536 690);
+     states = ("lan" "wifi");
+}
+
+potential (BlueScreen_DroppedComputer | BlueScreen_DroppedComputer_Cause)
+{
+ data = (( 0.6 0.39999998 )
+( 0.6 0.39999998 )
+( 0.6 0.39999998 )
+( 0.65 0.35000002 )
+( 0.5 0.5 )
+( 0.55 0.45 )
+( 0.5 0.5 ));
+}
+
+potential (Storage)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (GPU)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (DroppedComputer_BlueScreen | BlueScreen_DroppedComputer_Cause)
+{
+ data = (( 0.29999998 0.69999987 )
+( 0.29999998 0.69999987 )
+( 0.29999998 0.69999987 )
+( 0.29999998 0.69999987 )
+( 0.9 0.1 )
+( 0.85 0.15 )
+( 0.8 0.2 ));
+}
+
+potential (BlueScreen_DroppedComputer_Cause | GPU Storage)
+{
+ data = ((( 0.22 0.075 0.075 0.075 0.185 0.185 0.185 )
+( 0.075 0.22 0.075 0.075 0.185 0.185 0.185 ))
+(( 0.22 0.075 0.075 0.075 0.185 0.185 0.185 )
+( 0.115 0.1 0.115 0.115 0.185 0.185 0.185 )));
+}
+
+potential (BlueScreen_Cause | GPU Storage)
+{
+ data = ((( 0.3 0.1 0.4 0.2 )
+( 0.05 0.2 0.5 0.25 ))
+(( 0.2 0.1 0.6 0.1 )
+( 0.03 0.4 0.3 0.27 )));
+}
+
+potential (BlueScreen | BlueScreen_Cause)
+{
+ data = (( 0.59999996 0.39999995 )
+( 0.59999996 0.39999995 )
+( 0.59999996 0.39999995 )
+( 0.59999996 0.39999995 ));
+}
+
+potential (DroppedComputer | DroppedComputer_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.8 0.2 )
+( 0.7 0.3 ));
+}
+
+potential (DroppedComputer_Cause)
+{
+ data = ( 0.2 0.6 0.2 );
+}
+
+potential (KeyboardFailure_Cause | Keyboard CaseType Motherboard)
+{
+ data = (((( 0.5 0.1 0.4 )
+( 0.45 0.1 0.45 ))
+(( 0.6 0.1 0.3 )
+( 0.55 0.1 0.35 )))
+((( 0.2 0.45 0.35 )
+( 0.2 0.5 0.3 ))
+(( 0.2 0.5 0.3 )
+( 0.2 0.6 0.2 ))));
+}
+
+potential (KeyboardFailure | KeyboardFailure_Cause)
+{
+ data = (( 0.6 0.4 )
+( 0.7 0.3 )
+( 0.6 0.4 ));
+}
+
+potential (Motherboard)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (CaseType)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (Keyboard)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (MouseType)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (MouseFailure | MouseFailure_Cause)
+{
+ data = (( 0.6 0.4 )
+( 0.7 0.3 )
+( 0.6 0.4 ));
+}
+
+potential (MouseFailure_Cause | Motherboard MouseType MouseManufacturer)
+{
+ data = (((( 0.3 0.5 0.2 )
+( 0.3 0.6 0.1 ))
+(( 0.55 0.1 0.35 )
+( 0.6 0.3 0.1 )))
+((( 0.15 0.3 0.55 )
+( 0.5 0.1 0.39999998 ))
+(( 0.35 0.05 0.6 )
+( 0.3 0.1 0.6 ))));
+}
+
+potential (MouseManufacturer)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (ApplicationFailure_Cause | AntivirusSoftware OperatingSystem)
+{
+ data = ((( 0.4 0.5 0.1 )
+( 0.15 0.5 0.35 ))
+(( 0.45 0.4 0.15 )
+( 0.3 0.35 0.35 )));
+}
+
+potential (ApplicationFailure | ApplicationFailure_Cause)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (OperatingSystem)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (AntivirusSoftware)
+{
+ data = ( 0.6 0.4 );
+}
+
+potential (FrozenScreen_Cause | RAM Monitor GPU)
+{
+ data = (((( 0.4 0.3 0.1 0.15 0.05 )
+( 0.4 0.3 0.1 0.05 0.15 ))
+(( 0.4 0.3 0.1 0.15 0.05 )
+( 0.4 0.3 0.1 0.05 0.15 ))
+(( 0.4 0.3 0.1 0.15 0.05 )
+( 0.4 0.3 0.1 0.05 0.15 )))
+((( 0.3 0.35 0.15 0.15 0.05 )
+( 0.3 0.35 0.15 0.05 0.15 ))
+(( 0.3 0.35 0.15 0.15 0.05 )
+( 0.3 0.35 0.15 0.05 0.15 ))
+(( 0.3 0.35 0.15 0.15 0.05 )
+( 0.3 0.35 0.15 0.05 0.15 ))));
+}
+
+potential (FrozenScreen | FrozenScreen_Cause)
+{
+ data = (( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 ));
+}
+
+potential (RAM)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (Monitor)
+{
+ data = ( 0.3 0.35 0.35 );
+}
+
+potential (PCWontRun_Cause)
+{
+ data = ( 0.3 0.45 0.1 0.1 0.05 );
+}
+
+potential (PCWontRun | PCWontRun_Cause)
+{
+ data = (( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 ));
+}
+
+potential (PopUpAd | PopUpAd_Cause)
+{
+ data = (( 0.65 0.35000002 )
+( 0.65 0.35000002 )
+( 0.65 0.35000002 ));
+}
+
+potential (PopUpAd_Cause | AntivirusSoftware)
+{
+ data = (( 0.5 0.3 0.2 )
+( 0.25 0.3 0.45 ));
+}
+
+potential (PCWontRun_DroppedComputer_Cause)
+{
+ data = ( 0.2 0.4 0.1 0.2 0.05 0.05 );
+}
+
+potential (PCWontRun_DroppedComputer | PCWontRun_DroppedComputer_Cause)
+{
+ data = (( 0.8 0.19999999 )
+( 0.9 0.100000024 )
+( 0.8 0.19999999 )
+( 0.5 0.5 )
+( 0.4 0.6 )
+( 0.3 0.7 ));
+}
+
+potential (DroppedComputer_PCWontRun | PCWontRun_DroppedComputer_Cause)
+{
+ data = (( 0.6 0.39999998 )
+( 0.65 0.35000002 )
+( 0.55 0.45 )
+( 0.3 0.7 )
+( 0.2 0.8 )
+( 0.15 0.85 ));
+}
+
+potential (LowResolution_Cause | GPU)
+{
+ data = (( 0.6 0.4 )
+( 0.7 0.3 ));
+}
+
+potential (LowResolution | LowResolution_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.6 0.4 ));
+}
+
+potential (PCBEEP | PCBEEP_Cause)
+{
+ data = (( 0.6999999 0.3 )
+( 0.6999999 0.3 )
+( 0.6999999 0.3 )
+( 0.6999999 0.3 ));
+}
+
+potential (PCBEEP_Cause | CmosUsage)
+{
+ data = (( 0.4 0.3 0.15 0.15 )
+( 0.2 0.55 0.15 0.1 )
+( 0.1 0.8 0.03 0.07 ));
+}
+
+potential (CmosUsage)
+{
+ data = ( 0.4 0.35 0.25 );
+}
+
+potential (BlankMonitor_Cause | GPU)
+{
+ data = (( 0.2 0.3 0.3 0.2 )
+( 0.3 0.3 0.2 0.2 ));
+}
+
+potential (BlankMonitor | BlankMonitor_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.65 0.35000002 )
+( 0.5 0.5 )
+( 0.7 0.3 ));
+}
+
+potential (MissingOperatingSystem_Cause | OperatingSystem Storage)
+{
+ data = ((( 0.5 0.3 0.2 )
+( 0.3 0.3 0.4 ))
+(( 0.6 0.3 0.1 )
+( 0.3 0.4 0.3 )));
+}
+
+potential (MissingOperatingSystem | MissingOperatingSystem_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.65 0.35000002 )
+( 0.4 0.6 ));
+}
+
+potential (NoInternetConnection_Cause | ConnectionType)
+{
+ data = (( 0.4 0.6 0.0 )
+( 0.2 0.1 0.7 ));
+}
+
+potential (NoInternetConnection | NoInternetConnection_Cause)
+{
+ data = (( 0.6 0.39999998 )
+( 0.4 0.6 )
+( 0.7 0.3 ));
+}
+
+potential (ConnectionType)
+{
+ data = ( 0.45 0.55 );
+}
+

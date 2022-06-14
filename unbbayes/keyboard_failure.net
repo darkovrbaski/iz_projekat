@@ -1,0 +1,78 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     tree = "(C1,C2,C3,C4)";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node KeyboardFailure_Cause
+{
+     label = "C1";
+     position = (442 141);
+     states = ("bad_driver" "bad_connection" "bad_motherboard");
+}
+
+node KeyboardFailure
+{
+     label = "C2";
+     position = (466 20);
+     states = ("yes" "no");
+}
+
+node Motherboard
+{
+     label = "C3";
+     position = (204 275);
+     states = ("Gigabyte" "Else");
+}
+
+node CaseType
+{
+     label = "C4";
+     position = (780 313);
+     states = ("pc" "laptop");
+}
+
+node Keyboard
+{
+     label = "C1";
+     position = (444 314);
+     states = ("wireless" "wired");
+}
+
+potential (KeyboardFailure_Cause | Keyboard CaseType Motherboard)
+{
+ data = (((( 0.5 0.1 0.4 )
+( 0.45 0.1 0.45 ))
+(( 0.6 0.1 0.3 )
+( 0.55 0.1 0.35 )))
+((( 0.2 0.45 0.35 )
+( 0.2 0.5 0.3 ))
+(( 0.2 0.5 0.3 )
+( 0.2 0.6 0.2 ))));
+}
+
+potential (KeyboardFailure | KeyboardFailure_Cause)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (Motherboard)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (CaseType)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (Keyboard)
+{
+ data = ( 0.5 0.5 );
+}
+
