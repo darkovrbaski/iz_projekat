@@ -23,7 +23,7 @@ import unbbayes.util.extension.bn.inference.IInferenceAlgorithm;
 public class MalfunctionEvaluationService {
 
 	ProbabilisticNetwork net = new ProbabilisticNetwork("faultEvaluation");
-	
+
 	public List<BayesEvaluationDTO> getEvaluation(MalfunctionSpecsDTO malfunctionSpecsDTO) {
 
 		// get symptoms
@@ -41,14 +41,14 @@ public class MalfunctionEvaluationService {
 
 		for (int i = symptom.size() - 1; i > -1; i--) {
 			if (i == 1) {
-				finalSymptom2 = finalSymptom2.concat(symptom.get(i)+ "_");
+				finalSymptom2 = finalSymptom2.concat(symptom.get(i) + "_");
 			} else {
 				finalSymptom2 = finalSymptom2.concat(symptom.get(i));
 			}
 		}
 
 		symptomCause = finalSymptom1.concat("_Cause");
-		
+
 		// loading from file
 		BaseIO io = new NetIO();
 		try {
@@ -70,11 +70,10 @@ public class MalfunctionEvaluationService {
 			ProbabilisticNode symptomNode2 = (ProbabilisticNode) net.getNode(finalSymptom2);
 			symptomNode2.addFinding(0);
 		}
-		
-		//setComponents
+
+		// setComponents
 		setComponentInputs(malfunctionSpecsDTO);
-		
-		
+
 		// states overview
 		List<Node> nodeList = net.getNodes();
 
@@ -100,119 +99,127 @@ public class MalfunctionEvaluationService {
 		}
 		return bayesEvaluationDTOs;
 	}
-	
+
 	private void setComponentInputs(MalfunctionSpecsDTO malfunctionSpecsDTO) {
-		if(malfunctionSpecsDTO.getGraphicCard()!=null) {
+		if (malfunctionSpecsDTO.getGraphicCard() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("GPU");
-			if(malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("amd")) {
+			if (malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("amd")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("nvidia")){
+			} else if (malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("nvidia")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getStorageType()!=null) {
+
+		if (malfunctionSpecsDTO.getStorageType() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Storage");
-			if(malfunctionSpecsDTO.getStorageType().toLowerCase().equals("hdd")) {
+			if (malfunctionSpecsDTO.getStorageType().toLowerCase().equals("hdd")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getStorageType().toLowerCase().equals("ssd")){
+			} else if (malfunctionSpecsDTO.getStorageType().toLowerCase().equals("ssd")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getKeyboardCaseType()!=null) {
+
+		if (malfunctionSpecsDTO.getKeyboardCaseType() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("CaseType");
-			if(malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("pc")) {
+			if (malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("pc")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("laptop")){
+			} else if (malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("laptop")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getKeyboardType()!=null) {
+
+		if (malfunctionSpecsDTO.getKeyboardType() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Keyboard");
-			if(malfunctionSpecsDTO.getKeyboardType().toLowerCase().equals("wireless")) {
+			if (malfunctionSpecsDTO.getKeyboardType().toLowerCase().equals("wireless")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getKeyboardType().toLowerCase().equals("wired")){
+			} else if (malfunctionSpecsDTO.getKeyboardType().toLowerCase().equals("wired")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getMouseManufacturer()!=null) {
+
+		if (malfunctionSpecsDTO.getMouseManufacturer() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("MouseManufacturer");
-			if(malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("logitech")) {
+			if (malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("logitech")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("bloody")){
+			} else if (malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("bloody")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getMouseType()!=null) {
+
+		if (malfunctionSpecsDTO.getMouseType() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("MouseType");
-			if(malfunctionSpecsDTO.getMouseType().toLowerCase().equals("wireless")) {
+			if (malfunctionSpecsDTO.getMouseType().toLowerCase().equals("wireless")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getMouseType().toLowerCase().equals("wired")){
+			} else if (malfunctionSpecsDTO.getMouseType().toLowerCase().equals("wired")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getMotherboard()!=null) {
+
+		if (malfunctionSpecsDTO.getMotherboard() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Motherboard");
-			if(malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("gigabyte")) {
+			if (malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("gigabyte")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("else")){
+			} else if (malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("else")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getAntivirusSoftware()!=null) {
+
+		if (malfunctionSpecsDTO.getAntivirusSoftware() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("AntivirusSoftware");
-			if(malfunctionSpecsDTO.getAntivirusSoftware().toLowerCase().equals("yes")) {
+			if (malfunctionSpecsDTO.getAntivirusSoftware().toLowerCase().equals("yes")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getAntivirusSoftware().toLowerCase().equals("no")){
+			} else if (malfunctionSpecsDTO.getAntivirusSoftware().toLowerCase().equals("no")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getOperatingSystem()!=null) {
+
+		if (malfunctionSpecsDTO.getOperatingSystem() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("OperatingSystem");
-			if(malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("windows")) {
+			if (malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("windows")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("linux")){
+			} else if (malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("linux")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getMemoryType()!=null) {
+
+		if (malfunctionSpecsDTO.getMemoryType() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("RAM");
-			if(malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr3")) {
+			if (malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr3")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr4")){
+			} else if (malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr4")) {
 				componentNode.addFinding(1);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getMonitor()!=null) {
+
+		if (malfunctionSpecsDTO.getMonitor() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Monitor");
-			if(malfunctionSpecsDTO.getMonitor().toLowerCase().equals("va")) {
+			if (malfunctionSpecsDTO.getMonitor().toLowerCase().equals("va")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getMonitor().toLowerCase().equals("tn/ips")){
+			} else if (malfunctionSpecsDTO.getMonitor().toLowerCase().equals("tn/ips")) {
 				componentNode.addFinding(1);
-			}else if(malfunctionSpecsDTO.getMonitor().toLowerCase().equals("oled")){
+			} else if (malfunctionSpecsDTO.getMonitor().toLowerCase().equals("oled")) {
 				componentNode.addFinding(2);
 			}
 		}
-		
-		if(malfunctionSpecsDTO.getCmosUsage()!=null) {
+
+		if (malfunctionSpecsDTO.getCmosUsage() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("CmosUsage");
-			if(malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("less than 1 year")) {
+			if (malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("less than 1 year")) {
 				componentNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("2-3 years")){
+			} else if (malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("2-3 years")) {
 				componentNode.addFinding(1);
-			}else if(malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("more than 3 years")){
+			} else if (malfunctionSpecsDTO.getCmosUsage().toLowerCase().equals("more than 3 years")) {
 				componentNode.addFinding(2);
+			}
+		}
+
+		if (malfunctionSpecsDTO.getConnectionType() != null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("ConnectionType");
+			if (malfunctionSpecsDTO.getConnectionType().toLowerCase().equals("lan")) {
+				componentNode.addFinding(0);
+			} else if (malfunctionSpecsDTO.getConnectionType().toLowerCase().equals("wifi")) {
+				componentNode.addFinding(1);
 			}
 		}
 	}
-
 }

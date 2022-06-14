@@ -18,7 +18,16 @@ public class MalfunctionSpecsDTO {
 	private String antivirusSoftware;
 	private String monitor;
 	private String cmosUsage;
+	private String connectionType;
 	private List<String> symptoms;
+
+	public String getConnectionType() {
+		return connectionType;
+	}
+
+	public void setConnectionType(String connectionType) {
+		this.connectionType = connectionType;
+	}
 
 	public String getCmosUsage() {
 		return cmosUsage;
