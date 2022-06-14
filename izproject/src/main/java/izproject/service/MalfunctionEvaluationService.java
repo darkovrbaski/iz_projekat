@@ -1,5 +1,6 @@
 package izproject.service;
 
+import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -64,8 +65,10 @@ public class MalfunctionEvaluationService {
 		algorithm.setNetwork(net);
 		algorithm.run();
 		// set state
+		if(symptom.size()>0) {
 		ProbabilisticNode symptomNode = (ProbabilisticNode) net.getNode(finalSymptom1);
 		symptomNode.addFinding(0);
+		}
 		if (symptom.size() > 1) {
 			ProbabilisticNode symptomNode2 = (ProbabilisticNode) net.getNode(finalSymptom2);
 			symptomNode2.addFinding(0);
