@@ -10,10 +10,10 @@ import { PurposeEvaluationService } from 'src/app/services/purpose-evaluation.se
 })
 export class PurposeEvaluationComponent implements OnInit {
   computerSpec: IComputerSpec = {
-    numberOfCores: 0,
-    singleCoreClock: 0,
-    ramSize: 0,
-    vRamSize: 0,
+    numberOfCores: 1,
+    singleCoreClock: 1,
+    ramSize: 1,
+    vRamSize: 0.5,
     gpuHashRate: 0,
   };
   purposeEvaluation: IPurposeEvaluation = {

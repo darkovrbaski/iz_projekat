@@ -93,17 +93,17 @@ RULEBLOCK No1
 	ACCU : MAX;			// Use 'max' accumulation method
 
 	// General rules
-	RULE 1 : IF number_of_cores IS low THEN gaming IS low;
+	RULE 1 : IF number_of_cores IS low THEN gaming IS zero;
 	RULE 2 : IF number_of_cores IS low THEN hosting IS zero;
 	
-	RULE 3 : IF single_core_clock IS low THEN gaming IS low;
-	RULE 4 : IF single_core_clock IS low THEN hosting IS low;
+	RULE 3 : IF single_core_clock IS low THEN gaming IS zero;
+	RULE 4 : IF single_core_clock IS low THEN hosting IS zero;
 
-	RULE 5 : IF ram_size IS low THEN gaming IS low;
+	RULE 5 : IF ram_size IS low THEN gaming IS zero;
 	RULE 6 : IF ram_size IS low THEN mining IS zero;
 	RULE 7 : IF ram_size IS low THEN hosting IS zero;
 	
-	RULE 8 : IF v_ram_size IS low THEN gaming IS low;
+	RULE 8 : IF v_ram_size IS low THEN gaming IS zero;
 
 	RULE 9 : IF gpu_hash_rate IS zero THEN mining IS zero;
 	
