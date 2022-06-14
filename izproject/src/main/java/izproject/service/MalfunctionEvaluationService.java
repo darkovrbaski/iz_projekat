@@ -103,27 +103,27 @@ public class MalfunctionEvaluationService {
 	private void setComponentInputs(MalfunctionSpecsDTO malfunctionSpecsDTO) {
 		if (malfunctionSpecsDTO.getGraphicCard() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("GPU");
-			if (malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("amd")) {
+			if (malfunctionSpecsDTO.getGraphicCard().toLowerCase().contains("amd")) {
 				componentNode.addFinding(0);
-			} else if (malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("nvidia")) {
+			} else if (malfunctionSpecsDTO.getGraphicCard().toLowerCase().contains("nvidia")) {
 				componentNode.addFinding(1);
 			}
 		}
 
 		if (malfunctionSpecsDTO.getStorageType() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Storage");
-			if (malfunctionSpecsDTO.getStorageType().toLowerCase().equals("hdd")) {
+			if (malfunctionSpecsDTO.getStorageType().toLowerCase().contains("hdd")) {
 				componentNode.addFinding(0);
-			} else if (malfunctionSpecsDTO.getStorageType().toLowerCase().equals("ssd")) {
+			} else if (malfunctionSpecsDTO.getStorageType().toLowerCase().contains("ssd")) {
 				componentNode.addFinding(1);
 			}
 		}
 
 		if (malfunctionSpecsDTO.getKeyboardCaseType() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("CaseType");
-			if (malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("pc")) {
+			if (malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().contains("pc")) {
 				componentNode.addFinding(0);
-			} else if (malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("laptop")) {
+			} else if (malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().contains("laptop")) {
 				componentNode.addFinding(1);
 			}
 		}
@@ -139,9 +139,9 @@ public class MalfunctionEvaluationService {
 
 		if (malfunctionSpecsDTO.getMouseManufacturer() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("MouseManufacturer");
-			if (malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("logitech")) {
+			if (malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().contains("logitech")) {
 				componentNode.addFinding(0);
-			} else if (malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("bloody")) {
+			} else if (malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().contains("bloody")) {
 				componentNode.addFinding(1);
 			}
 		}
@@ -157,9 +157,9 @@ public class MalfunctionEvaluationService {
 
 		if (malfunctionSpecsDTO.getMotherboard() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Motherboard");
-			if (malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("gigabyte")) {
+			if (malfunctionSpecsDTO.getMotherboard().toLowerCase().contains("gigabyte")) {
 				componentNode.addFinding(0);
-			} else if (malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("else")) {
+			} else if (malfunctionSpecsDTO.getMotherboard().toLowerCase().contains("else")) {
 				componentNode.addFinding(1);
 			}
 		}
@@ -175,18 +175,18 @@ public class MalfunctionEvaluationService {
 
 		if (malfunctionSpecsDTO.getOperatingSystem() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("OperatingSystem");
-			if (malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("windows")) {
+			if (malfunctionSpecsDTO.getOperatingSystem().toLowerCase().contains("windows")) {
 				componentNode.addFinding(0);
-			} else if (malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("linux")) {
+			} else if (malfunctionSpecsDTO.getOperatingSystem().toLowerCase().contains("linux")) {
 				componentNode.addFinding(1);
 			}
 		}
 
 		if (malfunctionSpecsDTO.getMemoryType() != null) {
 			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("RAM");
-			if (malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr3")) {
+			if (malfunctionSpecsDTO.getMemoryType().toLowerCase().contains("ddr3")) {
 				componentNode.addFinding(0);
-			} else if (malfunctionSpecsDTO.getMemoryType().toLowerCase().equals("ddr4")) {
+			} else if (malfunctionSpecsDTO.getMemoryType().toLowerCase().contains("ddr4")) {
 				componentNode.addFinding(1);
 			}
 		}
