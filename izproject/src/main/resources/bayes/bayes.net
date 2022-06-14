@@ -66,7 +66,7 @@ node DroppedComputer
 node DroppedComputer_Cause
 {
      label = "C17";
-     position = (502 238);
+     position = (504 238);
      states = ("ram_disc" "storage_disc" "cmos_disc");
 }
 
@@ -192,14 +192,14 @@ node Monitor
 node PCWontRun_Cause
 {
      label = "C1";
-     position = (51 177);
+     position = (53 194);
      states = ("power_supply_dead" "ram_memory_disconnected" "storage_disconneted" "cpu_overheat" "gpu_overheat");
 }
 
 node PCWontRun
 {
      label = "C3";
-     position = (98 47);
+     position = (98 64);
      states = ("yes" "no");
 }
 
@@ -215,6 +215,27 @@ node PopUpAd_Cause
      label = "C2";
      position = (1636 236);
      states = ("adware" "ransomware" "virus");
+}
+
+node PCWontRun_DroppedComputer_Cause
+{
+     label = "C6";
+     position = (1395 593);
+     states = ("ram_disc" "storage_disc" "cmos_disc" "power_supply_dead" "cpu_overheat" "gpu_overheat");
+}
+
+node PCWontRun_DroppedComputer
+{
+     label = "C7";
+     position = (1283 425);
+     states = ("yes" "no");
+}
+
+node DroppedComputer_PCWontRun
+{
+     label = "C8";
+     position = (1566 425);
+     states = ("yes" "no");
 }
 
 potential (BlueScreen_DroppedComputer | BlueScreen_DroppedComputer_Cause)
@@ -433,5 +454,30 @@ potential (PopUpAd_Cause | AntivirusSoftware)
 {
  data = (( 0.5 0.3 0.2 )
 ( 0.25 0.3 0.45 ));
+}
+
+potential (PCWontRun_DroppedComputer_Cause)
+{
+ data = ( 0.2 0.4 0.1 0.2 0.05 0.05 );
+}
+
+potential (PCWontRun_DroppedComputer | PCWontRun_DroppedComputer_Cause)
+{
+ data = (( 0.8 0.19999999 )
+( 0.9 0.100000024 )
+( 0.8 0.19999999 )
+( 0.5 0.5 )
+( 0.4 0.6 )
+( 0.3 0.7 ));
+}
+
+potential (DroppedComputer_PCWontRun | PCWontRun_DroppedComputer_Cause)
+{
+ data = (( 0.6 0.39999998 )
+( 0.65 0.35000002 )
+( 0.55 0.45 )
+( 0.3 0.7 )
+( 0.2 0.8 )
+( 0.15 0.85 ));
 }
 
