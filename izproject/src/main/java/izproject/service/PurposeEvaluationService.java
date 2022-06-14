@@ -20,6 +20,7 @@ public class PurposeEvaluationService {
 		fis.setVariable("single_core_clock", computerSpecDTO.getSingleCoreClock());
 		fis.setVariable("ram_size", computerSpecDTO.getRamSize());
 		fis.setVariable("v_ram_size", computerSpecDTO.getvRamSize());
+		fis.setVariable("gpu_hash_rate", computerSpecDTO.getGpuHashRate());
 
 		fis.evaluate();
 
@@ -28,6 +29,9 @@ public class PurposeEvaluationService {
 		Variable miningAnalise = fis.getFunctionBlock("computer_purpose_evaluation").getVariable("mining");
 		Variable hostingAnalise = fis.getFunctionBlock("computer_purpose_evaluation").getVariable("hosting");
 		JFuzzyChart.get().chart(homeUseAnalise, homeUseAnalise.getDefuzzifier(), true);
+		JFuzzyChart.get().chart(gamingAnalise, gamingAnalise.getDefuzzifier(), true);
+		JFuzzyChart.get().chart(miningAnalise, gamingAnalise.getDefuzzifier(), true);
+		JFuzzyChart.get().chart(hostingAnalise, gamingAnalise.getDefuzzifier(), true);
 
 		PurposeEvaluationDTO prposeEvaluationDTO = new PurposeEvaluationDTO();
 		prposeEvaluationDTO.setHomeUse((double) Math.round(homeUseAnalise.getValue() * 100d) / 100d);
