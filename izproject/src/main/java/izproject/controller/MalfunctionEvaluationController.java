@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import izproject.dto.BayesEvaluationDTO;
 import izproject.dto.MalfunctionSpecsDTO;
-import izproject.dto.PurposeEvaluationDTO;
 import izproject.service.MalfunctionEvaluationService;
 
 @RestController

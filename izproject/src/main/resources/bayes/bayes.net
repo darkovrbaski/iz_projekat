@@ -59,14 +59,14 @@ node BlueScreen
 node DroppedComputer
 {
      label = "C13";
-     position = (525 97);
+     position = (508 630);
      states = ("yes" "no");
 }
 
 node DroppedComputer_Cause
 {
      label = "C17";
-     position = (558 275);
+     position = (469 510);
      states = ("ram_disc" "storage_disc" "cmos_disc");
 }
 
@@ -115,7 +115,7 @@ node MouseType
 node MouseFailure
 {
      label = "C3";
-     position = (120 606);
+     position = (258 631);
      states = ("yes" "no");
 }
 
@@ -150,7 +150,7 @@ node ApplicationFailure
 node OperatingSystem
 {
      label = "C3";
-     position = (1334 313);
+     position = (1313 341);
      states = ("Windows" "Linux");
 }
 
@@ -164,14 +164,14 @@ node AntivirusSoftware
 node FrozenScreen_Cause
 {
      label = "C1";
-     position = (996 535);
+     position = (983 572);
      states = ("ram_overused" "gpu_overused" "cpu_overheat" "gpu_driver" "lack_of_storage");
 }
 
 node FrozenScreen
 {
      label = "C2";
-     position = (1043 633);
+     position = (1029 676);
      states = ("yes" "no");
 }
 
@@ -241,49 +241,63 @@ node DroppedComputer_PCWontRun
 node LowResolution_Cause
 {
      label = "C1";
-     position = (1210 557);
+     position = (1139 657);
      states = ("bad_gpu_driver" "wrong_monitor_resolution");
 }
 
 node LowResolution
 {
      label = "C2";
-     position = (1271 639);
+     position = (1181 735);
      states = ("yes" "no");
 }
 
 node PCBEEP
 {
      label = "C1";
-     position = (486 510);
+     position = (588 57);
      states = ("yes" "no");
 }
 
 node PCBEEP_Cause
 {
      label = "C2";
-     position = (490 596);
+     position = (458 232);
      states = ("ram_disconnected" "new_hardware_cmos_need_restart" "cpu_disconnected" "storage_disconnected");
 }
 
 node CmosUsage
 {
      label = "C3";
-     position = (374 667);
+     position = (429 340);
      states = ("less than year" "2-3years" "more than 3 years");
 }
 
 node BlankMonitor_Cause
 {
      label = "C1";
-     position = (1206 346);
+     position = (1252 528);
      states = ("monitor_failure" "contact_failure" "gpu_failure" "power_supply_failure");
 }
 
 node BlankMonitor
 {
      label = "C2";
-     position = (1263 185);
+     position = (1331 654);
+     states = ("yes" "no");
+}
+
+node MissingOperatingSystem_Cause
+{
+     label = "C2";
+     position = (649 345);
+     states = ("storage_failure" "storage_disconnected" "wrong_bios_version");
+}
+
+node MissingOperatingSystem
+{
+     label = "C4";
+     position = (595 193);
      states = ("yes" "no");
 }
 
@@ -574,5 +588,20 @@ potential (BlankMonitor | BlankMonitor_Cause)
 ( 0.65 0.35000002 )
 ( 0.5 0.5 )
 ( 0.7 0.3 ));
+}
+
+potential (MissingOperatingSystem_Cause | OperatingSystem Storage)
+{
+ data = ((( 0.5 0.3 0.2 )
+( 0.3 0.3 0.4 ))
+(( 0.6 0.3 0.1 )
+( 0.3 0.4 0.3 )));
+}
+
+potential (MissingOperatingSystem | MissingOperatingSystem_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.65 0.35000002 )
+( 0.4 0.6 ));
 }
 
