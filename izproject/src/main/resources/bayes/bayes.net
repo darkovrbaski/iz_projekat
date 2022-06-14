@@ -2,46 +2,75 @@ net
 {
      node_size = (0 0);
      name = "New BN";
+     tree = "(C1,C3,C4,C5,C8,C7,C10,C13,C17)";
      UnBBayes_Color_Probabilistic_Description = "-256";
      UnBBayes_Color_Probabilistic_Explanation = "-16711936";
 }
 
-node BlueScreen
+node BlueScreen_DroppedComputer
 {
      label = "C1";
-     position = (988 42);
+     position = (935 45);
      states = ("yes" "no");
 }
 
 node Storage
 {
      label = "C3";
-     position = (713 478);
+     position = (890 463);
      states = ("hdd" "ssd");
 }
 
 node GPU
 {
      label = "C4";
-     position = (1017 475);
+     position = (1170 465);
      states = ("amd" "nvidia");
 }
 
-node Dropped_Computer
+node DroppedComputer_BlueScreen
 {
      label = "C5";
-     position = (693 35);
+     position = (671 31);
      states = ("yes" "no");
+}
+
+node BlueScreen_DroppedComputer_Cause
+{
+     label = "C8";
+     position = (795 231);
+     states = ("storage_corruption" "lack_of_memory_space" "bad_hardware_installation" "component_overheat" "ram_disc" "cmos_disc" "storage_disc");
 }
 
 node BlueScreen_Cause
 {
-     label = "C8";
-     position = (831 234);
-     states = ("storage_corruption" "lack_of_memory_space" "bad_hardware_installation" "component_overheat" "ram_disc" "cmos_disc" "storage_disc");
+     label = "C7";
+     position = (1135 238);
+     states = ("storage_corruption" "lack_of_memory_space" "bad_hardware_installation" "component_overheat");
 }
 
-potential (BlueScreen | BlueScreen_Cause)
+node BlueScreen
+{
+     label = "C10";
+     position = (1236 42);
+     states = ("yes" "no");
+}
+
+node DroppedComputer
+{
+     label = "C13";
+     position = (396 32);
+     states = ("yes" "no");
+}
+
+node DroppedComputer_Cause
+{
+     label = "C17";
+     position = (443 256);
+     states = ("ram_disc" "storage_disc" "cmos_disc");
+}
+
+potential (BlueScreen_DroppedComputer | BlueScreen_DroppedComputer_Cause)
 {
  data = (( 0.6 0.39999998 )
 ( 0.6 0.39999998 )
@@ -62,7 +91,7 @@ potential (GPU)
  data = ( 0.5 0.5 );
 }
 
-potential (Dropped_Computer | BlueScreen_Cause)
+potential (DroppedComputer_BlueScreen | BlueScreen_DroppedComputer_Cause)
 {
  data = (( 0.29999998 0.69999987 )
 ( 0.29999998 0.69999987 )
@@ -73,11 +102,39 @@ potential (Dropped_Computer | BlueScreen_Cause)
 ( 0.8 0.2 ));
 }
 
-potential (BlueScreen_Cause | GPU Storage)
+potential (BlueScreen_DroppedComputer_Cause | GPU Storage)
 {
  data = ((( 0.22 0.075 0.075 0.075 0.185 0.185 0.185 )
 ( 0.075 0.22 0.075 0.075 0.185 0.185 0.185 ))
 (( 0.22 0.075 0.075 0.075 0.185 0.185 0.185 )
 ( 0.115 0.1 0.115 0.115 0.185 0.185 0.185 )));
+}
+
+potential (BlueScreen_Cause | GPU Storage)
+{
+ data = ((( 0.3 0.1 0.4 0.2 )
+( 0.05 0.2 0.5 0.25 ))
+(( 0.2 0.1 0.6 0.1 )
+( 0.03 0.4 0.3 0.27 )));
+}
+
+potential (BlueScreen | BlueScreen_Cause)
+{
+ data = (( 0.59999996 0.39999995 )
+( 0.59999996 0.39999995 )
+( 0.59999996 0.39999995 )
+( 0.59999996 0.39999995 ));
+}
+
+potential (DroppedComputer | DroppedComputer_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.8 0.2 )
+( 0.7 0.3 ));
+}
+
+potential (DroppedComputer_Cause)
+{
+ data = ( 0.2 0.6 0.2 );
 }
 
