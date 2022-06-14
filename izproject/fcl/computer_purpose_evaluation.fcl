@@ -5,6 +5,7 @@ VAR_INPUT				// Define input variables
 	single_core_clock : REAL;
 	ram_size : REAL;
 	v_ram_size : REAL;
+	gpu_hash_rate: REAL;
 END_VAR
 
 VAR_OUTPUT				// Define output variable
@@ -36,6 +37,14 @@ FUZZIFY v_ram_size
 	TERM low := (0.5,1) (0.8,1) (3,0);
 	TERM medium := (2,0) (4,1) (8,0);
 	TERM high := (6,0) (48,1);
+END_FUZZIFY
+
+FUZZIFY gpu_hash_rate
+	TERM zero := (0,1) (16,0);
+	TERM low := (15,0) (30,1) (60,0);
+	TERM medium := (55,0) (70,1) (90,0);
+	TERM high := (85,0) (100,1) (130,0);
+	TERM one := (120,0) (200,1);
 END_FUZZIFY
 
 DEFUZZIFY home_use
@@ -91,11 +100,12 @@ RULEBLOCK No1
 	RULE 4 : IF single_core_clock IS low THEN hosting IS low;
 
 	RULE 5 : IF ram_size IS low THEN gaming IS low;
-	RULE 6 : IF ram_size IS low THEN mining IS low;
+	RULE 6 : IF ram_size IS low THEN mining IS zero;
 	RULE 7 : IF ram_size IS low THEN hosting IS zero;
 	
 	RULE 8 : IF v_ram_size IS low THEN gaming IS low;
-	RULE 9 : IF v_ram_size IS low THEN mining IS low;
+
+	RULE 9 : IF gpu_hash_rate IS zero THEN mining IS zero;
 	
 	// Home use rules
 	RULE 10 : IF number_of_cores IS low AND single_core_clock IS low AND ram_size IS low AND v_ram_size IS low THEN home_use IS zero;
@@ -190,10 +200,11 @@ RULEBLOCK No1
 	RULE 85	: IF number_of_cores IS high AND single_core_clock IS high AND ram_size IS high AND v_ram_size IS medium  THEN hosting IS one;
 	RULE 86	: IF number_of_cores IS high AND single_core_clock IS high AND ram_size IS high AND v_ram_size IS high  THEN hosting IS one;
 		
-
 	// Mining rules
-	
-		
+	RULE 87	: IF gpu_hash_rate IS low  THEN mining IS low;
+	RULE 88	: IF gpu_hash_rate IS medium  THEN mining IS medium;
+	RULE 89	: IF gpu_hash_rate IS high  THEN mining IS high;
+	RULE 89	: IF gpu_hash_rate IS one  THEN mining IS one;
 
 END_RULEBLOCK
 

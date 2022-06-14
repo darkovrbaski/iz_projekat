@@ -6,6 +6,7 @@ public class ComputerSpecDTO {
 	private double singleCoreClock;
 	private int ramSize;
 	private double vRamSize;
+	private double gpuHashRate;
 
 	public int getNumberOfCores() {
 		return numberOfCores;
@@ -21,6 +22,10 @@ public class ComputerSpecDTO {
 
 	public double getvRamSize() {
 		return vRamSize;
+	}
+
+	public double getGpuHashRate() {
+		return gpuHashRate;
 	}
 
 }

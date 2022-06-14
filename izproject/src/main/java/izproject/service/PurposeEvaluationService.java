@@ -20,6 +20,7 @@ public class PurposeEvaluationService {
 		fis.setVariable("single_core_clock", computerSpecDTO.getSingleCoreClock());
 		fis.setVariable("ram_size", computerSpecDTO.getRamSize());
 		fis.setVariable("v_ram_size", computerSpecDTO.getvRamSize());
+		fis.setVariable("gpu_hash_rate", computerSpecDTO.getGpuHashRate());
 
 		fis.evaluate();
 
