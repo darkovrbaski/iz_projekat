@@ -59,14 +59,14 @@ node BlueScreen
 node DroppedComputer
 {
      label = "C13";
-     position = (552 132);
+     position = (525 97);
      states = ("yes" "no");
 }
 
 node DroppedComputer_Cause
 {
      label = "C17";
-     position = (553 297);
+     position = (558 275);
      states = ("ram_disc" "storage_disc" "cmos_disc");
 }
 
@@ -94,7 +94,7 @@ node Motherboard
 node CaseType
 {
      label = "C4";
-     position = (410 261);
+     position = (355 286);
      states = ("pc" "laptop");
 }
 
@@ -115,14 +115,14 @@ node MouseType
 node MouseFailure
 {
      label = "C3";
-     position = (258 631);
+     position = (120 606);
      states = ("yes" "no");
 }
 
 node MouseFailure_Cause
 {
      label = "C4";
-     position = (227 526);
+     position = (219 474);
      states = ("bad_driver" "bad_connection" "bad_motherboard");
 }
 
@@ -136,35 +136,35 @@ node MouseManufacturer
 node ApplicationFailure_Cause
 {
      label = "C1";
-     position = (1456 203);
+     position = (1401 229);
      states = ("bad_os_update" "storage_failure" "missing_dll");
 }
 
 node ApplicationFailure
 {
      label = "C2";
-     position = (1509 82);
+     position = (1402 80);
      states = ("yes" "no");
 }
 
 node OperatingSystem
 {
      label = "C3";
-     position = (1410 322);
+     position = (1334 313);
      states = ("Windows" "Linux");
 }
 
 node AntivirusSoftware
 {
      label = "C1";
-     position = (1602 331);
+     position = (1539 326);
      states = ("yes" "no");
 }
 
 node FrozenScreen_Cause
 {
      label = "C1";
-     position = (1043 565);
+     position = (996 535);
      states = ("ram_overused" "gpu_overused" "cpu_overheat" "gpu_driver" "lack_of_storage");
 }
 
@@ -206,14 +206,14 @@ node PCWontRun
 node PopUpAd
 {
      label = "C1";
-     position = (1719 94);
+     position = (1636 110);
      states = ("yes" "no");
 }
 
 node PopUpAd_Cause
 {
      label = "C2";
-     position = (1666 208);
+     position = (1636 236);
      states = ("adware" "ransomware" "virus");
 }
 
@@ -241,36 +241,50 @@ node DroppedComputer_PCWontRun
 node LowResolution_Cause
 {
      label = "C1";
-     position = (1227 325);
+     position = (1210 557);
      states = ("bad_gpu_driver" "wrong_monitor_resolution");
 }
 
 node LowResolution
 {
      label = "C2";
-     position = (1346 153);
+     position = (1271 639);
      states = ("yes" "no");
 }
 
 node PCBEEP
 {
      label = "C1";
-     position = (506 496);
+     position = (486 510);
      states = ("yes" "no");
 }
 
 node PCBEEP_Cause
 {
      label = "C2";
-     position = (503 574);
+     position = (490 596);
      states = ("ram_disconnected" "new_hardware_cmos_need_restart" "cpu_disconnected" "storage_disconnected");
 }
 
 node CmosUsage
 {
      label = "C3";
-     position = (559 638);
-     states = ("less_than_year" "2-3years" "more_than_3years");
+     position = (374 667);
+     states = ("less than year" "2-3years" "more than 3 years");
+}
+
+node BlankMonitor_Cause
+{
+     label = "C1";
+     position = (1206 346);
+     states = ("monitor_failure" "contact_failure" "gpu_failure" "power_supply_failure");
+}
+
+node BlankMonitor
+{
+     label = "C2";
+     position = (1263 185);
+     states = ("yes" "no");
 }
 
 potential (BlueScreen_DroppedComputer | BlueScreen_DroppedComputer_Cause)
@@ -546,5 +560,19 @@ potential (PCBEEP_Cause | CmosUsage)
 potential (CmosUsage)
 {
  data = ( 0.4 0.35 0.25 );
+}
+
+potential (BlankMonitor_Cause | GPU)
+{
+ data = (( 0.2 0.3 0.3 0.2 )
+( 0.3 0.3 0.2 0.2 ));
+}
+
+potential (BlankMonitor | BlankMonitor_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.65 0.35000002 )
+( 0.5 0.5 )
+( 0.7 0.3 ));
 }
 
