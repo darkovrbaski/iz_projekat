@@ -1,0 +1,47 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node NoInternetConnection_Cause
+{
+     label = "C1";
+     position = (402 139);
+     states = ("power_failure" "driver_failure" "need_wifi_card");
+}
+
+node NoInternetConnection
+{
+     label = "C2";
+     position = (434 33);
+     states = ("yes" "no");
+}
+
+node ConnectionType
+{
+     label = "C4";
+     position = (628 264);
+     states = ("lan" "wifi");
+}
+
+potential (NoInternetConnection_Cause | ConnectionType)
+{
+ data = (( 0.4 0.6 0.0 )
+( 0.2 0.1 0.7 ));
+}
+
+potential (NoInternetConnection | NoInternetConnection_Cause)
+{
+ data = (( 0.6 0.39999998 )
+( 0.4 0.6 )
+( 0.7 0.3 ));
+}
+
+potential (ConnectionType)
+{
+ data = ( 0.45 0.55 );
+}
+

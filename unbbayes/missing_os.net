@@ -1,0 +1,61 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node OperatingSystem
+{
+     label = "C1";
+     position = (632 301);
+     states = ("Windows" "Linux");
+}
+
+node MissingOperatingSystem_Cause
+{
+     label = "C2";
+     position = (423 118);
+     states = ("storage_failure" "storage_disconnected" "wrong_bios_version");
+}
+
+node Storage
+{
+     label = "C3";
+     position = (311 296);
+     states = ("hdd" "ssd");
+}
+
+node MissingOperatingSystem
+{
+     label = "C4";
+     position = (444 0);
+     states = ("yes" "no");
+}
+
+potential (OperatingSystem)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (MissingOperatingSystem_Cause | OperatingSystem Storage)
+{
+ data = ((( 0.5 0.3 0.2 )
+( 0.3 0.3 0.4 ))
+(( 0.6 0.3 0.1 )
+( 0.3 0.4 0.3 )));
+}
+
+potential (Storage)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (MissingOperatingSystem | MissingOperatingSystem_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.65 0.35000002 )
+( 0.4 0.6 ));
+}
+

@@ -1,0 +1,46 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node LowResolution_Cause
+{
+     label = "C1";
+     position = (398 149);
+     states = ("bad_gpu_driver" "wrong_monitor_resolution");
+}
+
+node LowResolution
+{
+     label = "C2";
+     position = (424 52);
+     states = ("yes" "no");
+}
+
+node GPU
+{
+     label = "C3";
+     position = (264 230);
+     states = ("Amd" "Nvidia");
+}
+
+potential (LowResolution_Cause | GPU)
+{
+ data = (( 0.6 0.4 )
+( 0.7 0.3 ));
+}
+
+potential (LowResolution | LowResolution_Cause)
+{
+ data = (( 0.7 0.3 )
+( 0.6 0.4 ));
+}
+
+potential (GPU)
+{
+ data = ( 0.6 0.4 );
+}
+
