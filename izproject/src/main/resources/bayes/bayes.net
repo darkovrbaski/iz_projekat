@@ -2,7 +2,7 @@ net
 {
      node_size = (0 0);
      name = "New BN";
-     tree = "(C1,C3,C4,C5,C8,C7,C10,C13,C17)";
+     tree = "(C1,C3,C4,C5,C8,C7,C10,C13,C17,C2)";
      UnBBayes_Color_Probabilistic_Description = "-256";
      UnBBayes_Color_Probabilistic_Explanation = "-16711936";
 }
@@ -31,7 +31,7 @@ node GPU
 node DroppedComputer_BlueScreen
 {
      label = "C5";
-     position = (671 31);
+     position = (704 45);
      states = ("yes" "no");
 }
 
@@ -59,15 +59,106 @@ node BlueScreen
 node DroppedComputer
 {
      label = "C13";
-     position = (396 32);
+     position = (523 40);
      states = ("yes" "no");
 }
 
 node DroppedComputer_Cause
 {
      label = "C17";
-     position = (443 256);
+     position = (615 279);
      states = ("ram_disc" "storage_disc" "cmos_disc");
+}
+
+node KeyboardFailure_Cause
+{
+     label = "C1";
+     position = (239 169);
+     states = ("bad_driver" "bad_connection" "bad_motherboard");
+}
+
+node KeyboardFailure
+{
+     label = "C2";
+     position = (278 56);
+     states = ("yes" "no");
+}
+
+node Motherboard
+{
+     label = "C3";
+     position = (80 301);
+     states = ("Gigabyte" "Else");
+}
+
+node CaseType
+{
+     label = "C4";
+     position = (355 286);
+     states = ("pc" "laptop");
+}
+
+node Keyboard
+{
+     label = "C1";
+     position = (247 288);
+     states = ("wireless" "wired");
+}
+
+node MouseType
+{
+     label = "C2";
+     position = (266 390);
+     states = ("wireless" "wired");
+}
+
+node MouseFailure
+{
+     label = "C3";
+     position = (258 631);
+     states = ("yes" "no");
+}
+
+node MouseFailure_Cause
+{
+     label = "C4";
+     position = (219 474);
+     states = ("bad_driver" "bad_connection" "bad_motherboard");
+}
+
+node MouseManufacturer
+{
+     label = "C5";
+     position = (550 428);
+     states = ("logitech" "bloody");
+}
+
+node ApplicationFailure_Cause
+{
+     label = "C1";
+     position = (1401 229);
+     states = ("bad_os_update" "storage_failure" "missing_dll");
+}
+
+node ApplicationFailure
+{
+     label = "C2";
+     position = (1402 80);
+     states = ("yes" "no");
+}
+
+node OperatingSystem
+{
+     label = "C3";
+     position = (1334 313);
+     states = ("Windows" "Linux");
+}
+
+node AntivirusSoftware
+{
+     label = "C1";
+     position = (1539 326);
+     states = ("yes" "no");
 }
 
 potential (BlueScreen_DroppedComputer | BlueScreen_DroppedComputer_Cause)
@@ -136,5 +227,93 @@ potential (DroppedComputer | DroppedComputer_Cause)
 potential (DroppedComputer_Cause)
 {
  data = ( 0.2 0.6 0.2 );
+}
+
+potential (KeyboardFailure_Cause | Keyboard CaseType Motherboard)
+{
+ data = (((( 0.5 0.1 0.4 )
+( 0.45 0.1 0.45 ))
+(( 0.6 0.1 0.3 )
+( 0.55 0.1 0.35 )))
+((( 0.2 0.45 0.35 )
+( 0.2 0.5 0.3 ))
+(( 0.2 0.5 0.3 )
+( 0.2 0.6 0.2 ))));
+}
+
+potential (KeyboardFailure | KeyboardFailure_Cause)
+{
+ data = (( 0.6 0.4 )
+( 0.7 0.3 )
+( 0.6 0.4 ));
+}
+
+potential (Motherboard)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (CaseType)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (Keyboard)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (MouseType)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (MouseFailure | MouseFailure_Cause)
+{
+ data = (( 0.6 0.4 )
+( 0.7 0.3 )
+( 0.6 0.4 ));
+}
+
+potential (MouseFailure_Cause | Motherboard MouseType MouseManufacturer)
+{
+ data = (((( 0.3 0.5 0.2 )
+( 0.3 0.6 0.1 ))
+(( 0.55 0.1 0.35 )
+( 0.6 0.3 0.1 )))
+((( 0.15 0.3 0.55 )
+( 0.5 0.1 0.39999998 ))
+(( 0.35 0.05 0.6 )
+( 0.3 0.1 0.6 ))));
+}
+
+potential (MouseManufacturer)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (ApplicationFailure_Cause | AntivirusSoftware OperatingSystem)
+{
+ data = ((( 0.4 0.5 0.1 )
+( 0.15 0.5 0.35 ))
+(( 0.45 0.4 0.15 )
+( 0.3 0.35 0.35 )));
+}
+
+potential (ApplicationFailure | ApplicationFailure_Cause)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (OperatingSystem)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (AntivirusSoftware)
+{
+ data = ( 0.6 0.4 );
 }
 

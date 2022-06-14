@@ -1,0 +1,36 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node Cause_pc_wont_run
+{
+     label = "C1";
+     position = (252 106);
+     states = ("power_supply_dead" "ram_memory_disconnected" "storage_disconneted" "cpu_overheat" "gpu_overheat");
+}
+
+node pc_wont_run
+{
+     label = "C3";
+     position = (460 37);
+     states = ("yes" "no");
+}
+
+potential (Cause_pc_wont_run)
+{
+ data = ( 0.3 0.45 0.1 0.1 0.05 );
+}
+
+potential (pc_wont_run | Cause_pc_wont_run)
+{
+ data = (( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 ));
+}
+

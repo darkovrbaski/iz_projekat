@@ -22,6 +22,8 @@ import unbbayes.util.extension.bn.inference.IInferenceAlgorithm;
 @Service
 public class MalfunctionEvaluationService {
 
+	ProbabilisticNetwork net = new ProbabilisticNetwork("faultEvaluation");
+	
 	public List<BayesEvaluationDTO> getEvaluation(MalfunctionSpecsDTO malfunctionSpecsDTO) {
 
 		// get symptoms
@@ -46,8 +48,6 @@ public class MalfunctionEvaluationService {
 		}
 
 		symptomCause = finalSymptom1.concat("_Cause");
-
-		ProbabilisticNetwork net = new ProbabilisticNetwork("faultEvaluation");
 		
 		// loading from file
 		BaseIO io = new NetIO();
@@ -71,24 +71,10 @@ public class MalfunctionEvaluationService {
 			symptomNode2.addFinding(0);
 		}
 		
-		if(malfunctionSpecsDTO.getGraphicCard()!=null) {
-			ProbabilisticNode gpuNode = (ProbabilisticNode) net.getNode("GPU");
-			if(malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("amd")) {
-				gpuNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("nvidia")){
-				gpuNode.addFinding(1);
-			}
-		}
+		//setComponents
+		setComponentInputs(malfunctionSpecsDTO);
 		
-		if(malfunctionSpecsDTO.getStorageType()!=null) {
-			ProbabilisticNode gpuNode = (ProbabilisticNode) net.getNode("Storage");
-			if(malfunctionSpecsDTO.getStorageType().toLowerCase().equals("hdd")) {
-				gpuNode.addFinding(0);
-			} else if(malfunctionSpecsDTO.getStorageType().toLowerCase().equals("ssd")){
-				gpuNode.addFinding(1);
-			}
-		}
-
+		
 		// states overview
 		List<Node> nodeList = net.getNodes();
 
@@ -113,6 +99,89 @@ public class MalfunctionEvaluationService {
 					((ProbabilisticNode) outputNode).getMarginalAt(i)));
 		}
 		return bayesEvaluationDTOs;
+	}
+	
+	private void setComponentInputs(MalfunctionSpecsDTO malfunctionSpecsDTO) {
+		if(malfunctionSpecsDTO.getGraphicCard()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("GPU");
+			if(malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("amd")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getGraphicCard().toLowerCase().equals("nvidia")){
+				componentNode.addFinding(1);
+			}
+		}
+		
+		if(malfunctionSpecsDTO.getStorageType()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Storage");
+			if(malfunctionSpecsDTO.getStorageType().toLowerCase().equals("hdd")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getStorageType().toLowerCase().equals("ssd")){
+				componentNode.addFinding(1);
+			}
+		}
+		
+		if(malfunctionSpecsDTO.getKeyboardCaseType()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("CaseType");
+			if(malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("pc")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getKeyboardCaseType().toLowerCase().equals("laptop")){
+				componentNode.addFinding(1);
+			}
+		}
+		
+		if(malfunctionSpecsDTO.getKeyboardType()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Keyboard");
+			if(malfunctionSpecsDTO.getKeyboardType().toLowerCase().equals("wireless")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getKeyboardType().toLowerCase().equals("wired")){
+				componentNode.addFinding(1);
+			}
+		}
+		
+		if(malfunctionSpecsDTO.getMouseManufacturer()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("MouseManufacturer");
+			if(malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("logitech")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getMouseManufacturer().toLowerCase().equals("bloody")){
+				componentNode.addFinding(1);
+			}
+		}
+		
+		if(malfunctionSpecsDTO.getMouseType()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("MouseType");
+			if(malfunctionSpecsDTO.getMouseType().toLowerCase().equals("wireless")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getMouseType().toLowerCase().equals("wired")){
+				componentNode.addFinding(1);
+			}
+		}
+		
+		if(malfunctionSpecsDTO.getMotherboard()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("Motherboard");
+			if(malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("gigabyte")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getMotherboard().toLowerCase().equals("else")){
+				componentNode.addFinding(1);
+			}
+		}
+		
+		if(malfunctionSpecsDTO.getAntivirusSoftware()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("AntivirusSoftware");
+			if(malfunctionSpecsDTO.getAntivirusSoftware().toLowerCase().equals("yes")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getAntivirusSoftware().toLowerCase().equals("no")){
+				componentNode.addFinding(1);
+			}
+		}
+		
+		if(malfunctionSpecsDTO.getOperatingSystem()!=null) {
+			ProbabilisticNode componentNode = (ProbabilisticNode) net.getNode("OperatingSystem");
+			if(malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("windows")) {
+				componentNode.addFinding(0);
+			} else if(malfunctionSpecsDTO.getOperatingSystem().toLowerCase().equals("linux")){
+				componentNode.addFinding(1);
+			}
+		}
 	}
 
 }
