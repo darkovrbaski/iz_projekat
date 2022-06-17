@@ -12,7 +12,7 @@ import net.sourceforge.jFuzzyLogic.rule.Variable;
 public class PurposeEvaluationService {
 
 	public PurposeEvaluationDTO getPurposeEvaluation(ComputerSpecDTO computerSpecDTO) {
-		FIS fis = loadFCL();
+		FIS fis = loadFCL("/fcl/computer_purpose_evaluation.fcl");
 
 		JFuzzyChart.get().chart(fis.getFunctionBlock("computer_purpose_evaluation"));
 
@@ -41,10 +41,10 @@ public class PurposeEvaluationService {
 		return prposeEvaluationDTO;
 	}
 
-	private FIS loadFCL() {
-		FIS fis = FIS.load("fcl/computer_purpose_evaluation.fcl", true);
+	private FIS loadFCL(String fileName) {
+		FIS fis = FIS.load(this.getClass().getResourceAsStream(fileName), true);
 		if (fis == null) {
-			System.err.println("Can't load file");
+			System.err.println("Can't load file: " + fileName);
 			System.exit(1);
 		}
 		return fis;

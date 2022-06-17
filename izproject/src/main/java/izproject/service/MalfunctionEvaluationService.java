@@ -55,7 +55,6 @@ public class MalfunctionEvaluationService {
 			net = (ProbabilisticNetwork) io
 					.load(new File(TypeReference.class.getResource("/bayes/bayes.net").toURI().getPath()));
 		} catch (IOException | URISyntaxException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 
