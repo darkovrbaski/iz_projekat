@@ -21,8 +21,8 @@
 
 	<repositories>
 		<repository>
-			<id>maven-repository</id>
-			<url>file://${project.basedir}/maven-repository</url>
+			<id>local-mvn-repo</id>
+			<url>file://${project.basedir}/local-mvn-repo</url>
 		</repository>
 	</repositories>
 
@@ -54,6 +54,27 @@
 			<groupId>net.sourceforge.jFuzzyLogic</groupId>
 			<artifactId>jFuzzyLogic</artifactId>
 			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.unbbayes</groupId>
+			<artifactId>unbbayes</artifactId>
+			<version>4.22.18</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.sf.jpf/jpf -->
+		<dependency>
+			<groupId>net.sf.jpf</groupId>
+			<artifactId>jpf</artifactId>
+			<version>1.5</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
