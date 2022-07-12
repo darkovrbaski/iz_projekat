@@ -1,29 +1,27 @@
-import { IComponentsPurposeEvaluation } from './../model/componentsPurposeEvaluation';
-import { IPurposeEvaluation } from './../model/purposeEvaluation';
+import { IComponentProperty } from './../model/componentProperty';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { IComputerSpec } from '../model/computerSpec';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PurposeEvaluationService {
-  private purposeEvaluationUrl = `${environment.apiUrl}/purposeEvaluation`;
+export class ComponentService {
+  private componentUrl = `${environment.apiUrl}/component`;
 
   constructor(private http: HttpClient) {}
 
-  getPurposeEvaluation(computerSpec: IComputerSpec): Observable<IPurposeEvaluation> {
+  getComponent(component: string): Observable<any> {
     return this.http
-      .post<IPurposeEvaluation>(`${this.purposeEvaluationUrl}`, computerSpec)
+      .post<any>(`${this.componentUrl}`, component)
       .pipe(catchError(this.handleError));
   }
 
-  getPurposeEvaluationComponent(computers: IComponentsPurposeEvaluation): Observable<IPurposeEvaluation> {
+  getComponentPropery(componentProperty: IComponentProperty): Observable<any> {
     return this.http
-      .post<IPurposeEvaluation>(`${this.purposeEvaluationUrl}/component`, computers)
+      .post<any>(`${this.componentUrl}/property`, componentProperty)
       .pipe(catchError(this.handleError));
   }
 

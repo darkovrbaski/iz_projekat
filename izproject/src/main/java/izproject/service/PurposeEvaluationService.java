@@ -1,7 +1,9 @@
 package izproject.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import izproject.dto.ComponentsPurposeEvaluationDTO;
 import izproject.dto.ComputerSpecDTO;
 import izproject.dto.PurposeEvaluationDTO;
 import net.sourceforge.jFuzzyLogic.FIS;
@@ -10,6 +12,25 @@ import net.sourceforge.jFuzzyLogic.rule.Variable;
 
 @Service
 public class PurposeEvaluationService {
+
+	@Autowired
+	private ComponentService componentService;
+
+	public PurposeEvaluationDTO getPurposeEvaluationComponents(ComponentsPurposeEvaluationDTO components) {
+		int numberOfCores = Integer
+				.parseInt(componentService.getComponentProperty(components.getCpuName(), "processorClock"));
+		double singleCoreClock = Double
+				.parseDouble(componentService.getComponentProperty(components.getCpuName(), "processorCores"));
+		int ramSize = Integer
+				.parseInt(componentService.getComponentProperty(components.getRamName(), "memoryCapacity"));
+		double vRamSize = Double.parseDouble(
+				componentService.getComponentProperty(components.getGpuName(), "graphicCardMemory"));
+		double gpuHashRate = Double.parseDouble(
+				componentService.getComponentProperty(components.getGpuName(), "graphicCardHashRate"));
+		ComputerSpecDTO computerSpecDTO = new ComputerSpecDTO(numberOfCores, singleCoreClock, ramSize, vRamSize,
+				gpuHashRate);
+		return getPurposeEvaluation(computerSpecDTO);
+	}
 
 	public PurposeEvaluationDTO getPurposeEvaluation(ComputerSpecDTO computerSpecDTO) {
 		FIS fis = loadFCL("/fcl/computer_purpose_evaluation.fcl");

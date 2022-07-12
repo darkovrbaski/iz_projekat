@@ -1,3 +1,5 @@
+import { ComponentService } from './../../services/component.service';
+import { IComponentsPurposeEvaluation } from './../../model/componentsPurposeEvaluation';
 import { Component, OnInit } from '@angular/core';
 import { IComputerSpec } from 'src/app/model/computerSpec';
 import { IPurposeEvaluation } from 'src/app/model/purposeEvaluation';
@@ -22,16 +24,51 @@ export class PurposeEvaluationComponent implements OnInit {
     mining: 0,
     hosting: 0,
   };
+  purposeEvaluationComponent: IPurposeEvaluation = {
+    homeUse: 0,
+    gaming: 0,
+    mining: 0,
+    hosting: 0,
+  };
+  components: IComponentsPurposeEvaluation = {
+    cpuName: '',
+    gpuName: '',
+    ramName: '',
+  };
+  cpuList: string[] = [];
+  gpuList: string[] = [];
+  ramList: string[] = [];
 
-  constructor(private purposeEvaluationService: PurposeEvaluationService) {}
+  constructor(
+    private purposeEvaluationService: PurposeEvaluationService,
+    private componentService: ComponentService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.componentService
+      .getComponent('Processor')
+      .subscribe((data) => (this.cpuList = data));
+    this.componentService
+      .getComponent('GraphicsCard')
+      .subscribe((data) => (this.gpuList = data));
+    this.componentService
+      .getComponent('Memory')
+      .subscribe((data) => (this.ramList = data));
+  }
 
   getPurposeEvaluation() {
     this.purposeEvaluationService
       .getPurposeEvaluation(this.computerSpec)
       .subscribe((purposeEvaluation) => {
         this.purposeEvaluation = purposeEvaluation;
+      });
+  }
+
+  getPurposeEvaluationComponent() {
+    this.purposeEvaluationService
+      .getPurposeEvaluationComponent(this.components)
+      .subscribe((purposeEvaluation) => {
+        this.purposeEvaluationComponent = purposeEvaluation;
       });
   }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import izproject.dto.ComponentsPurposeEvaluationDTO;
 import izproject.dto.ComputerSpecDTO;
 import izproject.dto.PurposeEvaluationDTO;
 import izproject.service.PurposeEvaluationService;
@@ -25,6 +26,12 @@ public class PurposeEvaluationController {
 	@PostMapping
 	public ResponseEntity<PurposeEvaluationDTO> getEvaluation(@RequestBody ComputerSpecDTO computerSpecDTO) {
 		PurposeEvaluationDTO purposeEvaluationDTO = evaluationService.getPurposeEvaluation(computerSpecDTO);
+		return new ResponseEntity<>(purposeEvaluationDTO, HttpStatus.OK);
+	}
+	
+	@PostMapping("/component")
+	public ResponseEntity<PurposeEvaluationDTO> getEvaluation(@RequestBody ComponentsPurposeEvaluationDTO componentsPurposeEvaluationDTO) {
+		PurposeEvaluationDTO purposeEvaluationDTO = evaluationService.getPurposeEvaluationComponents(componentsPurposeEvaluationDTO);
 		return new ResponseEntity<>(purposeEvaluationDTO, HttpStatus.OK);
 	}
 

@@ -7,6 +7,16 @@ public class ComputerSpecDTO {
 	private int ramSize;
 	private double vRamSize;
 	private double gpuHashRate;
+	
+	public ComputerSpecDTO(int numberOfCores, double singleCoreClock, int ramSize, double vRamSize,
+			double gpuHashRate) {
+		super();
+		this.numberOfCores = numberOfCores;
+		this.singleCoreClock = singleCoreClock;
+		this.ramSize = ramSize;
+		this.vRamSize = vRamSize;
+		this.gpuHashRate = gpuHashRate;
+	}
 
 	public int getNumberOfCores() {
 		return numberOfCores;
