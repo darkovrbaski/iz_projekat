@@ -1,7 +1,15 @@
 package izproject.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.springframework.stereotype.Service;
 
 import izproject.util.QueryUtil;
@@ -10,27 +18,18 @@ import izproject.util.QueryUtil;
 public class ComponentService {
 
 	public List<String> getComponents(String component){
-        String queryString = 
-        		izproject.util.Prefix.RDF
-                + izproject.util.Prefix.OWL
-                + izproject.util.Prefix.RDFS
-                + izproject.util.Prefix.XML
-                + izproject.util.Prefix.CLASSES
-                +" "
-                +"SELECT ?x "
-                +"WHERE "
-                +"{"
-                +" ?x rdf:type"
-                +" classes:" + component
-                +" ."
-                +"}";
+		OWLReasoner reasoner = QueryUtil.getReasoner();
 
-        
-        //queryString = String.format(queryString, value);
-        System.out.println(queryString);
-        //List<List<String>> rows = OwlReaderUtil.executeQueryTwoColumn(getServletContext(), queryString);
-        return QueryUtil.executeQueryOneColumn(queryString);
+		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
+		OWLDataFactory df = man.getOWLDataFactory();
+		IRI ontology = IRI.create("https://github.com/darkovrbaski/iz_projekat/master/classes.owl#" + component);
 
+		List<String> rows = new ArrayList<>();
+		Set<OWLNamedIndividual> a = reasoner.getInstances(df.getOWLClass(ontology)).getFlattened();
+		for (OWLNamedIndividual owlNamedIndividual : a) {
+			rows.add(owlNamedIndividual.getIRI().getShortForm());
+		}
+		return rows;
     }
 
 	public String getComponentProperty(String componentName, String propery) {

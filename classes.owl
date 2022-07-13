@@ -175,7 +175,7 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#hasPortInterface
 :hasPortInterface rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:domain :Motherboard ;
+                  rdfs:domain :Hardware ;
                   rdfs:range :PortInterface .
 
 
@@ -230,7 +230,7 @@
 :graphicCardDirectXVersion rdf:type owl:DatatypeProperty ;
                            rdfs:subPropertyOf owl:topDataProperty ;
                            rdfs:domain :GraphicsCard ;
-                           rdfs:range xsd:float .
+                           rdfs:range xsd:string .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardId
@@ -270,7 +270,7 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardMemory
 :graphicCardMemory rdf:type owl:DatatypeProperty ;
                    rdfs:domain :GraphicsCard ;
-                   rdfs:range xsd:float .
+                   rdfs:range xsd:int .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardMemoryType
@@ -358,7 +358,7 @@
 :motherboardSupportedRamSlot rdf:type owl:DatatypeProperty ;
                              rdfs:subPropertyOf owl:topDataProperty ;
                              rdfs:domain :Motherboard ;
-                             rdfs:range xsd:int .
+                             rdfs:range xsd:string .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#powerSupply
@@ -427,7 +427,7 @@
 :storageCapacity rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf owl:topDataProperty ;
                  rdfs:domain :Storage ;
-                 rdfs:range xsd:string .
+                 rdfs:range xsd:int .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#storageConnector
@@ -448,14 +448,14 @@
 :storageReadSpeed rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf owl:topDataProperty ;
                   rdfs:domain :Storage ;
-                  rdfs:range xsd:float .
+                  rdfs:range xsd:int .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#storageWriteSpeed
 :storageWriteSpeed rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf owl:topDataProperty ;
                    rdfs:domain :Storage ;
-                   rdfs:range xsd:float .
+                   rdfs:range xsd:int .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#wireless
@@ -1324,25 +1324,25 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDFireProW4100
 :AMDFireProW4100 rdf:type owl:NamedIndividual ,
                           :GraphicsCard ;
-                 :graphicCardIsOnBoard "YES"^^xsd:string .
+                 :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDRadeonR5330
 :AMDRadeonR5330 rdf:type owl:NamedIndividual ,
                          :GraphicsCard ;
-                :graphicCardIsOnBoard "YES"^^xsd:string .
+                :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDRadeonR5340X
 :AMDRadeonR5340X rdf:type owl:NamedIndividual ,
                           :GraphicsCard ;
-                 :graphicCardIsOnBoard "YES"^^xsd:string .
+                 :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDRadeonR9390X
 :AMDRadeonR9390X rdf:type owl:NamedIndividual ,
                           :GraphicsCard ;
-                 :graphicCardIsOnBoard "YES"^^xsd:string .
+                 :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_RYZEN_5_5500
@@ -1957,13 +1957,13 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SA400M8
 :KINGSTON_SA400M8 rdf:type owl:NamedIndividual ,
                            :SSD ;
-                  :hasSlotType :SATA3.0 .
+                  :hasPortInterface :SATA3.0 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SKC600
 :KINGSTON_SKC600 rdf:type owl:NamedIndividual ,
                           :SSD ;
-                 :hasSlotType :SATA3.0 .
+                 :hasPortInterface :SATA3.0 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SNVS
@@ -2051,97 +2051,97 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIAGeForceRTX2070SUPER
 :NVIDIAGeForceRTX2070SUPER rdf:type owl:NamedIndividual ,
                                     :GraphicsCard ;
-                           :graphicCardIsOnBoard "YES"^^xsd:string .
+                           :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_705
 :NVIDIA_GeForce_705 rdf:type owl:NamedIndividual ,
                              :GraphicsCard ;
-                    :graphicCardIsOnBoard "YES"^^xsd:string .
+                    :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GT705
 :NVIDIA_GeForce_GT705 rdf:type owl:NamedIndividual ,
                                :GraphicsCard ;
-                      :graphicCardIsOnBoard "YES"^^xsd:string .
+                      :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GT730
 :NVIDIA_GeForce_GT730 rdf:type owl:NamedIndividual ,
                                :GraphicsCard ;
-                      :graphicCardIsOnBoard "YES"^^xsd:string .
+                      :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1050
 :NVIDIA_GeForce_GTX1050 rdf:type owl:NamedIndividual ,
                                  :GraphicsCard ;
-                        :graphicCardIsDiscrete "YES"^^xsd:string .
+                        :graphicCardIsDiscrete "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1050Ti
 :NVIDIA_GeForce_GTX1050Ti rdf:type owl:NamedIndividual ,
                                    :GraphicsCard ;
-                          :graphicCardIsOnBoard "YES"^^xsd:string .
+                          :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1060
 :NVIDIA_GeForce_GTX1060 rdf:type owl:NamedIndividual ,
                                  :GraphicsCard ;
-                        :graphicCardIsDiscrete "YES"^^xsd:string .
+                        :graphicCardIsDiscrete "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1070
 :NVIDIA_GeForce_GTX1070 rdf:type owl:NamedIndividual ,
                                  :GraphicsCard ;
-                        :graphicCardIsOnBoard "YES"^^xsd:string .
+                        :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1080
 :NVIDIA_GeForce_GTX1080 rdf:type owl:NamedIndividual ,
                                  :GraphicsCard ;
-                        :graphicCardIsOnBoard "YES"^^xsd:string .
+                        :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1080Ti
 :NVIDIA_GeForce_GTX1080Ti rdf:type owl:NamedIndividual ,
                                    :GraphicsCard ;
-                          :graphicCardIsDiscrete "YES"^^xsd:string .
+                          :graphicCardIsDiscrete "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX745
 :NVIDIA_GeForce_GTX745 rdf:type owl:NamedIndividual ,
                                 :GraphicsCard ;
-                       :graphicCardIsOnBoard "YES"^^xsd:string .
+                       :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX750Ti
 :NVIDIA_GeForce_GTX750Ti rdf:type owl:NamedIndividual ,
                                   :GraphicsCard ;
-                         :graphicCardIsOnBoard "YES"^^xsd:string .
+                         :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX760Ti
 :NVIDIA_GeForce_GTX760Ti rdf:type owl:NamedIndividual ,
                                   :GraphicsCard ;
-                         :graphicCardIsOnBoard "YES"^^xsd:string .
+                         :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX950
 :NVIDIA_GeForce_GTX950 rdf:type owl:NamedIndividual ,
                                 :GraphicsCard ;
-                       :graphicCardIsOnBoard "YES"^^xsd:string .
+                       :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX960
 :NVIDIA_GeForce_GTX960 rdf:type owl:NamedIndividual ,
                                 :GraphicsCard ;
-                       :graphicCardIsOnBoard "YES"^^xsd:string .
+                       :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX970
 :NVIDIA_GeForce_GTX970 rdf:type owl:NamedIndividual ,
                                 :GraphicsCard ;
-                       :graphicCardIsOnBoard "YES"^^xsd:string .
+                       :graphicCardIsOnBoard "true"^^xsd:boolean .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NZXT_C650
