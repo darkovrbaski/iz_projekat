@@ -42,13 +42,13 @@ public class CbrApplication implements StandardCBRApplication {
 		simConfig = new NNConfig(); // KNN configuration
 		simConfig.setDescriptionSimFunction(new Average());  // global similarity function = average
 		
-		simConfig.addMapping(new Attribute("manufacturer", ProcessorCaseDescription.class), new Equal());
+		TableSimilarity processorManufacturerSimilarity = new TableSimilarity(Arrays.asList(new String[] {"AMD","Intel"}));
+		processorManufacturerSimilarity.setSimilarity("AMD", "Intel", 0.5);
+		simConfig.addMapping(new Attribute("manufacturer", ProcessorCaseDescription.class), processorManufacturerSimilarity);
 		simConfig.addMapping(new Attribute("numOfCores", ProcessorCaseDescription.class), new Interval(4));
 		simConfig.addMapping(new Attribute("clockSpeed", ProcessorCaseDescription.class), new Interval(0.8));
 		
-		TableSimilarity motherboardManufacturerSimilarity = new TableSimilarity(Arrays.asList(new String[] {"AMD","Intel"}));
-		motherboardManufacturerSimilarity.setSimilarity("AMD", "Intel", 0.5);
-		simConfig.addMapping(new Attribute("manufacturer", MotherboardCaseDescription.class), motherboardManufacturerSimilarity);
+		simConfig.addMapping(new Attribute("manufacturer", MotherboardCaseDescription.class), new Equal());
 		
 		simConfig.addMapping(new Attribute("memory", GPUCaseDescription.class), new Interval(4));
 		simConfig.addMapping(new Attribute("hashRate", GPUCaseDescription.class), new Interval(1000));
