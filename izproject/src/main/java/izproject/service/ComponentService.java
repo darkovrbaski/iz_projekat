@@ -32,7 +32,7 @@ public class ComponentService {
 		return rows;
     }
 
-	public String getComponentProperty(String componentName, String propery) {
+	public String getComponentDataProperty(String componentName, String propery) {
 		 String queryString = 
 	        		izproject.util.Prefix.RDF
 	                + izproject.util.Prefix.OWL
@@ -48,6 +48,25 @@ public class ComponentService {
 	                +" ?x ."
 	                +"}";
 		 String value = QueryUtil.executeQueryOneColumnLiteral(queryString).get(0);
+		 return value.substring(0, value.indexOf("^^"));
+	}
+	
+	public String getComponentObjectProperty(String componentName, String propery) {
+		 String queryString = 
+	        		izproject.util.Prefix.RDF
+	                + izproject.util.Prefix.OWL
+	                + izproject.util.Prefix.RDFS
+	                + izproject.util.Prefix.XML
+	                + izproject.util.Prefix.CLASSES
+	                +" "
+	                +"SELECT ?x "
+	                +"WHERE "
+	                +"{"
+	                +" classes:" + componentName
+	                +" classes:" + propery
+	                +" ?x ."
+	                +"}";
+		 String value = QueryUtil.executeQueryOneColumn(queryString).get(0);
 		 return value.substring(0, value.indexOf("^^"));
 	}
 }

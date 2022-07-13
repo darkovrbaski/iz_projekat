@@ -5,19 +5,19 @@ import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
 
 public class MotherboardCaseDescription implements CaseComponent {
 
-	private String manufacturer;
+	private String name;
 
-	private String model;
+	private String manufacturer;
 
 	public MotherboardCaseDescription() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public MotherboardCaseDescription(String manufacturer, String model) {
+	public MotherboardCaseDescription(String name, String manufacturer) {
 		super();
+		this.name = name;
 		this.manufacturer = manufacturer;
-		this.model = model;
 	}
 
 	public String getManufacturer() {
@@ -28,18 +28,18 @@ public class MotherboardCaseDescription implements CaseComponent {
 		this.manufacturer = manufacturer;
 	}
 
-	public String getModel() {
-		return model;
-	}
-
-	public void setModel(String model) {
-		this.model = model;
-	}
-
 	@Override
 	public Attribute getIdAttribute() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

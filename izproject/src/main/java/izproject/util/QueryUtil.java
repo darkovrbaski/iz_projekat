@@ -46,7 +46,7 @@ public class QueryUtil {
 
 			while (results.hasNext()) {
 				QuerySolution solution = results.nextSolution();
-
+				
 				Resource x = solution.getResource("x");
 
 				values.add(x.getLocalName());

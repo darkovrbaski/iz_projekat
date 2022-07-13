@@ -58,7 +58,6 @@ public class CbrApplication implements StandardCBRApplication {
 		
 		simConfig.addMapping(new Attribute("type", StorageCaseDescription.class), new Equal());
 		simConfig.addMapping(new Attribute("capacity", StorageCaseDescription.class), new Interval(400));
-		// TODO
 
 		// Equal - returns 1 if both individuals are equal, otherwise returns 0
 		// Interval - returns the similarity of two number inside an interval: sim(x,y) = 1-(|x-y|/interval)

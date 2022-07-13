@@ -1,22 +1,16 @@
 package izproject.dto;
 
-import izproject.similiar.model.GPUCaseDescription;
-import izproject.similiar.model.MotherboardCaseDescription;
-import izproject.similiar.model.ProcessorCaseDescription;
-import izproject.similiar.model.RAMCaseDescription;
-import izproject.similiar.model.StorageCaseDescription;
-
 public class PCSimilarityDTO {
 
-	private ProcessorCaseDescription processorCaseDescription;
+	private String processor;
 
-	private MotherboardCaseDescription motherboardCaseDescription;
+	private String motherboard;
 
-	private GPUCaseDescription gpuCaseDescription;
+	private String gpu;
 
-	private RAMCaseDescription ramCaseDescription;
+	private String ram;
 
-	private StorageCaseDescription storageCaseDescription;
+	private String storage;
 
 	private double similarityValue;
 
@@ -25,57 +19,55 @@ public class PCSimilarityDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PCSimilarityDTO(ProcessorCaseDescription processorCaseDescription,
-			MotherboardCaseDescription motherboardCaseDescription, GPUCaseDescription gpuCaseDescription,
-			RAMCaseDescription ramCaseDescription, StorageCaseDescription storageCaseDescription,
+	public PCSimilarityDTO(String processor, String motherboard, String gpu, String ram, String storage,
 			double similarityValue) {
 		super();
-		this.processorCaseDescription = processorCaseDescription;
-		this.motherboardCaseDescription = motherboardCaseDescription;
-		this.gpuCaseDescription = gpuCaseDescription;
-		this.ramCaseDescription = ramCaseDescription;
-		this.storageCaseDescription = storageCaseDescription;
+		this.processor = processor;
+		this.motherboard = motherboard;
+		this.gpu = gpu;
+		this.ram = ram;
+		this.storage = storage;
 		this.similarityValue = similarityValue;
 	}
 
-	public ProcessorCaseDescription getProcessorCaseDescription() {
-		return processorCaseDescription;
+	public String getProcessor() {
+		return processor;
 	}
 
-	public void setProcessorCaseDescription(ProcessorCaseDescription processorCaseDescription) {
-		this.processorCaseDescription = processorCaseDescription;
+	public void setProcessor(String processor) {
+		this.processor = processor;
 	}
 
-	public MotherboardCaseDescription getMotherboardCaseDescription() {
-		return motherboardCaseDescription;
+	public String getMotherboard() {
+		return motherboard;
 	}
 
-	public void setMotherboardCaseDescription(MotherboardCaseDescription motherboardCaseDescription) {
-		this.motherboardCaseDescription = motherboardCaseDescription;
+	public void setMotherboard(String motherboard) {
+		this.motherboard = motherboard;
 	}
 
-	public GPUCaseDescription getGpuCaseDescription() {
-		return gpuCaseDescription;
+	public String getGpu() {
+		return gpu;
 	}
 
-	public void setGpuCaseDescription(GPUCaseDescription gpuCaseDescription) {
-		this.gpuCaseDescription = gpuCaseDescription;
+	public void setGpu(String gpu) {
+		this.gpu = gpu;
 	}
 
-	public RAMCaseDescription getRamCaseDescription() {
-		return ramCaseDescription;
+	public String getRam() {
+		return ram;
 	}
 
-	public void setRamCaseDescription(RAMCaseDescription ramCaseDescription) {
-		this.ramCaseDescription = ramCaseDescription;
+	public void setRam(String ram) {
+		this.ram = ram;
 	}
 
-	public StorageCaseDescription getStorageCaseDescription() {
-		return storageCaseDescription;
+	public String getStorage() {
+		return storage;
 	}
 
-	public void setStorageCaseDescription(StorageCaseDescription storageCaseDescription) {
-		this.storageCaseDescription = storageCaseDescription;
+	public void setStorage(String storage) {
+		this.storage = storage;
 	}
 
 	public double getSimilarityValue() {

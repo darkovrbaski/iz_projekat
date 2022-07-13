@@ -5,18 +5,18 @@ import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
 
 public class ProcessorCaseDescription implements CaseComponent {
 
-	private String manufacturer;
+	private String name;
 
-	private String model;
+	private String manufacturer;
 
 	private int numOfCores;
 
 	private float clockSpeed;
 
-	public ProcessorCaseDescription(String manufacturer, String model, int numOfCores, float clockSpeed) {
+	public ProcessorCaseDescription(String name, String manufacturer, int numOfCores, float clockSpeed) {
 		super();
+		this.name = name;
 		this.manufacturer = manufacturer;
-		this.model = model;
 		this.numOfCores = numOfCores;
 		this.clockSpeed = clockSpeed;
 	}
@@ -32,14 +32,6 @@ public class ProcessorCaseDescription implements CaseComponent {
 
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
-	}
-
-	public String getModel() {
-		return model;
-	}
-
-	public void setModel(String model) {
-		this.model = model;
 	}
 
 	public float getClockSpeed() {
@@ -62,5 +54,13 @@ public class ProcessorCaseDescription implements CaseComponent {
 
 	public void setNumOfCores(int numOfCores) {
 		this.numOfCores = numOfCores;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

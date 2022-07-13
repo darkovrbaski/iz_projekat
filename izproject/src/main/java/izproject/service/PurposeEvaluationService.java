@@ -17,11 +17,11 @@ public class PurposeEvaluationService {
 	private ComponentService componentService;
 
 	public PurposeEvaluationDTO getPurposeEvaluationComponents(ComponentsPurposeEvaluationDTO components) {
-		int numberOfCores = Integer.parseInt(componentService.getComponentProperty(components.getCpuName(), "processorCores"));
-		double singleCoreClock = Double.parseDouble(componentService.getComponentProperty(components.getCpuName(), "processorClock"));
-		int ramSize = Integer.parseInt(componentService.getComponentProperty(components.getRamName(), "memoryCapacity"));
-		double vRamSize = Double.parseDouble(componentService.getComponentProperty(components.getGpuName(), "graphicCardMemory"));
-		double gpuHashRate = Double.parseDouble(componentService.getComponentProperty(components.getGpuName(), "graphicCardHashRate"));
+		int numberOfCores = Integer.parseInt(componentService.getComponentDataProperty(components.getCpuName(), "processorCores"));
+		double singleCoreClock = Double.parseDouble(componentService.getComponentDataProperty(components.getCpuName(), "processorClock"));
+		int ramSize = Integer.parseInt(componentService.getComponentDataProperty(components.getRamName(), "memoryCapacity"));
+		double vRamSize = Double.parseDouble(componentService.getComponegetComponentDataPropertyntProperty(components.getGpuName(), "graphicCardMemory"));
+		double gpuHashRate = Double.parseDouble(componentService.getComponentDataProperty(components.getGpuName(), "graphicCardHashRate"));
 		ComputerSpecDTO computerSpecDTO = new ComputerSpecDTO(numberOfCores, singleCoreClock, ramSize, vRamSize,gpuHashRate);
 		return getPurposeEvaluation(computerSpecDTO);
 	}

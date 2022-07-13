@@ -31,7 +31,7 @@ public class ComponentController {
 
 	@PostMapping("property")
 	public ResponseEntity<String> getComponentProperty(@RequestBody ComponentPropertyDTO componentPropertyDTO) {
-		String response = componentService.getComponentProperty(componentPropertyDTO.getComponentName(),
+		String response = componentService.getComponentDataProperty(componentPropertyDTO.getComponentName(),
 				componentPropertyDTO.getProperty());
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}

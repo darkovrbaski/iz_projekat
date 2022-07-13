@@ -5,9 +5,9 @@ import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
 
 public class GPUCaseDescription implements CaseComponent {
 
-	private String manufacturer;
+	private String name;
 
-	private String model;
+	private String manufacturer;
 
 	private int memory;
 
@@ -18,10 +18,10 @@ public class GPUCaseDescription implements CaseComponent {
 		// TODO Auto-generated constructor stub
 	}
 
-	public GPUCaseDescription(String manufacturer, String model, int memory, int clockSpeed) {
+	public GPUCaseDescription(String name, String manufacturer, int memory, int clockSpeed) {
 		super();
+		this.name = name;
 		this.manufacturer = manufacturer;
-		this.model = model;
 		this.memory = memory;
 		this.clockSpeed = clockSpeed;
 	}
@@ -34,14 +34,6 @@ public class GPUCaseDescription implements CaseComponent {
 		this.manufacturer = manufacturer;
 	}
 
-	public String getModel() {
-		return model;
-	}
-
-	public void setModel(String model) {
-		this.model = model;
-	}
-
 	public int getMemory() {
 		return memory;
 	}
@@ -49,7 +41,6 @@ public class GPUCaseDescription implements CaseComponent {
 	public void setMemory(int memory) {
 		this.memory = memory;
 	}
-	
 
 	@Override
 	public Attribute getIdAttribute() {
@@ -63,6 +54,14 @@ public class GPUCaseDescription implements CaseComponent {
 
 	public void setClockSpeed(int clockSpeed) {
 		this.clockSpeed = clockSpeed;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

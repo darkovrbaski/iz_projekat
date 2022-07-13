@@ -5,6 +5,8 @@ import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
 
 public class StorageCaseDescription implements CaseComponent {
 
+	private String name;
+
 	private String type;
 
 	private int capacity;
@@ -14,8 +16,9 @@ public class StorageCaseDescription implements CaseComponent {
 		// TODO Auto-generated constructor stub
 	}
 
-	public StorageCaseDescription(String type, int capacity) {
+	public StorageCaseDescription(String name, String type, int capacity) {
 		super();
+		this.name = name;
 		this.type = type;
 		this.capacity = capacity;
 	}
@@ -40,6 +43,14 @@ public class StorageCaseDescription implements CaseComponent {
 	public Attribute getIdAttribute() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

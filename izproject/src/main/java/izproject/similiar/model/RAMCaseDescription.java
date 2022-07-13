@@ -5,6 +5,8 @@ import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
 
 public class RAMCaseDescription implements CaseComponent {
 
+	private String name;
+
 	private String type;
 
 	private int frequency;
@@ -16,8 +18,9 @@ public class RAMCaseDescription implements CaseComponent {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RAMCaseDescription(String type, int frequency, int capacity) {
+	public RAMCaseDescription(String name, String type, int frequency, int capacity) {
 		super();
+		this.name = name;
 		this.type = type;
 		this.frequency = frequency;
 		this.capacity = capacity;
@@ -51,6 +54,14 @@ public class RAMCaseDescription implements CaseComponent {
 
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
