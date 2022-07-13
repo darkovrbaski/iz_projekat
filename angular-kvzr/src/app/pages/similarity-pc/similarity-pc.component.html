@@ -84,7 +84,7 @@
     </div>
     <ul *ngIf="loading === false">
       <li *ngFor="let pc of recommendedPCs; let i = index">
-        <app-base-pc-recommend [id]="i + 1"></app-base-pc-recommend>
+        <app-base-pc-recommend [pc]="pc" [id]="i + 1"></app-base-pc-recommend>
       </li>
     </ul>
   </div>
