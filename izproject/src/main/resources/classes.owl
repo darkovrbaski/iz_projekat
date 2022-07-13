@@ -233,6 +233,12 @@
                            rdfs:range xsd:string .
 
 
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardHashRate
+:graphicCardHashRate rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :GraphicsCard ;
+                     rdfs:range xsd:float .
+
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#graphicCardId
 :graphicCardId rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf owl:topDataProperty ;
@@ -1318,7 +1324,8 @@
                              :Dedicated ;
                     :hasPortInterface :HDMI2.0 ;
                     :graphicCardDirectXVersion "dx11" ;
-                    :graphicCardMemory 2048 .
+                    :graphicCardMemory 4 ;
+                    :graphicCardHashRate "13"^^xsd:float .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDFireProW4100
@@ -1347,27 +1354,37 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_RYZEN_5_5500
 :AMD_RYZEN_5_5500 rdf:type owl:NamedIndividual ,
-                           :Processor .
+                           :Processor ;
+                  :processorClock "4.2"^^xsd:float ;
+                  :processorCores 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_Ryzen_5_3500
 :AMD_Ryzen_5_3500 rdf:type owl:NamedIndividual ,
-                           :Processor .
+                           :Processor ;
+                  :processorClock "4.1"^^xsd:float ;
+                  :processorCores 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_Ryzen_7_5800X3D
 :AMD_Ryzen_7_5800X3D rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "4.5"^^xsd:float ;
+                     :processorCores 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_Ryzen_9_5900X
 :AMD_Ryzen_9_5900X rdf:type owl:NamedIndividual ,
-                            :Processor .
+                            :Processor ;
+                   :processorClock "4.8"^^xsd:float ;
+                   :processorCores 12 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_Ryzen_9_5950X
 :AMD_Ryzen_9_5950X rdf:type owl:NamedIndividual ,
-                            :Processor .
+                            :Processor ;
+                   :processorClock "4.9"^^xsd:float ;
+                   :processorCores 12 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ANTEC_Kućište_Striker_Phantom_Gaming
@@ -1403,14 +1420,14 @@
 :APACER rdf:type owl:NamedIndividual ,
                  :DDR3 ;
         :hasSlotType :DIMM ;
-        :memoryCapacity 2048 .
+        :memoryCapacity 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#APACER_ES.08G2V.GNH
 :APACER_ES.08G2V.GNH rdf:type owl:NamedIndividual ,
                               :DDR4 ;
                      :hasSlotType :SO-DIMM ;
-                     :memoryCapacity 4096 .
+                     :memoryCapacity 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASROCK_H670_Steel_Legend
@@ -1438,7 +1455,9 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_DUAL_GeForce_RTX_3060_Ti_MINI
 :ASUS_DUAL_GeForce_RTX_3060_Ti_MINI rdf:type owl:NamedIndividual ,
-                                             :Dedicated .
+                                             :Dedicated ;
+                    :graphicCardMemory 8 ;
+                    :graphicCardHashRate "53"^^xsd:float .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_Dual_Radeon_RX_6400
@@ -1581,13 +1600,15 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CORSAIR_ValueSelect
 :CORSAIR_ValueSelect rdf:type owl:NamedIndividual ,
                               :DDR4 ;
-                     :hasSlotType :DIMM .
+                     :hasSlotType :DIMM ;
+                     :memoryCapacity 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CRUCIAL
 :CRUCIAL rdf:type owl:NamedIndividual ,
                   :DDR4 ;
-         :hasSlotType :DIMM .
+         :hasSlotType :DIMM ;
+         :memoryCapacity 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CRUCIAL_CT2000P5SSD8
@@ -1599,7 +1620,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#CRUCIAL_CT4G4SFS8266
 :CRUCIAL_CT4G4SFS8266 rdf:type owl:NamedIndividual ,
                                :DDR4 ;
-                      :hasSlotType :SO-DIMM .
+                      :hasSlotType :SO-DIMM ;
+                      :memoryCapacity 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#DIMM
@@ -1646,7 +1668,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#G.SKILL_Aegis
 :G.SKILL_Aegis rdf:type owl:NamedIndividual ,
                         :DDR4 ;
-               :hasSlotType :DIMM .
+               :hasSlotType :DIMM ;
+               :memoryCapacity 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GEIL_Zenith_Z3
@@ -1730,168 +1753,353 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Celeron_G5900
 :INTEL_Celeron_G5900 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "3.4"^^xsd:float ;
+                     :processorCores 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Celeron_G5905
 :INTEL_Celeron_G5905 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "3.5"^^xsd:float ;
+                     :processorCores 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Celeron_G5925
 :INTEL_Celeron_G5925 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "3.6"^^xsd:float ;
+                     :processorCores 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Celeron_G6900
 :INTEL_Celeron_G6900 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "3.4"^^xsd:float ;
+                     :processorCores 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_I7-12700KF
 :INTEL_Core_I7-12700KF rdf:type owl:NamedIndividual ,
-                                :Processor .
+                                :Processor ;
+                       :processorClock "5.0"^^xsd:float ;
+                       :processorCores 12 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-10100
 :INTEL_Core_i3-10100 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "4.0"^^xsd:float ;
+                     :processorCores 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-10100F
 :INTEL_Core_i3-10100F rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "4.3"^^xsd:float ;
+                      :processorCores 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-10105
 :INTEL_Core_i3-10105 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "4.1"^^xsd:float ;
+                     :processorCores 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-10105F
 :INTEL_Core_i3-10105F rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "4.4"^^xsd:float ;
+                      :processorCores 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-12100
 :INTEL_Core_i3-12100 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "4.1"^^xsd:float ;
+                     :processorCores 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-12100F
 :INTEL_Core_i3-12100F rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "4.3"^^xsd:float ;
+                      :processorCores 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i3-9100F
 :INTEL_Core_i3-9100F rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "4.1"^^xsd:float ;
+                     :processorCores 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-10400
 :INTEL_Core_i5-10400 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "4.2"^^xsd:float ;
+                     :processorCores 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-10400F
 :INTEL_Core_i5-10400F rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "4.3"^^xsd:float ;
+                      :processorCores 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-11400F
 :INTEL_Core_i5-11400F rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "4.4"^^xsd:float ;
+                      :processorCores 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-9400
 :INTEL_Core_i5-9400 rdf:type owl:NamedIndividual ,
-                             :Processor .
+                             :Processor ;
+                    :processorClock "4.0"^^xsd:float ;
+                    :processorCores 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i5-9400F
 :INTEL_Core_i5-9400F rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "4.1"^^xsd:float ;
+                     :processorCores 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-10700K
 :INTEL_Core_i7-10700K rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "4.8"^^xsd:float ;
+                      :processorCores 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-11700F
 :INTEL_Core_i7-11700F rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "4.9"^^xsd:float ;
+                      :processorCores 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-11700K
 :INTEL_Core_i7-11700K rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "5.0"^^xsd:float ;
+                      :processorCores 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-12700
 :INTEL_Core_i7-12700 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "5.0"^^xsd:float ;
+                     :processorCores 12 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i7-12700K
 :INTEL_Core_i7-12700K rdf:type owl:NamedIndividual ,
                                :Processor ;
+                      :processorClock "5.0"^^xsd:float ;
+                      :processorCores 12 ;
                       :processorSocket "LGA1700" .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-10900
 :INTEL_Core_i9-10900 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "5.2"^^xsd:float ;
+                     :processorCores 10 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-10900K
 :INTEL_Core_i9-10900K rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "5.3"^^xsd:float ;
+                      :processorCores 10 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-10900X
 :INTEL_Core_i9-10900X rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "4.5"^^xsd:float ;
+                      :processorCores 10 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-11900
 :INTEL_Core_i9-11900 rdf:type owl:NamedIndividual ,
-                              :Processor .
+                              :Processor ;
+                     :processorClock "5.2"^^xsd:float ;
+                     :processorCores 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-11900F
 :INTEL_Core_i9-11900F rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "5.2"^^xsd:float ;
+                      :processorCores 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-11900K
 :INTEL_Core_i9-11900K rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "5.4"^^xsd:float ;
+                      :processorCores 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-11900KF
 :INTEL_Core_i9-11900KF rdf:type owl:NamedIndividual ,
-                                :Processor .
+                                :Processor ;
+                       :processorClock "5.5"^^xsd:float ;
+                       :processorCores 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-12900F
 :INTEL_Core_i9-12900F rdf:type owl:NamedIndividual ,
-                               :Processor .
+                               :Processor ;
+                      :processorClock "5.1"^^xsd:float ;
+                      :processorCores 16 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Core_i9-12900KF
 :INTEL_Core_i9-12900KF rdf:type owl:NamedIndividual ,
-                                :Processor .
+                                :Processor ;
+                       :processorClock "5.2"^^xsd:float ;
+                       :processorCores 16 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Pentium_Gold_G6400
 :INTEL_Pentium_Gold_G6400 rdf:type owl:NamedIndividual ,
-                                   :Processor .
+                                   :Processor ;
+                          :processorClock "4.0"^^xsd:float ;
+                          :processorCores 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Pentium_Gold_G6405
 :INTEL_Pentium_Gold_G6405 rdf:type owl:NamedIndividual ,
-                                   :Processor .
+                                   :Processor ;
+                          :processorClock "4.2"^^xsd:float ;
+                          :processorCores 2 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i3-61003.7GHz
+:INTEL_i3-61003.7GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "3.7"^^xsd:float ;
+                     :processorCores 2 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i3-6100T3.2GHz
+:INTEL_i3-6100T3.2GHz rdf:type owl:NamedIndividual ,
+                               :Processor ;
+                      :processorClock "3.2"^^xsd:float ;
+                      :processorCores 2 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i3-81003.6GHz
+:INTEL_i3-81003.6GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "3.6"^^xsd:float ;
+                     :processorCores 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i5-44603.2GHz
+:INTEL_i5-44603.2GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "3.4"^^xsd:float ;
+                     :processorCores 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i5-64002.7GHz
+:INTEL_i5-64002.7GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "3.3"^^xsd:float ;
+                     :processorCores 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i5-6400T2.2GHz
+:INTEL_i5-6400T2.2GHz rdf:type owl:NamedIndividual ,
+                               :Processor ;
+                      :processorClock "3.4"^^xsd:float ;
+                      :processorCores 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i5-65003.2GHz
+:INTEL_i5-65003.2GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "3.6"^^xsd:float ;
+                     :processorCores 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i5-6500T2.5GHz
+:INTEL_i5-6500T2.5GHz rdf:type owl:NamedIndividual ,
+                               :Processor ;
+                      :processorClock "3.6"^^xsd:float ;
+                      :processorCores 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i5-84002.8GHz
+:INTEL_i5-84002.8GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "4.2"^^xsd:float ;
+                     :processorCores 6 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i7-107002.9GHz
+:INTEL_i7-107002.9GHz rdf:type owl:NamedIndividual ,
+                               :Processor ;
+                      :processorClock "4.8"^^xsd:float ;
+                      :processorCores 8 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i7-47903.6GHz
+:INTEL_i7-47903.6GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "4.0"^^xsd:float ;
+                     :processorCores 8 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i7-67003.4GHz
+:INTEL_i7-67003.4GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "4.0"^^xsd:float ;
+                     :processorCores 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i7-6700K4GHz
+:INTEL_i7-6700K4GHz rdf:type owl:NamedIndividual ,
+                             :Processor ;
+                    :processorClock "4.2"^^xsd:float ;
+                    :processorCores 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i7-6700T2.8GHz
+:INTEL_i7-6700T2.8GHz rdf:type owl:NamedIndividual ,
+                               :Processor ;
+                      :processorClock "3.6"^^xsd:float ;
+                      :processorCores 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i7-77003.6GHz
+:INTEL_i7-77003.6GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "4.2"^^xsd:float ;
+                     :processorCores 8 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i7-87003.2GHz
+:INTEL_i7-87003.2GHz rdf:type owl:NamedIndividual ,
+                              :Processor ;
+                     :processorClock "4.4"^^xsd:float ;
+                     :processorCores 8 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_i7-8700K3.7GHz
+:INTEL_i7-8700K3.7GHz rdf:type owl:NamedIndividual ,
+                               :Processor ;
+                      :processorClock "4.5"^^xsd:float ;
+                      :processorCores 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_120G
@@ -1909,19 +2117,22 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Beast_KF426C16BB
 :KINGSTON_Beast_KF426C16BB rdf:type owl:NamedIndividual ,
                                     :DDR4 ;
-                           :hasSlotType :DIMM .
+                           :hasSlotType :DIMM ;
+                           :memoryCapacity 16 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_FURY_KF560C40BBK2-32
 :KINGSTON_FURY_KF560C40BBK2-32 rdf:type owl:NamedIndividual ,
                                         :DDR5 ;
-                               :hasSlotType :DIMM .
+                               :hasSlotType :DIMM ;
+                               :memoryCapacity 32 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Fury_Impact_KF426S15IB1
 :KINGSTON_Fury_Impact_KF426S15IB1 rdf:type owl:NamedIndividual ,
                                            :DDR4 ;
-                                  :hasSlotType :SO-DIMM .
+                                  :hasSlotType :SO-DIMM ;
+                                  :memoryCapacity 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Fury_Renegade
@@ -1933,7 +2144,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_HyperX_Impact
 :KINGSTON_HyperX_Impact rdf:type owl:NamedIndividual ,
                                  :DDR4 ;
-                        :hasSlotType :SO-DIMM .
+                        :hasSlotType :SO-DIMM ;
+                        :memoryCapacity 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KC3000_Series__SKC3000D
@@ -1945,13 +2157,15 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_KVR32N22S6
 :KINGSTON_KVR32N22S6 rdf:type owl:NamedIndividual ,
                               :DDR4 ;
-                     :hasSlotType :SO-DIMM .
+                     :hasSlotType :SO-DIMM ;
+                     :memoryCapacity 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_Renegade_RGB
 :KINGSTON_Renegade_RGB rdf:type owl:NamedIndividual ,
                                 :DDR4 ;
-                       :hasSlotType :DIMM .
+                       :hasSlotType :DIMM ;
+                       :memoryCapacity 16 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SA400M8
@@ -1975,13 +2189,15 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_SO-DIMM_ValueRAM
 :KINGSTON_SO-DIMM_ValueRAM rdf:type owl:NamedIndividual ,
                                     :DDR4 ;
-                           :hasSlotType :SO-DIMM .
+                           :hasSlotType :SO-DIMM ;
+                           :memoryCapacity 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#KINGSTON_ValueRAM_KVR26N19S6
 :KINGSTON_ValueRAM_KVR26N19S6 rdf:type owl:NamedIndividual ,
                                        :DDR4 ;
-                              :hasSlotType :DIMM .
+                              :hasSlotType :DIMM ;
+                              :memoryCapacity 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MISSION_Q
@@ -2029,7 +2245,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSI_PRO_B660M-E_DDR4
 :MSI_PRO_B660M-E_DDR4 rdf:type owl:NamedIndividual ,
                                :DDR4 ;
-                      :hasSlotType :DIMM .
+                      :hasSlotType :DIMM ;
+                      :memoryCapacity 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MS_Gaming_ARMOR_V710
@@ -2284,7 +2501,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SILICON_POWER
 :SILICON_POWER rdf:type owl:NamedIndividual ,
                         :DDR4 ;
-               :hasSlotType :DIMM .
+               :hasSlotType :DIMM ;
+               :memoryCapacity 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SILICON_POWER__SP256GBSS3A55S25
@@ -2407,91 +2625,6 @@
 :WD_Black_SN850_NVMe_WDS200T1X0E rdf:type owl:NamedIndividual ,
                                           :SSD ;
                                  :hasPortInterface :PCIExpressNVMe .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i3-61003.7GHz
-:i3-61003.7GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i3-6100T3.2GHz
-:i3-6100T3.2GHz rdf:type owl:NamedIndividual ,
-                         :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i3-81003.6GHz
-:i3-81003.6GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-44603.2GHz
-:i5-44603.2GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-64002.7GHz
-:i5-64002.7GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-6400T2.2GHz
-:i5-6400T2.2GHz rdf:type owl:NamedIndividual ,
-                         :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-65003.2GHz
-:i5-65003.2GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-6500T2.5GHz
-:i5-6500T2.5GHz rdf:type owl:NamedIndividual ,
-                         :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i5-84002.8GHz
-:i5-84002.8GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-107002.9GHz
-:i7-107002.9GHz rdf:type owl:NamedIndividual ,
-                         :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-47903.6GHz
-:i7-47903.6GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-67003.4GHz
-:i7-67003.4GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-6700K4GHz
-:i7-6700K4GHz rdf:type owl:NamedIndividual ,
-                       :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-6700T2.8GHz
-:i7-6700T2.8GHz rdf:type owl:NamedIndividual ,
-                         :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-77003.6GHz
-:i7-77003.6GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-87003.2GHz
-:i7-87003.2GHz rdf:type owl:NamedIndividual ,
-                        :Processor .
-
-
-###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#i7-8700K3.7GHz
-:i7-8700K3.7GHz rdf:type owl:NamedIndividual ,
-                         :Processor .
 
 
 #################################################################
