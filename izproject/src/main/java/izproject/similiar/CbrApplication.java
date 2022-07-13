@@ -75,7 +75,7 @@ public class CbrApplication implements StandardCBRApplication {
 		eval = SelectCases.selectTopKRR(eval, 5);
 		System.out.println("Retrieved cases:");
 		for (RetrievalResult nse : eval)
-			System.out.println(nse.get_case().getDescription() + " -> " + nse.getEval());
+			System.out.println(nse.get_case().getDescription());
 	}
 
 	public void postCycle() throws ExecutionException {
