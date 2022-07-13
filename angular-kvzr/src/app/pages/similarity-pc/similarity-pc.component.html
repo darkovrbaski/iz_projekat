@@ -43,20 +43,6 @@
         {{ item }}
       </option>
     </select>
-    <label for="case-select">Case</label>
-    <select
-      id="case-select"
-      class="form-control select"
-      data-select2-id="case-select"
-      tabindex="-1"
-      aria-hidden="true"
-      [(ngModel)]="myPC.caseName"
-    >
-      <option value="" data-select2-id="2">Select a case..</option>
-      <option value="{{ item }}" *ngFor="let item of caseList">
-        {{ item }}
-      </option>
-    </select>
     <label for="storage-select">Storage</label>
     <select
       id="storage-select"
@@ -85,29 +71,18 @@
         {{ item }}
       </option>
     </select>
-    <label for="powerSupply-select">Power supply</label>
-    <select
-      id="powerSupply-select"
-      class="form-control select"
-      data-select2-id="powerSupply-select"
-      tabindex="-1"
-      aria-hidden="true"
-      [(ngModel)]="myPC.powerSupplyName"
-    >
-      <option value="" data-select2-id="2">Select a power supply..</option>
-      <option value="{{ item }}" *ngFor="let item of powerSupplyList">
-        {{ item }}
-      </option>
-    </select>
   </div>
   <div class="card-footer">
     <h4>PC Similarity</h4>
     <button id="btn_compare" class="btn btn-primary" (click)="search()">
-      Search()
+      Get similar Pcs
     </button>
   </div>
   <div class="recommend">
-    <ul>
+    <div *ngIf="loading === true">
+      <h2>LOADING... PLEASE WAIT</h2><mat-spinner></mat-spinner>
+    </div>
+    <ul *ngIf="loading === false">
       <li *ngFor="let pc of recommendedPCs; let i = index">
         <app-base-pc-recommend [id]="i + 1"></app-base-pc-recommend>
       </li>

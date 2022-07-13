@@ -1,6 +1,7 @@
 package izproject.similiar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import es.ucm.fdi.gaia.jcolibri.casebase.LinealCaseBase;
@@ -15,9 +16,14 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.RetrievalResult;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.NNConfig;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
+import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Interval;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.selection.SelectCases;
+import izproject.similiar.model.GPUCaseDescription;
+import izproject.similiar.model.MotherboardCaseDescription;
 import izproject.similiar.model.ProcessorCaseDescription;
+import izproject.similiar.model.RAMCaseDescription;
+import izproject.similiar.model.StorageCaseDescription;
 
 public class CbrApplication implements StandardCBRApplication {
 	
@@ -37,21 +43,21 @@ public class CbrApplication implements StandardCBRApplication {
 		simConfig.setDescriptionSimFunction(new Average());  // global similarity function = average
 		
 		simConfig.addMapping(new Attribute("numOfCores", ProcessorCaseDescription.class), new Interval(4));
-		//simConfig.addMapping(new Attribute("clockSpeed", ProcessorCaseDescription.class), new Interval(0.8));
+		simConfig.addMapping(new Attribute("clockSpeed", ProcessorCaseDescription.class), new Interval(0.8));
 		
-//		TableSimilarity motherboardManufacturerSimilarity = new TableSimilarity(Arrays.asList(new String[] {"AMD","Intel"}));
-//		motherboardManufacturerSimilarity.setSimilarity("AMD", "Intel", 0.5);
-//		simConfig.addMapping(new Attribute("manufacturer", MotherboardCaseDescription.class), motherboardManufacturerSimilarity);
-//		
-//		simConfig.addMapping(new Attribute("memory", GPUCaseDescription.class), new Interval(4));
-//		simConfig.addMapping(new Attribute("hashRate", GPUCaseDescription.class), new Interval(1000));
-//		
-//		simConfig.addMapping(new Attribute("type", RAMCaseDescription.class), new Interval(4));
-//		simConfig.addMapping(new Attribute("frequency", RAMCaseDescription.class), new Interval(500));
-//		simConfig.addMapping(new Attribute("capacity", RAMCaseDescription.class), new Interval(5));
-//		
-//		simConfig.addMapping(new Attribute("type", StorageCaseDescription.class), new Equal());
-//		simConfig.addMapping(new Attribute("capacity", StorageCaseDescription.class), new Interval(400));
+		TableSimilarity motherboardManufacturerSimilarity = new TableSimilarity(Arrays.asList(new String[] {"AMD","Intel"}));
+		motherboardManufacturerSimilarity.setSimilarity("AMD", "Intel", 0.5);
+		simConfig.addMapping(new Attribute("manufacturer", MotherboardCaseDescription.class), motherboardManufacturerSimilarity);
+		
+		simConfig.addMapping(new Attribute("memory", GPUCaseDescription.class), new Interval(4));
+		simConfig.addMapping(new Attribute("hashRate", GPUCaseDescription.class), new Interval(1000));
+		
+		simConfig.addMapping(new Attribute("type", RAMCaseDescription.class), new Interval(4));
+		simConfig.addMapping(new Attribute("frequency", RAMCaseDescription.class), new Interval(500));
+		simConfig.addMapping(new Attribute("capacity", RAMCaseDescription.class), new Interval(5));
+		
+		simConfig.addMapping(new Attribute("type", StorageCaseDescription.class), new Equal());
+		simConfig.addMapping(new Attribute("capacity", StorageCaseDescription.class), new Interval(400));
 
 		// Equal - returns 1 if both individuals are equal, otherwise returns 0
 		// Interval - returns the similarity of two number inside an interval: sim(x,y) = 1-(|x-y|/interval)

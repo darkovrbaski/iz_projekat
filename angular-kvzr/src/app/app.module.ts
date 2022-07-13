@@ -14,7 +14,8 @@ import { SimilarityPCComponent } from './pages/similarity-pc/similarity-pc.compo
 import { BasePcRecommendComponent } from './components/base-pc-recommend/base-pc-recommend.component';
 import { RecommendComponentPcComponent } from './pages/recommend-component-pc/recommend-component-pc.component';
 import { BaseComponentComponent } from './components/base-component/base-component.component';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,8 @@ import { BaseComponentComponent } from './components/base-component/base-compone
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
