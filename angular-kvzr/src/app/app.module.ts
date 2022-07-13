@@ -10,6 +10,8 @@ import { PurposeEvaluationComponent } from './pages/purpose-evaluation/purpose-e
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { FormsModule } from '@angular/forms';
 import { MalfunctionEvaluationComponent } from './pages/malfunction-evaluation/malfunction-evaluation.component';
+import { SimilarityPCComponent } from './pages/similarity-pc/similarity-pc.component';
+import { BasePcRecommendComponent } from './components/base-pc-recommend/base-pc-recommend.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { MalfunctionEvaluationComponent } from './pages/malfunction-evaluation/m
     PurposeEvaluationComponent,
     HomepageComponent,
     MalfunctionEvaluationComponent,
+    SimilarityPCComponent,
+    BasePcRecommendComponent,
   ],
   imports: [
     BrowserModule,

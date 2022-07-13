@@ -1,0 +1,50 @@
+<div class="card p-3 my-5">
+  <div class="card-header">Find PC with similar characteristics</div>
+  <div class="card-body">
+    <label for="cpu-select">CPU</label>
+    <input
+      matInput
+      id="cpu-select"
+      class="form-control select"
+      name="cpu-select"
+      [(ngModel)]="myPC.cpuName"
+    />
+    <label for="gpu-select">GPU</label>
+    <input
+      matInput
+      id="gpu-select"
+      class="form-control select"
+      name="gpu-select"
+      [(ngModel)]="myPC.gpuName"
+    />
+    <label for="ram-select">RAM</label>
+    <input
+      matInput
+      id="ram-select"
+      class="form-control select"
+      name="ram-select"
+      [(ngModel)]="myPC.ramName"
+    />
+    <label for="storage-select">Storage</label>
+    <input
+      matInput
+      id="storage-select"
+      class="form-control select"
+      name="storage-select"
+      [(ngModel)]="myPC.storageName"
+    />
+  </div>
+  <div class="card-footer">
+    <h4>PC Similarity</h4>
+    <button id="btn_compare" class="btn btn-primary" (click)="search()">
+      Search()
+    </button>
+  </div>
+  <div class="recommend">
+    <ul>
+      <li *ngFor="let pc of recommendedPCs; let i = index">
+        <app-base-pc-recommend [id]="i + 1"></app-base-pc-recommend>
+      </li>
+    </ul>
+  </div>
+</div>

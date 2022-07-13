@@ -46,8 +46,8 @@
           [(ngModel)]="components.cpuName"
         >
           <option value="" data-select2-id="2">Select a CPU..</option>
-          <option value="{{item}}" *ngFor="let item of cpuList">
-            {{item}}
+          <option value="{{ item }}" *ngFor="let item of cpuList">
+            {{ item }}
           </option>
         </select>
         <label for="gpu-select">GPU</label>
@@ -60,8 +60,8 @@
           [(ngModel)]="components.gpuName"
         >
           <option value="" data-select2-id="2">Select a GPU..</option>
-          <option value="{{item}}" *ngFor="let item of gpuList">
-            {{item}}
+          <option value="{{ item }}" *ngFor="let item of gpuList">
+            {{ item }}
           </option>
         </select>
         <label for="ram-select">RAM</label>
@@ -74,8 +74,8 @@
           [(ngModel)]="components.ramName"
         >
           <option value="" data-select2-id="2">Select a RAM..</option>
-          <option value="{{item}}" *ngFor="let item of ramList">
-            {{item}}
+          <option value="{{ item }}" *ngFor="let item of ramList">
+            {{ item }}
           </option>
         </select>
       </div>

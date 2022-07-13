@@ -34,6 +34,10 @@ export class PurposeEvaluationComponent implements OnInit {
     cpuName: '',
     gpuName: '',
     ramName: '',
+    caseName: '',
+    storageName: '',
+    motherboardName: '',
+    powerSupplyName: '',
   };
   cpuList: string[] = [];
   gpuList: string[] = [];
