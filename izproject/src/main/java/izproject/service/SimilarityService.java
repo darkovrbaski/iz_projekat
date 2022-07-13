@@ -34,9 +34,9 @@ public class SimilarityService {
 			recommender.preCycle();
 
 			CBRQuery query = new CBRQuery();
-			
-			PCCaseDescription pcCaseDescription =extractData(pcSimilarityDTO);
-			
+
+			PCCaseDescription pcCaseDescription = extractData(pcSimilarityDTO);
+
 			query.setDescription(pcCaseDescription);
 
 			recommender.cycle(query);
@@ -48,7 +48,8 @@ public class SimilarityService {
 			for (RetrievalResult result : recommender.getEval()) {
 
 				PCCaseDescription pcCaseDescriptionResult = (PCCaseDescription) result.get_case().getDescription();
-				pcSimilarityDTOReturn = new PCSimilarityDTO(pcCaseDescriptionResult.getProcessorCaseDescription().getName(),
+				pcSimilarityDTOReturn = new PCSimilarityDTO(
+						pcCaseDescriptionResult.getProcessorCaseDescription().getName(),
 						pcCaseDescriptionResult.getMotherboardCaseDescription().getName(),
 						pcCaseDescriptionResult.getGpuCaseDescription().getName(),
 						pcCaseDescriptionResult.getRamCaseDescription().getName(),
@@ -61,7 +62,7 @@ public class SimilarityService {
 		}
 		return similarityDTOs;
 	}
-	
+
 	public PCCaseDescription extractData(PCSimilarityDTO pcSimilarityDTO) {
 
 		String processor = pcSimilarityDTO.getProcessor();
@@ -69,7 +70,7 @@ public class SimilarityService {
 		String gpu = pcSimilarityDTO.getGpu();
 		String ram = pcSimilarityDTO.getRam();
 		String storage = pcSimilarityDTO.getStorage();
-		
+
 		String processorManufacturer = processor.split("_")[0];
 		int numOfCores = Integer.parseInt(componentService.getComponentDataProperty(processor, "processorCores"));
 		float processorClockSpeed = Float
@@ -83,23 +84,24 @@ public class SimilarityService {
 
 		String gpuManufacturer = gpu.split("_")[0];
 		int gpuMemory = Integer.parseInt(componentService.getComponentDataProperty(gpu, "graphicCardMemory"));
-		int gpuClockSpeed = Integer.parseInt(componentService.getComponentDataProperty(gpu, "hasClockSpeed"));
-		GPUCaseDescription gpuCaseDescription = new GPUCaseDescription(gpu, gpuManufacturer, gpuMemory,
-				gpuClockSpeed);
+		float gpuHashRate = Float.parseFloat(componentService.getComponentDataProperty(gpu, "graphicCardHashRate"));
+		int gpuClockSpeed = 0;
+		GPUCaseDescription gpuCaseDescription = new GPUCaseDescription(gpu, gpuManufacturer, gpuMemory, gpuClockSpeed,
+				gpuHashRate);
 
-		String ramType = componentService.getComponentDataProperty(ram, "hasRAMType");
+		String ramType = componentService.getComponentType(ram);
 		int ramFrequency = Integer.parseInt(componentService.getComponentDataProperty(ram, "memoryFrequency"));
 		int ramCapacity = Integer.parseInt(componentService.getComponentDataProperty(ram, "memoryCapacity"));
 		RAMCaseDescription ramCaseDescription = new RAMCaseDescription(ram, ramType, ramFrequency, ramCapacity);
 
-		String storageType = componentService.getComponentDataProperty(storage, "hasStorageType");
+		String storageType = componentService.getComponentType(storage);
 		int storageCapacity = Integer
 				.parseInt(componentService.getComponentDataProperty(motherboard, "storageCapacity"));
 		StorageCaseDescription storageCaseDescription = new StorageCaseDescription(storage, storageType,
 				storageCapacity);
 
-		return new PCCaseDescription(processorCaseDescription,
-				motherboardCaseDescription, gpuCaseDescription, ramCaseDescription, storageCaseDescription);
+		return new PCCaseDescription(processorCaseDescription, motherboardCaseDescription, gpuCaseDescription,
+				ramCaseDescription, storageCaseDescription);
 	}
 
 }

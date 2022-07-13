@@ -35,7 +35,7 @@ public class CbrApplication implements StandardCBRApplication {
 	Collection<RetrievalResult> eval = new ArrayList<RetrievalResult>();
 	
 	public void configure() throws ExecutionException {
-		_connector =  new CsvConnector();
+		_connector =  new OntologyConnector();
 		
 		_caseBase = new LinealCaseBase();  // Create a Lineal case base for in-memory organization
 		
@@ -50,7 +50,7 @@ public class CbrApplication implements StandardCBRApplication {
 		simConfig.addMapping(new Attribute("manufacturer", MotherboardCaseDescription.class), motherboardManufacturerSimilarity);
 		
 		simConfig.addMapping(new Attribute("memory", GPUCaseDescription.class), new Interval(4));
-		simConfig.addMapping(new Attribute("clockSpeed", GPUCaseDescription.class), new Interval(1000));
+		simConfig.addMapping(new Attribute("hashRate", GPUCaseDescription.class), new Interval(1000));
 		
 		simConfig.addMapping(new Attribute("type", RAMCaseDescription.class), new Interval(4));
 		simConfig.addMapping(new Attribute("frequency", RAMCaseDescription.class), new Interval(500));

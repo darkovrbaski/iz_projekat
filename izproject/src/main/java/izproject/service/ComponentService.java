@@ -67,6 +67,25 @@ public class ComponentService {
 	                +" ?x ."
 	                +"}";
 		 String value = QueryUtil.executeQueryOneColumn(queryString).get(0);
-		 return value.substring(0, value.indexOf("^^"));
+		 return value;
+	}
+	
+	public String getComponentType(String componentName) {
+		 String queryString = 
+	        		izproject.util.Prefix.RDF
+	                + izproject.util.Prefix.OWL
+	                + izproject.util.Prefix.RDFS
+	                + izproject.util.Prefix.XML
+	                + izproject.util.Prefix.CLASSES
+	                +" "
+	                +"SELECT ?x "
+	                +"WHERE "
+	                +"{"
+	                +" classes:" + componentName
+	                +" a ?x" 
+	                +"."
+	                +"}";
+		 String value = QueryUtil.executeQueryOneColumn(queryString).get(0);
+		 return value;
 	}
 }

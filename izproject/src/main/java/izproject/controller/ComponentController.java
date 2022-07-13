@@ -35,4 +35,10 @@ public class ComponentController {
 				componentPropertyDTO.getProperty());
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
+	
+	@PostMapping("type")
+	public ResponseEntity<String> getComponentType(@RequestBody ComponentPropertyDTO componentPropertyDTO) {
+		String response = componentService.getComponentType(componentPropertyDTO.getComponentName());
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
 }

@@ -45,7 +45,8 @@ public class OntologyConnector implements Connector {
 
 			String gpuManufacturer = "";
 			int gpuMemory;
-			int gpuClockSpeed;
+			int gpuClockSpeed = 0;
+			float gpuHashRate;
 
 			String ramType = "";
 			int ramFrequency;
@@ -73,21 +74,21 @@ public class OntologyConnector implements Connector {
 
 				gpu = componentService.getComponentObjectProperty(pc, "hasGPU");
 				gpuManufacturer = gpu.split("_")[0];
-				gpuMemory = Integer.parseInt(componentService.getComponentDataProperty(gpu, "hasMemory"));
-				gpuClockSpeed = Integer.parseInt(componentService.getComponentDataProperty(gpu, "hasClockSpeed"));
+				gpuMemory = Integer.parseInt(componentService.getComponentDataProperty(gpu, "graphicCardMemory"));
+				gpuHashRate = Float.parseFloat(componentService.getComponentDataProperty(gpu, "graphicCardHashRate"));
 				GPUCaseDescription gpuCaseDescription = new GPUCaseDescription(gpu, gpuManufacturer, gpuMemory,
-						gpuClockSpeed);
+						gpuClockSpeed,gpuHashRate);
 
 				ram = componentService.getComponentObjectProperty(pc, "hasRAM");
-				ramType = componentService.getComponentDataProperty(ram, "hasRAMType");
-				ramFrequency = Integer.parseInt(componentService.getComponentDataProperty(ram, "hasRamFrequency"));
-				ramCapacity = Integer.parseInt(componentService.getComponentDataProperty(ram, "hasRamCapacity"));
+				ramType = componentService.getComponentType(ram);
+				ramFrequency = Integer.parseInt(componentService.getComponentDataProperty(ram, "memoryFrequency"));
+				ramCapacity = Integer.parseInt(componentService.getComponentDataProperty(ram, "memoryCapacity"));
 				RAMCaseDescription ramCaseDescription = new RAMCaseDescription(ram, ramType, ramFrequency, ramCapacity);
 
 				storage = componentService.getComponentObjectProperty(pc, "hasStorage");
-				storageType = componentService.getComponentDataProperty(storage, "hasStorageType");
+				storageType = componentService.getComponentType(storage);
 				storageCapacity = Integer
-						.parseInt(componentService.getComponentDataProperty(motherboard, "hasStorageCapacity"));
+						.parseInt(componentService.getComponentDataProperty(motherboard, "storageCapacity"));
 				StorageCaseDescription storageCaseDescription = new StorageCaseDescription(storage, storageType,
 						storageCapacity);
 

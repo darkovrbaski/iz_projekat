@@ -13,17 +13,20 @@ public class GPUCaseDescription implements CaseComponent {
 
 	private int clockSpeed;
 
+	private float hashRate;
+
 	public GPUCaseDescription() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public GPUCaseDescription(String name, String manufacturer, int memory, int clockSpeed) {
+	public GPUCaseDescription(String name, String manufacturer, int memory, int clockSpeed, float hashRate) {
 		super();
 		this.name = name;
 		this.manufacturer = manufacturer;
 		this.memory = memory;
 		this.clockSpeed = clockSpeed;
+		this.hashRate = hashRate;
 	}
 
 	public String getManufacturer() {
@@ -62,6 +65,14 @@ public class GPUCaseDescription implements CaseComponent {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public float getHashRate() {
+		return hashRate;
+	}
+
+	public void setHashRate(float hashRate) {
+		this.hashRate = hashRate;
 	}
 
 }
