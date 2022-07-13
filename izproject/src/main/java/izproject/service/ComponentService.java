@@ -47,8 +47,13 @@ public class ComponentService {
 	                +" classes:" + propery
 	                +" ?x ."
 	                +"}";
-		 String value = QueryUtil.executeQueryOneColumnLiteral(queryString).get(0);
-		 return value.substring(0, value.indexOf("^^"));
+		 
+		 String value="";
+		 if(QueryUtil.executeQueryOneColumnLiteral(queryString).size()>0) {
+			 value = QueryUtil.executeQueryOneColumnLiteral(queryString).get(0);
+			 value = value.substring(0, value.indexOf("^^"));
+		 }
+		 return value;
 	}
 	
 	public String getComponentObjectProperty(String componentName, String propery) {
@@ -66,7 +71,10 @@ public class ComponentService {
 	                +" classes:" + propery
 	                +" ?x ."
 	                +"}";
-		 String value = QueryUtil.executeQueryOneColumn(queryString).get(0);
+		 
+		 String value="";
+		 if(QueryUtil.executeQueryOneColumn(queryString).size()>0)
+			 value = QueryUtil.executeQueryOneColumn(queryString).get(0);
 		 return value;
 	}
 	
@@ -85,7 +93,10 @@ public class ComponentService {
 	                +" a ?x" 
 	                +"."
 	                +"}";
-		 String value = QueryUtil.executeQueryOneColumn(queryString).get(0);
+		 
+		 String value="";
+		 if(QueryUtil.executeQueryOneColumn(queryString).size()>0)
+			 value = QueryUtil.executeQueryOneColumn(queryString).get(0);
 		 return value;
 	}
 }

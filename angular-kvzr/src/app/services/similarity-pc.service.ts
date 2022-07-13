@@ -1,5 +1,5 @@
 import { IPC } from './../model/pc';
-import { IComputerSpec } from './../model/computerSpec';
+import { IComputerSpec, IPersonalComponent } from './../model/computerSpec';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -10,13 +10,13 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class SimilarityPCService {
-  private similarityPCUrl = `${environment.apiUrl}/purposeEvaluation`;
+  private similarityPCUrl = `${environment.apiUrl}/similarity`;
 
   constructor(private http: HttpClient) {}
 
-  getSimilarityPCs(computerSpec: IComputerSpec): Observable<IPC> {
+  getSimilarityPCs(computerSpec: IPC): Observable<IPC[]> {
     return this.http
-      .post<IPC>(`${this.similarityPCUrl}`, computerSpec)
+      .post<IPC[]>(`${this.similarityPCUrl}/pc`, computerSpec)
       .pipe(catchError(this.handleError));
   }
 

@@ -681,9 +681,7 @@
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_nVidia_GeForce_GT_1030_OC
 :GIGABYTE_nVidia_GeForce_GT_1030_OC rdf:type owl:Class ;
-                                    rdfs:subClassOf :Dedicated ;
-                    :graphicCardMemory 2 ;
-                    :graphicCardHashRate "9"^^xsd:float .
+                                    rdfs:subClassOf :Dedicated .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#Game
@@ -1312,6 +1310,179 @@
 #    Individuals
 #################################################################
 
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC1
+:PC1 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_i3-10100 ;
+     :hasGPU :GIGABYTE_nVidia_GeForce_GTX_1050Ti ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :A-DATA_ASWORDFISH;
+     :hasMotherboard :ASROCK_H670_Steel_Legend .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC2
+:PC2 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_i3-10100 ;
+     :hasGPU :ASUS_Phoenix_nVidia_GeForce_RTX_3050 ;
+     :hasMemory :KINGSTON_HyperX_Impact ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :ASROCK_H670_Steel_Legend .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC3
+:PC3 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_i3-10100 ;
+     :hasGPU :NVIDIA_GeForce_GTX1060 ;
+     :hasMemory :KINGSTON_HyperX_Impact ;
+     :hasStorage :A-DATA_ASWORDFISH;
+     :hasMotherboard :ASROCK_H670_Steel_Legend .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC4
+:PC4 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_i3-10100 ;
+     :hasGPU :NVIDIA_GeForce_GTX1080 ;
+     :hasMemory :KINGSTON_HyperX_Impact ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :ASROCK_H670_Steel_Legend .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC5
+:PC5 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_i9-12900KF ;
+     :hasGPU :ASUS_ROG_Strix_nVidia_GeForce_RTX_3080_OC ;
+     :hasMemory :KINGSTON_FURY_KF560C40BBK2-32 ;
+     :hasStorage :TOSHIBA_HDWD110UZSVA;
+     :hasMotherboard :ASUS_ROG_MAXIMUS_Z690_HERO .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC6
+:PC6 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_i9-12900KF ;
+     :hasGPU :ASUS_ROG_Strix_GeForce_RTX_3090_GAMING_OC ;
+     :hasMemory :KINGSTON_FURY_KF560C40BBK2-32 ;
+     :hasStorage :A-DATA_ASWORDFISH;
+     :hasMotherboard :ASUS_ROG_MAXIMUS_Z690_HERO .
+
+     ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC7
+:PC7 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_i9-12900KF ;
+     :hasGPU :MSI_GeForce_RTX_3070_Ti_GAMING_X_TRIO ;
+     :hasMemory :KINGSTON_FURY_KF560C40BBK2-32 ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :ASUS_ROG_MAXIMUS_Z690_HERO .
+
+     ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC8
+:PC8 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_i5-84002.8GHz ;
+     :hasGPU :NVIDIA_GeForce_GTX1060 ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :CRUCIAL_CT2000P5SSD8;
+     :hasMotherboard :MSI_A320M-A_PRO .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC9
+:PC9 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_i5-84002.8GHz ;
+     :hasGPU :PALIT_nVidia_GeForce_GTX_1660_Ti_StormX ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :TOSHIBA_HDWD110UZSVA;
+     :hasMotherboard :MSI_A320M-A_PRO .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC10
+:PC10 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_i5-84002.8GHz ;
+     :hasGPU :GIGABYTE_nVidia_GeForce_GTX_1050Ti ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :CRUCIAL_CT2000P5SSD8;
+     :hasMotherboard :MSI_A320M-A_PRO .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC11
+:PC11 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :AMD_RYZEN_5_5500 ;
+     :hasGPU :GIGABYTE_nVidia_GeForce_GTX_1050Ti ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :GigabyteX570SAorusMaster .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC12
+:PC12 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :AMD_RYZEN_5_5500 ;
+     :hasGPU :PALIT_nVidia_GeForce_GTX_1660_Ti_StormX ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :CRUCIAL_CT2000P5SSD8;
+     :hasMotherboard :GigabyteX570SAorusMaster .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC13
+:PC13 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :AMD_RYZEN_5_5500 ;
+     :hasGPU :NVIDIA_GeForce_GTX1080 ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :GigabyteX570SAorusMaster .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC14
+:PC14 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :AMD_RYZEN_5_5500 ;
+     :hasGPU :NVIDIA_GeForce_GTX1080Ti ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :GigabyteX570SAorusMaster .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC15
+:PC15 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :AMD_RYZEN_5_3500 ;
+     :hasGPU :NVIDIA_GeForce_GTX1080Ti ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :GigabyteX570SAorusMaster .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC16
+:PC16 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_i9-12900KF ;
+     :hasGPU :AFOX_Radeon_RX_560 ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :MSIMAGB660Tomahawk .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC17
+:PC17 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_i9-12900KF ;
+     :hasGPU :ASUS_GeForce_GT_730 ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :MSIMAGB660Tomahawk .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC18
+:PC18 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :INTEL_Core_I7-12700KF ;
+     :hasGPU :ASUS_GeForce_GT_730 ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :MSIMAGB660Tomahawk .
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PC19
+:PC19 rdf:type owl:NamedIndividual ,
+              :Desktop ;
+     :hasCPU :AMD_Ryzen_7_5800X3D ;
+     :hasGPU :ASUS_ROG_Strix_LC_Radeon_RX_6900_XT ;
+     :hasMemory :APACER_ES.08G2V.GNH ;
+     :hasStorage :SEAGATE_ST1000DM010;
+     :hasMotherboard :NZXT_N7_B550_Black .
+
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#A-DATA_ASWORDFISH
 :A-DATA_ASWORDFISH rdf:type owl:NamedIndividual ,
                             :SSD ;
@@ -1326,40 +1497,40 @@
                              :Dedicated ;
                     :hasPortInterface :HDMI2.0 ;
                     :graphicCardDirectXVersion "dx11" ;
-                    :graphicCardMemory 4 ;
-                    :graphicCardHashRate "13"^^xsd:float .
+                    :graphicCardHashRate "13.0"^^xsd:float ;
+                    :graphicCardMemory 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDFireProW4100
 :AMDFireProW4100 rdf:type owl:NamedIndividual ,
                           :GraphicsCard ;
+                 :graphicCardHashRate "5.0"^^xsd:float ;
                  :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 2 ;
-                    :graphicCardHashRate "5"^^xsd:float .
+                 :graphicCardMemory 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDRadeonR5330
 :AMDRadeonR5330 rdf:type owl:NamedIndividual ,
                          :GraphicsCard ;
-                    :graphicCardMemory 2 ;
-                    :graphicCardHashRate "2"^^xsd:float ;
-                :graphicCardIsOnBoard "true"^^xsd:boolean .
+                :graphicCardHashRate "2.0"^^xsd:float ;
+                :graphicCardIsOnBoard "true"^^xsd:boolean ;
+                :graphicCardMemory 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDRadeonR5340X
 :AMDRadeonR5340X rdf:type owl:NamedIndividual ,
                           :GraphicsCard ;
+                 :graphicCardHashRate "2.0"^^xsd:float ;
                  :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 2 ;
-                    :graphicCardHashRate "2"^^xsd:float .
+                 :graphicCardMemory 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMDRadeonR9390X
 :AMDRadeonR9390X rdf:type owl:NamedIndividual ,
                           :GraphicsCard ;
+                 :graphicCardHashRate "13.0"^^xsd:float ;
                  :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 4 ;
-                    :graphicCardHashRate "13"^^xsd:float .
+                 :graphicCardMemory 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AMD_RYZEN_5_5500
@@ -1466,43 +1637,43 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_DUAL_GeForce_RTX_3060_Ti_MINI
 :ASUS_DUAL_GeForce_RTX_3060_Ti_MINI rdf:type owl:NamedIndividual ,
                                              :Dedicated ;
-                    :graphicCardMemory 8 ;
-                    :graphicCardHashRate "53"^^xsd:float .
+                                    :graphicCardHashRate "53.0"^^xsd:float ;
+                                    :graphicCardMemory 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_Dual_Radeon_RX_6400
 :ASUS_Dual_Radeon_RX_6400 rdf:type owl:NamedIndividual ,
                                    :Dedicated ;
-                    :graphicCardMemory 6 ;
-                    :graphicCardHashRate "35"^^xsd:float .
+                          :graphicCardHashRate "35.0"^^xsd:float ;
+                          :graphicCardMemory 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_Dual_nVidia_GeForce_RTX_2060_EVO
 :ASUS_Dual_nVidia_GeForce_RTX_2060_EVO rdf:type owl:NamedIndividual ,
                                                 :Dedicated ;
-                    :graphicCardMemory 8 ;
-                    :graphicCardHashRate "45"^^xsd:float .
+                                       :graphicCardHashRate "45.0"^^xsd:float ;
+                                       :graphicCardMemory 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_GeForce_GT_730
 :ASUS_GeForce_GT_730 rdf:type owl:NamedIndividual ,
                               :Dedicated ;
-                    :graphicCardMemory 1 ;
-                    :graphicCardHashRate "19"^^xsd:float .
+                     :graphicCardHashRate "19.0"^^xsd:float ;
+                     :graphicCardMemory 1 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_Phoenix_nVidia_GeForce_RTX_3050
 :ASUS_Phoenix_nVidia_GeForce_RTX_3050 rdf:type owl:NamedIndividual ,
                                                :Dedicated ;
-                    :graphicCardMemory 8 ;
-                    :graphicCardHashRate "28"^^xsd:float .
+                                      :graphicCardHashRate "28.0"^^xsd:float ;
+                                      :graphicCardMemory 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_Phoenix_nVidia_GeForce_RTX_3060_V2
 :ASUS_Phoenix_nVidia_GeForce_RTX_3060_V2 rdf:type owl:NamedIndividual ,
                                                   :Dedicated ;
-                    :graphicCardMemory 6 ;
-                    :graphicCardHashRate "32"^^xsd:float .
+                                         :graphicCardHashRate "32.0"^^xsd:float ;
+                                         :graphicCardMemory 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_MAXIMUS_Z690_HERO
@@ -1518,36 +1689,36 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_Strix_GeForce_RTX_3090_GAMING_OC
 :ASUS_ROG_Strix_GeForce_RTX_3090_GAMING_OC rdf:type owl:NamedIndividual ,
                                                     :Dedicated ;
-                    :graphicCardMemory 24 ;
-                    :graphicCardHashRate "125"^^xsd:float .
+                                           :graphicCardHashRate "125.0"^^xsd:float ;
+                                           :graphicCardMemory 24 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_Strix_LC_Radeon_RX_6900_XT
 :ASUS_ROG_Strix_LC_Radeon_RX_6900_XT rdf:type owl:NamedIndividual ,
                                               :Dedicated ;
-                    :graphicCardMemory 8 ;
-                    :graphicCardHashRate "64"^^xsd:float .
+                                     :graphicCardHashRate "64.0"^^xsd:float ;
+                                     :graphicCardMemory 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_Strix_nVidia_GeForce_RTX_3050_OC
 :ASUS_ROG_Strix_nVidia_GeForce_RTX_3050_OC rdf:type owl:NamedIndividual ,
                                                     :Dedicated ;
-                    :graphicCardMemory 6 ;
-                    :graphicCardHashRate "37"^^xsd:float .
+                                           :graphicCardHashRate "37.0"^^xsd:float ;
+                                           :graphicCardMemory 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_ROG_Strix_nVidia_GeForce_RTX_3080_OC
 :ASUS_ROG_Strix_nVidia_GeForce_RTX_3080_OC rdf:type owl:NamedIndividual ,
                                                     :Dedicated ;
-                    :graphicCardMemory 10 ;
-                    :graphicCardHashRate "100"^^xsd:float .
+                                           :graphicCardHashRate "100.0"^^xsd:float ;
+                                           :graphicCardMemory 10 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_GAMING_AMD_Radeon_RX_6800_OC
 :ASUS_TUF_GAMING_AMD_Radeon_RX_6800_OC rdf:type owl:NamedIndividual ,
                                                 :Dedicated ;
-                    :graphicCardMemory 8 ;
-                    :graphicCardHashRate "51"^^xsd:float .
+                                       :graphicCardHashRate "51.0"^^xsd:float ;
+                                       :graphicCardMemory 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_GAMING_GT501
@@ -1558,29 +1729,29 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_Gaming_GeForce_GTX_1660_SUPER_OC
 :ASUS_TUF_Gaming_GeForce_GTX_1660_SUPER_OC rdf:type owl:NamedIndividual ,
                                                     :Dedicated ;
-                    :graphicCardMemory 6 ;
-                    :graphicCardHashRate "45"^^xsd:float .
+                                           :graphicCardHashRate "45.0"^^xsd:float ;
+                                           :graphicCardMemory 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_Gaming_GeForce_RTX_3060_Ti_V2_OC
 :ASUS_TUF_Gaming_GeForce_RTX_3060_Ti_V2_OC rdf:type owl:NamedIndividual ,
                                                     :Dedicated ;
-                    :graphicCardMemory 6 ;
-                    :graphicCardHashRate "42"^^xsd:float .
+                                           :graphicCardHashRate "42.0"^^xsd:float ;
+                                           :graphicCardMemory 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_Gaming_GeForce_RTX_3090_OC
 :ASUS_TUF_Gaming_GeForce_RTX_3090_OC rdf:type owl:NamedIndividual ,
                                               :Dedicated ;
-                    :graphicCardMemory 24 ;
-                    :graphicCardHashRate "115"^^xsd:float .
+                                     :graphicCardHashRate "115.0"^^xsd:float ;
+                                     :graphicCardMemory 24 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_TUF_Gaming_Radeon_RX_6900_XT_OC
 :ASUS_TUF_Gaming_Radeon_RX_6900_XT_OC rdf:type owl:NamedIndividual ,
                                                :Dedicated ;
-                    :graphicCardMemory 16 ;
-                    :graphicCardHashRate "62"^^xsd:float .
+                                      :graphicCardHashRate "62.0"^^xsd:float ;
+                                      :graphicCardMemory 16 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS__ROG_STRIX_HELIOS_RGB_WHITE_EDITION_GX601
@@ -1596,8 +1767,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#ASUS_nVidia_GeForce_GT_710
 :ASUS_nVidia_GeForce_GT_710 rdf:type owl:NamedIndividual ,
                                      :Dedicated ;
-                    :graphicCardMemory 2 ;
-                    :graphicCardHashRate "6"^^xsd:float .
+                            :graphicCardHashRate "6.0"^^xsd:float ;
+                            :graphicCardMemory 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#AsusROGCrosshairVIIIDarkHero
@@ -1732,8 +1903,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_GeForce_RTX_3090_GAMING_OC
 :GIGABYTE_GeForce_RTX_3090_GAMING_OC rdf:type owl:NamedIndividual ,
                                               :Dedicated ;
-                    :graphicCardMemory 24 ;
-                    :graphicCardHashRate "95"^^xsd:float .
+                                     :graphicCardHashRate "95.0"^^xsd:float ;
+                                     :graphicCardMemory 24 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_Z690_AERO_G
@@ -1750,15 +1921,21 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_nVidia_GeForce_GTX_1050Ti
 :GIGABYTE_nVidia_GeForce_GTX_1050Ti rdf:type owl:NamedIndividual ,
                                              :Dedicated ;
-                    :graphicCardMemory 4 ;
-                    :graphicCardHashRate "25"^^xsd:float .
+                                    :graphicCardHashRate "25.0"^^xsd:float ;
+                                    :graphicCardMemory 4 .
+
+
+###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_nVidia_GeForce_GT_1030_OC
+:GIGABYTE_nVidia_GeForce_GT_1030_OC rdf:type owl:NamedIndividual ;
+                                    :graphicCardHashRate "9.0"^^xsd:float ;
+                                    :graphicCardMemory 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GIGABYTE_nVidia_GeForce_RTX_3080_Ti_VISION_OC
 :GIGABYTE_nVidia_GeForce_RTX_3080_Ti_VISION_OC rdf:type owl:NamedIndividual ,
                                                         :Dedicated ;
-                    :graphicCardMemory 12 ;
-                    :graphicCardHashRate "58"^^xsd:float .
+                                               :graphicCardHashRate "58.0"^^xsd:float ;
+                                               :graphicCardMemory 12 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#GigabyteX570SAorusMaster
@@ -1795,8 +1972,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INNO3D_nVidia_GeForce_RTX_3080_Ti_ICHILL_X4
 :INNO3D_nVidia_GeForce_RTX_3080_Ti_ICHILL_X4 rdf:type owl:NamedIndividual ,
                                                       :Dedicated ;
-                    :graphicCardMemory 12 ;
-                    :graphicCardHashRate "64"^^xsd:float .
+                                             :graphicCardHashRate "64.0"^^xsd:float ;
+                                             :graphicCardMemory 12 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#INTEL_Celeron_G5900
@@ -2288,8 +2465,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSI_GeForce_RTX_3070_Ti_GAMING_X_TRIO
 :MSI_GeForce_RTX_3070_Ti_GAMING_X_TRIO rdf:type owl:NamedIndividual ,
                                                 :Dedicated ;
-                    :graphicCardMemory 12 ;
-                    :graphicCardHashRate "54"^^xsd:float .
+                                       :graphicCardHashRate "54.0"^^xsd:float ;
+                                       :graphicCardMemory 12 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#MSI_PRO_B660M-E_DDR4
@@ -2324,120 +2501,121 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_705
 :NVIDIA_GeForce_705 rdf:type owl:NamedIndividual ,
                              :GraphicsCard ;
+                    :graphicCardHashRate "4.0"^^xsd:float ;
                     :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 1 ;
-                    :graphicCardHashRate "4"^^xsd:float .
+                    :graphicCardMemory 1 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GT705
 :NVIDIA_GeForce_GT705 rdf:type owl:NamedIndividual ,
                                :GraphicsCard ;
+                      :graphicCardHashRate "3.0"^^xsd:float ;
                       :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 1 ;
-                    :graphicCardHashRate "3"^^xsd:float .
+                      :graphicCardMemory 1 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GT730
 :NVIDIA_GeForce_GT730 rdf:type owl:NamedIndividual ,
                                :GraphicsCard ;
-                      :graphicCardIsOnBoard "true"^^xsd:boolean  ;
-                    :graphicCardMemory 2 ;
-                    :graphicCardHashRate "2"^^xsd:float .
+                      :graphicCardHashRate "2.0"^^xsd:float ;
+                      :graphicCardIsOnBoard "true"^^xsd:boolean ;
+                      :graphicCardMemory 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1050
 :NVIDIA_GeForce_GTX1050 rdf:type owl:NamedIndividual ,
                                  :GraphicsCard ;
+                        :graphicCardHashRate "13.0"^^xsd:float ;
                         :graphicCardIsDiscrete "true"^^xsd:boolean ;
-                    :graphicCardMemory 4 ;
-                    :graphicCardHashRate "13"^^xsd:float .
+                        :graphicCardMemory 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1050Ti
 :NVIDIA_GeForce_GTX1050Ti rdf:type owl:NamedIndividual ,
                                    :GraphicsCard ;
+                          :graphicCardHashRate "16.0"^^xsd:float ;
                           :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 4 ;
-                    :graphicCardHashRate "16"^^xsd:float .
+                          :graphicCardMemory 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1060
 :NVIDIA_GeForce_GTX1060 rdf:type owl:NamedIndividual ,
                                  :GraphicsCard ;
+                        :graphicCardHashRate "21.0"^^xsd:float ;
                         :graphicCardIsDiscrete "true"^^xsd:boolean ;
-                    :graphicCardMemory 6 ;
-                    :graphicCardHashRate "21"^^xsd:float .
+                        :graphicCardMemory 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1070
 :NVIDIA_GeForce_GTX1070 rdf:type owl:NamedIndividual ,
                                  :GraphicsCard ;
-                        :graphicCardIsOnBoard "true"^^xsd:boolean  ;
-                    :graphicCardMemory 8 ;
-                    :graphicCardHashRate "25"^^xsd:float .
+                        :graphicCardHashRate "25.0"^^xsd:float ;
+                        :graphicCardIsOnBoard "true"^^xsd:boolean ;
+                        :graphicCardMemory 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1080
 :NVIDIA_GeForce_GTX1080 rdf:type owl:NamedIndividual ,
                                  :GraphicsCard ;
+                        :graphicCardHashRate "36.0"^^xsd:float ;
                         :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 8 ;
-                    :graphicCardHashRate "36"^^xsd:float .
+                        :graphicCardMemory 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX1080Ti
 :NVIDIA_GeForce_GTX1080Ti rdf:type owl:NamedIndividual ,
                                    :GraphicsCard ;
+                          :graphicCardHashRate "39.0"^^xsd:float ;
                           :graphicCardIsDiscrete "true"^^xsd:boolean ;
-                    :graphicCardMemory 8 ;
-                    :graphicCardHashRate "39"^^xsd:float .
+                          :graphicCardMemory 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX745
 :NVIDIA_GeForce_GTX745 rdf:type owl:NamedIndividual ,
                                 :GraphicsCard ;
+                       :graphicCardHashRate "2.0"^^xsd:float ;
                        :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 1 ;
-                    :graphicCardHashRate "2"^^xsd:float .
+                       :graphicCardMemory 1 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX750Ti
 :NVIDIA_GeForce_GTX750Ti rdf:type owl:NamedIndividual ,
                                   :GraphicsCard ;
-                         :graphicCardIsOnBoard "true"^^xsd:boolean  ;
-                    :graphicCardMemory 2 ;
-                    :graphicCardHashRate "3"^^xsd:float .
+                         :graphicCardHashRate "3.0"^^xsd:float ;
+                         :graphicCardIsOnBoard "true"^^xsd:boolean ;
+                         :graphicCardMemory 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX760Ti
 :NVIDIA_GeForce_GTX760Ti rdf:type owl:NamedIndividual ,
                                   :GraphicsCard ;
+                         :graphicCardHashRate "11.0"^^xsd:float ;
                          :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 2 ;
-                    :graphicCardHashRate "11"^^xsd:float .
+                         :graphicCardMemory 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX950
 :NVIDIA_GeForce_GTX950 rdf:type owl:NamedIndividual ,
                                 :GraphicsCard ;
+                       :graphicCardHashRate "8.0"^^xsd:float ;
                        :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 2 ;
-                    :graphicCardHashRate "8"^^xsd:float .
+                       :graphicCardMemory 2 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX960
 :NVIDIA_GeForce_GTX960 rdf:type owl:NamedIndividual ,
                                 :GraphicsCard ;
-                       :graphicCardIsOnBoard "true"^^xsd:boolean  ;
-                    :graphicCardMemory 4 ;
-                    :graphicCardHashRate "12"^^xsd:float .
+                       :graphicCardHashRate "12.0"^^xsd:float ;
+                       :graphicCardIsOnBoard "true"^^xsd:boolean ;
+                       :graphicCardMemory 4 .
+
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NVIDIA_GeForce_GTX970
 :NVIDIA_GeForce_GTX970 rdf:type owl:NamedIndividual ,
                                 :GraphicsCard ;
+                       :graphicCardHashRate "17.0"^^xsd:float ;
                        :graphicCardIsOnBoard "true"^^xsd:boolean ;
-                    :graphicCardMemory 4 ;
-                    :graphicCardHashRate "17"^^xsd:float .
+                       :graphicCardMemory 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#NZXT_C650
@@ -2465,8 +2643,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PALIT_nVidia_GeForce_GTX_1660_Ti_StormX
 :PALIT_nVidia_GeForce_GTX_1660_Ti_StormX rdf:type owl:NamedIndividual ,
                                                   :Dedicated ;
-                    :graphicCardMemory 6 ;
-                    :graphicCardHashRate "23"^^xsd:float .
+                                         :graphicCardHashRate "23.0"^^xsd:float ;
+                                         :graphicCardMemory 6 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#PCIExpressNVMe
@@ -2482,29 +2660,29 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#POWERCOLOR_Red_Devil_AMD_Radeon_RX_6600_XT
 :POWERCOLOR_Red_Devil_AMD_Radeon_RX_6600_XT rdf:type owl:NamedIndividual ,
                                                      :Dedicated ;
-                    :graphicCardMemory 8 ;
-                    :graphicCardHashRate "36"^^xsd:float .
+                                            :graphicCardHashRate "36.0"^^xsd:float ;
+                                            :graphicCardMemory 8 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#POWERCOLOR_Red_Devil_AMD_Radeon_RX_6800_XT_16GB
 :POWERCOLOR_Red_Devil_AMD_Radeon_RX_6800_XT_16GB rdf:type owl:NamedIndividual ,
                                                           :Dedicated ;
-                    :graphicCardMemory 16 ;
-                    :graphicCardHashRate "49"^^xsd:float .
+                                                 :graphicCardHashRate "49.0"^^xsd:float ;
+                                                 :graphicCardMemory 16 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#POWERCOLOR_Red_Devil_AMD_Radeon_RX_6900_XT_Ultimate
 :POWERCOLOR_Red_Devil_AMD_Radeon_RX_6900_XT_Ultimate rdf:type owl:NamedIndividual ,
                                                               :Dedicated ;
-                    :graphicCardMemory 16 ;
-                    :graphicCardHashRate "77"^^xsd:float .
+                                                     :graphicCardHashRate "77.0"^^xsd:float ;
+                                                     :graphicCardMemory 16 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#POWERCOLOR_Red_Dragon_AMD_Radeon_RX_550
 :POWERCOLOR_Red_Dragon_AMD_Radeon_RX_550 rdf:type owl:NamedIndividual ,
                                                   :Dedicated ;
-                    :graphicCardMemory 4 ;
-                    :graphicCardHashRate "9"^^xsd:float .
+                                         :graphicCardHashRate "9.0"^^xsd:float ;
+                                         :graphicCardMemory 4 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#RAIDMAX_VORTEX_BRONZE_RX
@@ -2550,8 +2728,8 @@
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SAPPHIRE_PULSE_AMD_Radeon_RX_6700_XT
 :SAPPHIRE_PULSE_AMD_Radeon_RX_6700_XT rdf:type owl:NamedIndividual ,
                                                :Dedicated ;
-                    :graphicCardMemory 12 ;
-                    :graphicCardHashRate "63"^^xsd:float .
+                                      :graphicCardHashRate "63.0"^^xsd:float ;
+                                      :graphicCardMemory 12 .
 
 
 ###  https://github.com/darkovrbaski/iz_projekat/master/classes.owl#SATA3.0

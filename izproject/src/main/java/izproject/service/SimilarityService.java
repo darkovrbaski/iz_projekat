@@ -36,7 +36,7 @@ public class SimilarityService {
 			CBRQuery query = new CBRQuery();
 
 			PCCaseDescription pcCaseDescription = extractData(pcSimilarityDTO);
-
+			
 			query.setDescription(pcCaseDescription);
 
 			recommender.cycle(query);
@@ -65,38 +65,61 @@ public class SimilarityService {
 
 	public PCCaseDescription extractData(PCSimilarityDTO pcSimilarityDTO) {
 
-		String processor = pcSimilarityDTO.getProcessor();
-		String motherboard = pcSimilarityDTO.getMotherboard();
-		String gpu = pcSimilarityDTO.getGpu();
-		String ram = pcSimilarityDTO.getRam();
-		String storage = pcSimilarityDTO.getStorage();
+		String processorManufacturer = "";
+		int numOfCores = 4;
+		float processorClockSpeed = 2.5f;
 
-		String processorManufacturer = processor.split("_")[0];
-		int numOfCores = Integer.parseInt(componentService.getComponentDataProperty(processor, "processorCores"));
-		float processorClockSpeed = Float
-				.parseFloat(componentService.getComponentDataProperty(processor, "processorClock"));
+		String motherboardManufacturer = "";
+
+		String gpuManufacturer = "";
+		int gpuMemory = 3;
+		int gpuClockSpeed = 1666;
+		float gpuHashRate = 24f;
+
+		String ramType = "";
+		int ramFrequency = 2666;
+		int ramCapacity = 8;
+
+		String storageType = "";
+		int storageCapacity = 1000;
+
+		String processor = pcSimilarityDTO.getCpuName();
+		String motherboard = pcSimilarityDTO.getMotherboardName();
+		String gpu = pcSimilarityDTO.getGpuName();
+		String ram = pcSimilarityDTO.getRamName();
+		String storage = pcSimilarityDTO.getStorageName();
+
+		processorManufacturer = processor.split("_")[0];
+		if (componentService.getComponentDataProperty(processor, "processorCores") != "")
+			numOfCores = Integer.parseInt(componentService.getComponentDataProperty(processor, "processorCores"));
+		if (componentService.getComponentDataProperty(processor, "processorClock") != "")
+			processorClockSpeed = Float.parseFloat(componentService.getComponentDataProperty(processor, "processorClock"));
 		ProcessorCaseDescription processorCaseDescription = new ProcessorCaseDescription(processor,
 				processorManufacturer, numOfCores, processorClockSpeed);
 
-		String motherboardManufacturer = motherboard.split("_")[0];
+		motherboardManufacturer = motherboard.split("_")[0];
 		MotherboardCaseDescription motherboardCaseDescription = new MotherboardCaseDescription(motherboard,
 				motherboardManufacturer);
 
-		String gpuManufacturer = gpu.split("_")[0];
-		int gpuMemory = Integer.parseInt(componentService.getComponentDataProperty(gpu, "graphicCardMemory"));
-		float gpuHashRate = Float.parseFloat(componentService.getComponentDataProperty(gpu, "graphicCardHashRate"));
-		int gpuClockSpeed = 0;
+		gpuManufacturer = gpu.split("_")[0];
+		if (componentService.getComponentDataProperty(gpu, "graphicCardMemory") != "")
+			gpuMemory = Integer.parseInt(componentService.getComponentDataProperty(gpu, "graphicCardMemory"));
+		if (componentService.getComponentDataProperty(gpu, "graphicCardHashRate") != "")
+			gpuHashRate = Float.parseFloat(componentService.getComponentDataProperty(gpu, "graphicCardHashRate"));
+		gpuClockSpeed = 0;
 		GPUCaseDescription gpuCaseDescription = new GPUCaseDescription(gpu, gpuManufacturer, gpuMemory, gpuClockSpeed,
 				gpuHashRate);
 
-		String ramType = componentService.getComponentType(ram);
-		int ramFrequency = Integer.parseInt(componentService.getComponentDataProperty(ram, "memoryFrequency"));
-		int ramCapacity = Integer.parseInt(componentService.getComponentDataProperty(ram, "memoryCapacity"));
+		ramType = componentService.getComponentType(ram);
+		if (componentService.getComponentDataProperty(ram, "memoryFrequency") != "")
+			ramFrequency = Integer.parseInt(componentService.getComponentDataProperty(ram, "memoryFrequency"));
+		if (componentService.getComponentDataProperty(ram, "memoryCapacity") != "")
+			ramCapacity = Integer.parseInt(componentService.getComponentDataProperty(ram, "memoryCapacity"));
 		RAMCaseDescription ramCaseDescription = new RAMCaseDescription(ram, ramType, ramFrequency, ramCapacity);
 
-		String storageType = componentService.getComponentType(storage);
-		int storageCapacity = Integer
-				.parseInt(componentService.getComponentDataProperty(motherboard, "storageCapacity"));
+		storageType = componentService.getComponentType(storage);
+		if (componentService.getComponentDataProperty(storage, "storageCapacity") != "")
+			storageCapacity = Integer.parseInt(componentService.getComponentDataProperty(storage, "storageCapacity"));
 		StorageCaseDescription storageCaseDescription = new StorageCaseDescription(storage, storageType,
 				storageCapacity);
 

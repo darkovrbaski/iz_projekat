@@ -75,4 +75,10 @@ public class GPUCaseDescription implements CaseComponent {
 		this.hashRate = hashRate;
 	}
 
+	@Override
+	public String toString() {
+		return "GPUCaseDescription [name=" + name + ", manufacturer=" + manufacturer + ", memory=" + memory
+				+ ", clockSpeed=" + clockSpeed + ", hashRate=" + hashRate + "]";
+	}
+
 }

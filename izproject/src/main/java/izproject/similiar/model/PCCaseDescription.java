@@ -77,4 +77,12 @@ public class PCCaseDescription implements CaseComponent {
 		return null;
 	}
 
+	@Override
+	public String toString() {
+		return "PCCaseDescription [processorCaseDescription=" + processorCaseDescription
+				+ ", motherboardCaseDescription=" + motherboardCaseDescription + ", gpuCaseDescription="
+				+ gpuCaseDescription + ", ramCaseDescription=" + ramCaseDescription + ", storageCaseDescription="
+				+ storageCaseDescription + "]";
+	}
+
 }

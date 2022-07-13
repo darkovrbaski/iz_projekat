@@ -42,4 +42,9 @@ public class MotherboardCaseDescription implements CaseComponent {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "MotherboardCaseDescription [name=" + name + ", manufacturer=" + manufacturer + "]";
+	}
+
 }

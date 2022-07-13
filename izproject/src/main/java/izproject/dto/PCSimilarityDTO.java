@@ -2,15 +2,15 @@ package izproject.dto;
 
 public class PCSimilarityDTO {
 
-	private String processor;
+	private String cpuName;
 
-	private String motherboard;
+	private String motherboardName;
 
-	private String gpu;
+	private String gpuName;
 
-	private String ram;
+	private String ramName;
 
-	private String storage;
+	private String storageName;
 
 	private double similarityValue;
 
@@ -19,55 +19,55 @@ public class PCSimilarityDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PCSimilarityDTO(String processor, String motherboard, String gpu, String ram, String storage,
+	public PCSimilarityDTO(String cpuName, String motherboardName, String gpuName, String ramName, String storageName,
 			double similarityValue) {
 		super();
-		this.processor = processor;
-		this.motherboard = motherboard;
-		this.gpu = gpu;
-		this.ram = ram;
-		this.storage = storage;
+		this.cpuName = cpuName;
+		this.motherboardName = motherboardName;
+		this.gpuName = gpuName;
+		this.ramName = ramName;
+		this.storageName = storageName;
 		this.similarityValue = similarityValue;
 	}
 
-	public String getProcessor() {
-		return processor;
+	public String getCpuName() {
+		return cpuName;
 	}
 
-	public void setProcessor(String processor) {
-		this.processor = processor;
+	public void setCpuName(String cpuName) {
+		this.cpuName = cpuName;
 	}
 
-	public String getMotherboard() {
-		return motherboard;
+	public String getMotherboardName() {
+		return motherboardName;
 	}
 
-	public void setMotherboard(String motherboard) {
-		this.motherboard = motherboard;
+	public void setMotherboardName(String motherboardName) {
+		this.motherboardName = motherboardName;
 	}
 
-	public String getGpu() {
-		return gpu;
+	public String getGpuName() {
+		return gpuName;
 	}
 
-	public void setGpu(String gpu) {
-		this.gpu = gpu;
+	public void setGpuName(String gpuName) {
+		this.gpuName = gpuName;
 	}
 
-	public String getRam() {
-		return ram;
+	public String getRamName() {
+		return ramName;
 	}
 
-	public void setRam(String ram) {
-		this.ram = ram;
+	public void setRamName(String ramName) {
+		this.ramName = ramName;
 	}
 
-	public String getStorage() {
-		return storage;
+	public String getStorageName() {
+		return storageName;
 	}
 
-	public void setStorage(String storage) {
-		this.storage = storage;
+	public void setStorageName(String storageName) {
+		this.storageName = storageName;
 	}
 
 	public double getSimilarityValue() {

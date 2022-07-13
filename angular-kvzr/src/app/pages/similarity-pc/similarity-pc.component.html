@@ -2,37 +2,103 @@
   <div class="card-header">Find PC with similar characteristics</div>
   <div class="card-body">
     <label for="cpu-select">CPU</label>
-    <input
-      matInput
+    <select
       id="cpu-select"
       class="form-control select"
-      name="cpu-select"
+      data-select2-id="cpu-select"
+      tabindex="-1"
+      aria-hidden="true"
       [(ngModel)]="myPC.cpuName"
-    />
+    >
+      <option value="" data-select2-id="2">Select a CPU..</option>
+      <option value="{{ item }}" *ngFor="let item of cpuList">
+        {{ item }}
+      </option>
+    </select>
     <label for="gpu-select">GPU</label>
-    <input
-      matInput
+    <select
       id="gpu-select"
       class="form-control select"
-      name="gpu-select"
+      data-select2-id="gpu-select"
+      tabindex="-1"
+      aria-hidden="true"
       [(ngModel)]="myPC.gpuName"
-    />
+    >
+      <option value="" data-select2-id="2">Select a GPU..</option>
+      <option value="{{ item }}" *ngFor="let item of gpuList">
+        {{ item }}
+      </option>
+    </select>
     <label for="ram-select">RAM</label>
-    <input
-      matInput
+    <select
       id="ram-select"
       class="form-control select"
-      name="ram-select"
+      data-select2-id="ram-select"
+      tabindex="-1"
+      aria-hidden="true"
       [(ngModel)]="myPC.ramName"
-    />
+    >
+      <option value="" data-select2-id="2">Select a RAM..</option>
+      <option value="{{ item }}" *ngFor="let item of ramList">
+        {{ item }}
+      </option>
+    </select>
+    <label for="case-select">Case</label>
+    <select
+      id="case-select"
+      class="form-control select"
+      data-select2-id="case-select"
+      tabindex="-1"
+      aria-hidden="true"
+      [(ngModel)]="myPC.caseName"
+    >
+      <option value="" data-select2-id="2">Select a case..</option>
+      <option value="{{ item }}" *ngFor="let item of caseList">
+        {{ item }}
+      </option>
+    </select>
     <label for="storage-select">Storage</label>
-    <input
-      matInput
+    <select
       id="storage-select"
       class="form-control select"
-      name="storage-select"
+      data-select2-id="storage-select"
+      tabindex="-1"
+      aria-hidden="true"
       [(ngModel)]="myPC.storageName"
-    />
+    >
+      <option value="" data-select2-id="2">Select a storage..</option>
+      <option value="{{ item }}" *ngFor="let item of storageList">
+        {{ item }}
+      </option>
+    </select>
+    <label for="motherboard-select">Motherboard</label>
+    <select
+      id="motherboard-select"
+      class="form-control select"
+      data-select2-id="motherboard-select"
+      tabindex="-1"
+      aria-hidden="true"
+      [(ngModel)]="myPC.motherboardName"
+    >
+      <option value="" data-select2-id="2">Select a motherboard..</option>
+      <option value="{{ item }}" *ngFor="let item of motherboardList">
+        {{ item }}
+      </option>
+    </select>
+    <label for="powerSupply-select">Power supply</label>
+    <select
+      id="powerSupply-select"
+      class="form-control select"
+      data-select2-id="powerSupply-select"
+      tabindex="-1"
+      aria-hidden="true"
+      [(ngModel)]="myPC.powerSupplyName"
+    >
+      <option value="" data-select2-id="2">Select a power supply..</option>
+      <option value="{{ item }}" *ngFor="let item of powerSupplyList">
+        {{ item }}
+      </option>
+    </select>
   </div>
   <div class="card-footer">
     <h4>PC Similarity</h4>

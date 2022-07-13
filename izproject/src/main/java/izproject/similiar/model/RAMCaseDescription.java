@@ -64,4 +64,10 @@ public class RAMCaseDescription implements CaseComponent {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "RAMCaseDescription [name=" + name + ", type=" + type + ", frequency=" + frequency + ", capacity="
+				+ capacity + "]";
+	}
+
 }
