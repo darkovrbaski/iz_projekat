@@ -1,0 +1,99 @@
+<div class="card p-3 my-5">
+  <div class="card-header">Find components for your pc</div>
+  <div class="card-body">
+    <label for="cpu-select">CPU</label>
+    <input
+      matInput
+      id="cpu-select"
+      class="form-control select"
+      name="cpu-select"
+      [(ngModel)]="myPCComponents.cpuName"
+    />
+    <label for="gpu-select">GPU</label>
+    <input
+      matInput
+      id="gpu-select"
+      class="form-control select"
+      name="gpu-select"
+      [(ngModel)]="myPCComponents.gpuName"
+    />
+    <label for="ram-select">RAM</label>
+    <input
+      matInput
+      id="ram-select"
+      class="form-control select"
+      name="ram-select"
+      [(ngModel)]="myPCComponents.ramName"
+    />
+    <label for="storage-select">Storage</label>
+    <input
+      matInput
+      id="storage-select"
+      class="form-control select"
+      name="storage-select"
+      [(ngModel)]="myPCComponents.storageName"
+    />
+    <label for="case-select">Case</label>
+    <input
+      matInput
+      id="case-select"
+      class="form-control select"
+      name="case-select"
+      [(ngModel)]="myPCComponents.caseName"
+    />
+    <label for="motherboard-select">Motherboard</label>
+    <input
+      matInput
+      id="motherboard-select"
+      class="form-control select"
+      name="motherboard-select"
+      [(ngModel)]="myPCComponents.motherboardName"
+    />
+    <label for="powerSupply-select">Power supply</label>
+    <input
+      matInput
+      id="powerSupply-select"
+      class="form-control select"
+      name="powerSupply-select"
+      [(ngModel)]="myPCComponents.powerSupplyName"
+    />
+  </div>
+  <div class="card-footer">
+    <h4>PC Similarity</h4>
+    <button id="btn_compare" class="btn btn-primary" (click)="search()">
+      Search()
+    </button>
+  </div>
+  <div class="recommend">
+    <ul>
+      <li *ngFor="let c of recommendedCPU; let i = index">
+        <app-base-component
+          componentType="CPU"
+          [id]="i + 1"
+          [text]="c"
+        ></app-base-component>
+      </li>
+      <li *ngFor="let pc of recommendedRAM; let i = index">
+        <app-base-component
+          componentType="RAM"
+          [id]="i + 1"
+          [text]="pc"
+        ></app-base-component>
+      </li>
+      <li *ngFor="let g of recommendedGPU; let i = index">
+        <app-base-component
+          componentType="GPU"
+          [id]="i + 1"
+          [text]="g"
+        ></app-base-component>
+      </li>
+      <li *ngFor="let m of recommendedMotherboard; let i = index">
+        <app-base-component
+          componentType="Motherboard"
+          [id]="i + 1"
+          [text]="m"
+        ></app-base-component>
+      </li>
+    </ul>
+  </div>
+</div>

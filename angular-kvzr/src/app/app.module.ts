@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { MalfunctionEvaluationComponent } from './pages/malfunction-evaluation/malfunction-evaluation.component';
 import { SimilarityPCComponent } from './pages/similarity-pc/similarity-pc.component';
 import { BasePcRecommendComponent } from './components/base-pc-recommend/base-pc-recommend.component';
+import { RecommendComponentPcComponent } from './pages/recommend-component-pc/recommend-component-pc.component';
+import { BaseComponentComponent } from './components/base-component/base-component.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { BasePcRecommendComponent } from './components/base-pc-recommend/base-pc
     MalfunctionEvaluationComponent,
     SimilarityPCComponent,
     BasePcRecommendComponent,
+    RecommendComponentPcComponent,
+    BaseComponentComponent,
   ],
   imports: [
     BrowserModule,
